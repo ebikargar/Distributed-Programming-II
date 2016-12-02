@@ -1,0 +1,26 @@
+package it.polito.dp2.NFFG.sol1;
+
+import it.polito.dp2.NFFG.NffgVerifierException;
+
+public class NffgInfoSerializer {
+
+	private NffgVerifier verifier;
+	
+	
+	
+	public NffgInfoSerializer() throws NffgVerifierException {
+		it.polito.dp2.NFFG.NffgVerifierFactory  factory = it.polito.dp2.NFFG.NffgVerifierFactory.newInstance();
+		verifier = factory.newNffgVerifier();
+	}
+
+
+
+
+
+
+
+
+
+
+
+}

@@ -1,0 +1,574 @@
+!SESSION 2016-12-01 00:13:18.128 -----------------------------------------------
+eclipse.buildId=4.6.1.M20160907-1200
+java.version=1.8.0_102
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.jee.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.jee.product
+
+This is a continuation of log file C:\Users\EBI\workspace\.metadata\.bak_0.log
+Created Time: 2016-12-01 00:24:11.979
+
+!ENTRY org.eclipse.equinox.p2.engine 4 4 2016-12-01 00:24:11.990
+!MESSAGE An error occurred while collecting items to be installed
+!SUBENTRY 1 org.eclipse.equinox.p2.engine 4 0 2016-12-01 00:24:11.990
+!MESSAGE session context was:(profile=C__Users_EBI_eclipse_jee-neon2_eclipse, phase=org.eclipse.equinox.internal.p2.engine.phases.Collect, operand=, action=).
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2016-12-01 00:24:11.990
+!MESSAGE No repository found containing: osgi.bundle,org.eclipse.egit,4.5.0.201609210915-r
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2016-12-01 00:24:11.990
+!MESSAGE No repository found containing: osgi.bundle,org.eclipse.egit.core,4.5.0.201609210915-r
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2016-12-01 00:24:11.990
+!MESSAGE No repository found containing: osgi.bundle,org.eclipse.egit.doc,4.5.0.201609210915-r
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2016-12-01 00:24:11.990
+!MESSAGE No repository found containing: osgi.bundle,org.eclipse.egit.mylyn.ui,4.5.0.201609210915-r
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2016-12-01 00:24:11.990
+!MESSAGE No repository found containing: osgi.bundle,org.eclipse.egit.ui,4.5.0.201609210915-r
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2016-12-01 00:24:11.990
+!MESSAGE No repository found containing: osgi.bundle,org.eclipse.jgit,4.5.0.201609210915-r
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2016-12-01 00:24:11.990
+!MESSAGE No repository found containing: osgi.bundle,org.eclipse.jgit.archive,4.5.0.201609210915-r
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2016-12-01 00:24:11.990
+!MESSAGE No repository found containing: osgi.bundle,org.eclipse.egit.core.source,4.5.0.201609210915-r
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2016-12-01 00:24:11.990
+!MESSAGE No repository found containing: org.eclipse.update.feature,org.eclipse.egit,4.5.0.201609210915-r
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2016-12-01 00:24:11.990
+!MESSAGE No repository found containing: osgi.bundle,org.eclipse.egit.gitflow,4.5.0.201609210915-r
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2016-12-01 00:24:11.990
+!MESSAGE No repository found containing: org.eclipse.update.feature,org.eclipse.egit.gitflow.feature,4.5.0.201609210915-r
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2016-12-01 00:24:11.990
+!MESSAGE No repository found containing: osgi.bundle,org.eclipse.egit.gitflow.source,4.5.0.201609210915-r
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2016-12-01 00:24:11.990
+!MESSAGE No repository found containing: osgi.bundle,org.eclipse.egit.gitflow.ui,4.5.0.201609210915-r
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2016-12-01 00:24:11.990
+!MESSAGE No repository found containing: osgi.bundle,org.eclipse.egit.gitflow.ui.source,4.5.0.201609210915-r
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2016-12-01 00:24:11.990
+!MESSAGE No repository found containing: org.eclipse.update.feature,org.eclipse.egit.mylyn,4.5.0.201609210915-r
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2016-12-01 00:24:11.990
+!MESSAGE No repository found containing: osgi.bundle,org.eclipse.egit.mylyn.ui.source,4.5.0.201609210915-r
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2016-12-01 00:24:11.990
+!MESSAGE No repository found containing: org.eclipse.update.feature,org.eclipse.egit.source,4.5.0.201609210915-r
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2016-12-01 00:24:11.990
+!MESSAGE No repository found containing: osgi.bundle,org.eclipse.egit.ui.smartimport,4.5.0.201609210915-r
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2016-12-01 00:24:11.991
+!MESSAGE No repository found containing: osgi.bundle,org.eclipse.egit.ui.source,4.5.0.201609210915-r
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2016-12-01 00:24:11.991
+!MESSAGE No repository found containing: org.eclipse.update.feature,org.eclipse.jgit,4.5.0.201609210915-r
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2016-12-01 00:24:11.991
+!MESSAGE No repository found containing: osgi.bundle,org.eclipse.jgit.http.apache,4.5.0.201609210915-r
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2016-12-01 00:24:11.991
+!MESSAGE No repository found containing: org.eclipse.update.feature,org.eclipse.jgit.http.apache,4.5.0.201609210915-r
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2016-12-01 00:24:11.991
+!MESSAGE No repository found containing: osgi.bundle,org.eclipse.jgit.lfs,4.5.0.201609210915-r
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2016-12-01 00:24:11.991
+!MESSAGE No repository found containing: org.eclipse.update.feature,org.eclipse.jgit.lfs,4.5.0.201609210915-r
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2016-12-01 00:24:11.991
+!MESSAGE No repository found containing: osgi.bundle,org.eclipse.jgit.lfs.server,4.5.0.201609210915-r
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2016-12-01 00:24:11.991
+!MESSAGE No repository found containing: osgi.bundle,org.eclipse.jgit.pgm,4.5.0.201609210915-r
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2016-12-01 00:24:11.991
+!MESSAGE No repository found containing: org.eclipse.update.feature,org.eclipse.jgit.pgm,4.5.0.201609210915-r
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2016-12-01 00:24:11.991
+!MESSAGE No repository found containing: osgi.bundle,org.eclipse.jgit.pgm.source,4.5.0.201609210915-r
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2016-12-01 00:24:11.991
+!MESSAGE No repository found containing: org.eclipse.update.feature,org.eclipse.jgit.pgm.source,4.5.0.201609210915-r
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2016-12-01 00:24:11.991
+!MESSAGE No repository found containing: osgi.bundle,org.eclipse.jgit.source,4.5.0.201609210915-r
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2016-12-01 00:24:11.991
+!MESSAGE No repository found containing: org.eclipse.update.feature,org.eclipse.jgit.source,4.5.0.201609210915-r
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2016-12-01 00:24:11.991
+!MESSAGE No repository found containing: osgi.bundle,org.eclipse.jgit.ui,4.5.0.201609210915-r
+
+!ENTRY org.eclipse.equinox.p2.operations 4 0 2016-12-01 00:27:42.921
+!MESSAGE Operation details
+!SUBENTRY 1 org.eclipse.equinox.p2.director 4 10054 2016-12-01 00:27:42.921
+!MESSAGE Cannot complete the install because of a conflicting dependency.
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 0 2016-12-01 00:27:42.921
+!MESSAGE Software being installed: Git Team Provider - auto-import for Eclipse >= 4.6 4.5.0.201609210915-r (org.eclipse.egit.ui.smartimport 4.5.0.201609210915-r)
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 0 2016-12-01 00:27:42.921
+!MESSAGE Software currently installed: Eclipse Git Team Provider 4.4.1.201607150455-r (org.eclipse.egit.feature.group 4.4.1.201607150455-r)
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 1 2016-12-01 00:27:42.921
+!MESSAGE Only one of the following can be installed at once: 
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2016-12-01 00:27:42.921
+!MESSAGE Git Team Provider UI 4.4.1.201607150455-r (org.eclipse.egit.ui 4.4.1.201607150455-r)
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2016-12-01 00:27:42.921
+!MESSAGE Git Team Provider UI 4.5.0.201609210915-r (org.eclipse.egit.ui 4.5.0.201609210915-r)
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 1 2016-12-01 00:27:42.921
+!MESSAGE Cannot satisfy dependency:
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2016-12-01 00:27:42.921
+!MESSAGE From: Eclipse Git Team Provider 4.4.1.201607150455-r (org.eclipse.egit.feature.group 4.4.1.201607150455-r)
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2016-12-01 00:27:42.921
+!MESSAGE To: org.eclipse.egit.ui [4.4.1.201607150455-r]
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 1 2016-12-01 00:27:42.921
+!MESSAGE Cannot satisfy dependency:
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2016-12-01 00:27:42.921
+!MESSAGE From: Git Team Provider - auto-import for Eclipse >= 4.6 4.5.0.201609210915-r (org.eclipse.egit.ui.smartimport 4.5.0.201609210915-r)
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2016-12-01 00:27:42.921
+!MESSAGE To: bundle org.eclipse.egit.ui [4.5.0,4.6.0)
+
+!ENTRY org.eclipse.equinox.p2.operations 4 0 2016-12-01 00:27:43.135
+!MESSAGE Operation details
+!SUBENTRY 1 org.eclipse.equinox.p2.director 4 10054 2016-12-01 00:27:43.135
+!MESSAGE Cannot complete the install because of a conflicting dependency.
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 0 2016-12-01 00:27:43.135
+!MESSAGE Software being installed: Git Team Provider - auto-import for Eclipse >= 4.6 4.5.0.201609210915-r (org.eclipse.egit.ui.smartimport 4.5.0.201609210915-r)
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 0 2016-12-01 00:27:43.135
+!MESSAGE Software currently installed: Eclipse Git Team Provider 4.4.1.201607150455-r (org.eclipse.egit.feature.group 4.4.1.201607150455-r)
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 1 2016-12-01 00:27:43.135
+!MESSAGE Only one of the following can be installed at once: 
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2016-12-01 00:27:43.135
+!MESSAGE Git Team Provider UI 4.4.1.201607150455-r (org.eclipse.egit.ui 4.4.1.201607150455-r)
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2016-12-01 00:27:43.135
+!MESSAGE Git Team Provider UI 4.5.0.201609210915-r (org.eclipse.egit.ui 4.5.0.201609210915-r)
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 1 2016-12-01 00:27:43.135
+!MESSAGE Cannot satisfy dependency:
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2016-12-01 00:27:43.135
+!MESSAGE From: Eclipse Git Team Provider 4.4.1.201607150455-r (org.eclipse.egit.feature.group 4.4.1.201607150455-r)
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2016-12-01 00:27:43.135
+!MESSAGE To: org.eclipse.egit.ui [4.4.1.201607150455-r]
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 1 2016-12-01 00:27:43.135
+!MESSAGE Cannot satisfy dependency:
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2016-12-01 00:27:43.135
+!MESSAGE From: Git Team Provider - auto-import for Eclipse >= 4.6 4.5.0.201609210915-r (org.eclipse.egit.ui.smartimport 4.5.0.201609210915-r)
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2016-12-01 00:27:43.136
+!MESSAGE To: bundle org.eclipse.egit.ui [4.5.0,4.6.0)
+
+!ENTRY org.eclipse.equinox.p2.operations 4 0 2016-12-01 00:27:43.203
+!MESSAGE Operation details
+!SUBENTRY 1 org.eclipse.equinox.p2.director 4 10054 2016-12-01 00:27:43.203
+!MESSAGE Cannot complete the install because of a conflicting dependency.
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 0 2016-12-01 00:27:43.203
+!MESSAGE Software being installed: Git Team Provider - auto-import for Eclipse >= 4.6 4.5.0.201609210915-r (org.eclipse.egit.ui.smartimport 4.5.0.201609210915-r)
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 0 2016-12-01 00:27:43.203
+!MESSAGE Software currently installed: Eclipse Git Team Provider 4.4.1.201607150455-r (org.eclipse.egit.feature.group 4.4.1.201607150455-r)
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 1 2016-12-01 00:27:43.203
+!MESSAGE Only one of the following can be installed at once: 
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2016-12-01 00:27:43.203
+!MESSAGE Git Team Provider UI 4.4.1.201607150455-r (org.eclipse.egit.ui 4.4.1.201607150455-r)
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2016-12-01 00:27:43.203
+!MESSAGE Git Team Provider UI 4.5.0.201609210915-r (org.eclipse.egit.ui 4.5.0.201609210915-r)
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 1 2016-12-01 00:27:43.204
+!MESSAGE Cannot satisfy dependency:
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2016-12-01 00:27:43.204
+!MESSAGE From: Eclipse Git Team Provider 4.4.1.201607150455-r (org.eclipse.egit.feature.group 4.4.1.201607150455-r)
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2016-12-01 00:27:43.204
+!MESSAGE To: org.eclipse.egit.ui [4.4.1.201607150455-r]
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 1 2016-12-01 00:27:43.204
+!MESSAGE Cannot satisfy dependency:
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2016-12-01 00:27:43.204
+!MESSAGE From: Git Team Provider - auto-import for Eclipse >= 4.6 4.5.0.201609210915-r (org.eclipse.egit.ui.smartimport 4.5.0.201609210915-r)
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2016-12-01 00:27:43.204
+!MESSAGE To: bundle org.eclipse.egit.ui [4.5.0,4.6.0)
+
+!ENTRY org.eclipse.equinox.p2.operations 4 0 2016-12-01 00:27:43.224
+!MESSAGE Operation details
+!SUBENTRY 1 org.eclipse.equinox.p2.director 4 10054 2016-12-01 00:27:43.224
+!MESSAGE Cannot complete the install because of a conflicting dependency.
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 0 2016-12-01 00:27:43.224
+!MESSAGE Software being installed: Git Team Provider - auto-import for Eclipse >= 4.6 4.5.0.201609210915-r (org.eclipse.egit.ui.smartimport 4.5.0.201609210915-r)
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 0 2016-12-01 00:27:43.224
+!MESSAGE Software currently installed: Eclipse Git Team Provider 4.4.1.201607150455-r (org.eclipse.egit.feature.group 4.4.1.201607150455-r)
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 1 2016-12-01 00:27:43.224
+!MESSAGE Only one of the following can be installed at once: 
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2016-12-01 00:27:43.224
+!MESSAGE Git Team Provider UI 4.4.1.201607150455-r (org.eclipse.egit.ui 4.4.1.201607150455-r)
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2016-12-01 00:27:43.224
+!MESSAGE Git Team Provider UI 4.5.0.201609210915-r (org.eclipse.egit.ui 4.5.0.201609210915-r)
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 1 2016-12-01 00:27:43.224
+!MESSAGE Cannot satisfy dependency:
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2016-12-01 00:27:43.224
+!MESSAGE From: Eclipse Git Team Provider 4.4.1.201607150455-r (org.eclipse.egit.feature.group 4.4.1.201607150455-r)
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2016-12-01 00:27:43.224
+!MESSAGE To: org.eclipse.egit.ui [4.4.1.201607150455-r]
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 1 2016-12-01 00:27:43.224
+!MESSAGE Cannot satisfy dependency:
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2016-12-01 00:27:43.229
+!MESSAGE From: Git Team Provider - auto-import for Eclipse >= 4.6 4.5.0.201609210915-r (org.eclipse.egit.ui.smartimport 4.5.0.201609210915-r)
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2016-12-01 00:27:43.230
+!MESSAGE To: bundle org.eclipse.egit.ui [4.5.0,4.6.0)
+!SESSION 2016-12-01 00:33:53.905 -----------------------------------------------
+eclipse.buildId=4.6.1.M20160907-1200
+java.version=1.8.0_102
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.jee.product -product org.eclipse.epp.package.jee.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.jee.product -data file:/C:/Users/EBI/workspace/ -product org.eclipse.epp.package.jee.product
+
+!ENTRY org.eclipse.egit.ui 2 0 2016-12-01 00:34:36.953
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\EBI'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.eclipse.egit.ui 4 0 2016-12-01 00:42:54.436
+!MESSAGE Git repository clone failed.
+!STACK 0
+org.eclipse.jgit.api.errors.TransportException: https://github.com/ebikargar/Dp2.git: 401 Authorization Required
+	at org.eclipse.jgit.api.FetchCommand.call(FetchCommand.java:135)
+	at org.eclipse.jgit.api.CloneCommand.fetch(CloneCommand.java:202)
+	at org.eclipse.jgit.api.CloneCommand.call(CloneCommand.java:135)
+	at org.eclipse.egit.core.op.CloneOperation.run(CloneOperation.java:156)
+	at org.eclipse.egit.ui.internal.clone.AbstractGitCloneWizard.executeCloneOperation(AbstractGitCloneWizard.java:472)
+	at org.eclipse.egit.ui.internal.clone.AbstractGitCloneWizard.access$2(AbstractGitCloneWizard.java:465)
+	at org.eclipse.egit.ui.internal.clone.AbstractGitCloneWizard$5.run(AbstractGitCloneWizard.java:426)
+	at org.eclipse.jface.operation.ModalContext$ModalContextThread.run(ModalContext.java:119)
+Caused by: org.eclipse.jgit.errors.TransportException: https://github.com/ebikargar/Dp2.git: 401 Authorization Required
+	at org.eclipse.jgit.transport.BasePackFetchConnection.doFetch(BasePackFetchConnection.java:377)
+	at org.eclipse.jgit.transport.TransportHttp$SmartHttpFetchConnection.doFetch(TransportHttp.java:758)
+	at org.eclipse.jgit.transport.BasePackFetchConnection.fetch(BasePackFetchConnection.java:308)
+	at org.eclipse.jgit.transport.BasePackFetchConnection.fetch(BasePackFetchConnection.java:298)
+	at org.eclipse.jgit.transport.FetchProcess.fetchObjects(FetchProcess.java:245)
+	at org.eclipse.jgit.transport.FetchProcess.executeImp(FetchProcess.java:161)
+	at org.eclipse.jgit.transport.FetchProcess.execute(FetchProcess.java:122)
+	at org.eclipse.jgit.transport.Transport.fetch(Transport.java:1179)
+	at org.eclipse.jgit.api.FetchCommand.call(FetchCommand.java:128)
+	... 7 more
+Caused by: org.eclipse.jgit.errors.TransportException: https://github.com/ebikargar/Dp2.git: 401 Authorization Required
+	at org.eclipse.jgit.transport.TransportHttp$Service.openResponse(TransportHttp.java:855)
+	at org.eclipse.jgit.transport.TransportHttp$MultiRequestService.execute(TransportHttp.java:956)
+	at org.eclipse.jgit.transport.TransportHttp$Service$HttpExecuteStream.read(TransportHttp.java:882)
+	at org.eclipse.jgit.util.io.UnionInputStream.read(UnionInputStream.java:145)
+	at java.io.FilterInputStream.read(Unknown Source)
+	at org.eclipse.jgit.util.io.TimeoutInputStream.read(TimeoutInputStream.java:112)
+	at org.eclipse.jgit.util.IO.readFully(IO.java:247)
+	at org.eclipse.jgit.transport.PacketLineIn.readLength(PacketLineIn.java:186)
+	at org.eclipse.jgit.transport.PacketLineIn.readString(PacketLineIn.java:138)
+	at org.eclipse.jgit.transport.PacketLineIn.readACK(PacketLineIn.java:102)
+	at org.eclipse.jgit.transport.BasePackFetchConnection.negotiate(BasePackFetchConnection.java:667)
+	at org.eclipse.jgit.transport.BasePackFetchConnection.doFetch(BasePackFetchConnection.java:363)
+	... 15 more
+
+!ENTRY org.eclipse.egit.ui 4 0 2016-12-01 11:54:40.034
+!MESSAGE Failed to initialize Git team provider.
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: Resource '/Assignment0/.gitignore' already exists.
+	at org.eclipse.core.internal.resources.Resource.checkDoesNotExist(Resource.java:314)
+	at org.eclipse.core.internal.resources.Resource.checkDoesNotExist(Resource.java:301)
+	at org.eclipse.core.internal.resources.File.create(File.java:107)
+	at org.eclipse.core.internal.resources.File.create(File.java:181)
+	at org.eclipse.egit.core.op.IgnoreOperation.addIgnore(IgnoreOperation.java:179)
+	at org.eclipse.egit.core.op.IgnoreOperation.execute(IgnoreOperation.java:99)
+	at org.eclipse.egit.core.op.ConnectProviderOperation.autoIgnoreDerivedResources(ConnectProviderOperation.java:214)
+	at org.eclipse.egit.core.op.ConnectProviderOperation.connectProject(ConnectProviderOperation.java:163)
+	at org.eclipse.egit.core.op.ConnectProviderOperation.execute(ConnectProviderOperation.java:100)
+	at org.eclipse.egit.ui.internal.sharing.SharingWizard$1.run(SharingWizard.java:125)
+	at org.eclipse.jface.operation.ModalContext$ModalContextThread.run(ModalContext.java:119)
+!SUBENTRY 1 org.eclipse.core.resources 4 374 2016-12-01 11:54:40.037
+!MESSAGE Resource '/Assignment0/.gitignore' already exists.
+
+!ENTRY org.eclipse.jdt.core 4 4 2016-12-01 11:54:43.777
+!MESSAGE JavaBuilder handling CoreException
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: A resource exists with a different case: '/Assignment2/bin/it/polito/dp2/NFFG/sol2/Localhost_Neo4JXMLRest$Resource$NodeNodeId.class'.
+	at org.eclipse.core.internal.resources.Resource.checkDoesNotExist(Resource.java:323)
+	at org.eclipse.core.internal.resources.Resource.checkDoesNotExist(Resource.java:301)
+	at org.eclipse.core.internal.resources.File.create(File.java:107)
+	at org.eclipse.jdt.internal.core.builder.AbstractImageBuilder.writeClassFileContents(AbstractImageBuilder.java:881)
+	at org.eclipse.jdt.internal.core.builder.AbstractImageBuilder.writeClassFile(AbstractImageBuilder.java:860)
+	at org.eclipse.jdt.internal.core.builder.AbstractImageBuilder.acceptResult(AbstractImageBuilder.java:191)
+	at org.eclipse.jdt.internal.compiler.Compiler.processCompiledUnits(Compiler.java:593)
+	at org.eclipse.jdt.internal.compiler.Compiler.compile(Compiler.java:462)
+	at org.eclipse.jdt.internal.compiler.Compiler.compile(Compiler.java:417)
+	at org.eclipse.jdt.internal.core.builder.AbstractImageBuilder.compile(AbstractImageBuilder.java:368)
+	at org.eclipse.jdt.internal.core.builder.BatchImageBuilder.compile(BatchImageBuilder.java:179)
+	at org.eclipse.jdt.internal.core.builder.AbstractImageBuilder.compile(AbstractImageBuilder.java:305)
+	at org.eclipse.jdt.internal.core.builder.BatchImageBuilder.build(BatchImageBuilder.java:61)
+	at org.eclipse.jdt.internal.core.builder.JavaBuilder.buildAll(JavaBuilder.java:256)
+	at org.eclipse.jdt.internal.core.builder.JavaBuilder.build(JavaBuilder.java:175)
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:735)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:206)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:246)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:301)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:304)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:360)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:383)
+	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:144)
+	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:235)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+!SUBENTRY 1 org.eclipse.core.resources 4 275 2016-12-01 11:54:43.777
+!MESSAGE A resource exists with a different case: '/Assignment2/bin/it/polito/dp2/NFFG/sol2/Localhost_Neo4JXMLRest$Resource$NodeNodeId.class'.
+
+!ENTRY org.eclipse.egit.ui 4 0 2016-12-01 12:03:31.320
+!MESSAGE Clipboard content is neither a directory path nor a valid git URI
+
+!ENTRY org.eclipse.egit.ui 4 0 2016-12-01 12:31:05.435
+!MESSAGE https://github.com/ebikargar/Dp2.git: 401 Authorization Required
+!STACK 0
+org.eclipse.jgit.api.errors.TransportException: https://github.com/ebikargar/Dp2.git: 401 Authorization Required
+	at org.eclipse.jgit.api.FetchCommand.call(FetchCommand.java:135)
+	at org.eclipse.jgit.api.CloneCommand.fetch(CloneCommand.java:202)
+	at org.eclipse.jgit.api.CloneCommand.call(CloneCommand.java:135)
+	at org.eclipse.egit.core.op.CloneOperation.run(CloneOperation.java:156)
+	at org.eclipse.egit.ui.internal.clone.AbstractGitCloneWizard.executeCloneOperation(AbstractGitCloneWizard.java:472)
+	at org.eclipse.egit.ui.internal.clone.AbstractGitCloneWizard.access$2(AbstractGitCloneWizard.java:465)
+	at org.eclipse.egit.ui.internal.clone.AbstractGitCloneWizard$6.run(AbstractGitCloneWizard.java:444)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+Caused by: org.eclipse.jgit.errors.TransportException: https://github.com/ebikargar/Dp2.git: 401 Authorization Required
+	at org.eclipse.jgit.transport.BasePackFetchConnection.doFetch(BasePackFetchConnection.java:377)
+	at org.eclipse.jgit.transport.TransportHttp$SmartHttpFetchConnection.doFetch(TransportHttp.java:758)
+	at org.eclipse.jgit.transport.BasePackFetchConnection.fetch(BasePackFetchConnection.java:308)
+	at org.eclipse.jgit.transport.BasePackFetchConnection.fetch(BasePackFetchConnection.java:298)
+	at org.eclipse.jgit.transport.FetchProcess.fetchObjects(FetchProcess.java:245)
+	at org.eclipse.jgit.transport.FetchProcess.executeImp(FetchProcess.java:161)
+	at org.eclipse.jgit.transport.FetchProcess.execute(FetchProcess.java:122)
+	at org.eclipse.jgit.transport.Transport.fetch(Transport.java:1179)
+	at org.eclipse.jgit.api.FetchCommand.call(FetchCommand.java:128)
+	... 7 more
+Caused by: org.eclipse.jgit.errors.TransportException: https://github.com/ebikargar/Dp2.git: 401 Authorization Required
+	at org.eclipse.jgit.transport.TransportHttp$Service.openResponse(TransportHttp.java:855)
+	at org.eclipse.jgit.transport.TransportHttp$MultiRequestService.execute(TransportHttp.java:956)
+	at org.eclipse.jgit.transport.TransportHttp$Service$HttpExecuteStream.read(TransportHttp.java:882)
+	at org.eclipse.jgit.util.io.UnionInputStream.read(UnionInputStream.java:145)
+	at java.io.FilterInputStream.read(Unknown Source)
+	at org.eclipse.jgit.util.io.TimeoutInputStream.read(TimeoutInputStream.java:112)
+	at org.eclipse.jgit.util.IO.readFully(IO.java:247)
+	at org.eclipse.jgit.transport.PacketLineIn.readLength(PacketLineIn.java:186)
+	at org.eclipse.jgit.transport.PacketLineIn.readString(PacketLineIn.java:138)
+	at org.eclipse.jgit.transport.PacketLineIn.readACK(PacketLineIn.java:102)
+	at org.eclipse.jgit.transport.BasePackFetchConnection.negotiate(BasePackFetchConnection.java:667)
+	at org.eclipse.jgit.transport.BasePackFetchConnection.doFetch(BasePackFetchConnection.java:363)
+	... 15 more
+
+!ENTRY org.eclipse.jface.text 2 0 2016-12-01 19:46:04.620
+!MESSAGE Duplicate template id: 'org.eclipse.wst.xslt.templates.xpath.number'
+
+!ENTRY org.eclipse.jface.text 2 0 2016-12-01 19:46:04.693
+!MESSAGE Duplicate template id: 'org.eclipse.wst.xslt.templates.xpath.round'
+
+!ENTRY org.eclipse.recommenders.models.rcp 1 9 2016-12-01 19:57:01.733
+!MESSAGE The model index service was accessed either before it started or after it finished running.
+!STACK 0
+org.eclipse.recommenders.utils.Logs$LogTraceException
+	at org.eclipse.recommenders.utils.Logs$LogTraceException.newTrace(Logs.java:381)
+	at org.eclipse.recommenders.utils.Logs.log(Logs.java:134)
+	at org.eclipse.recommenders.utils.Logs.log(Logs.java:126)
+	at org.eclipse.recommenders.internal.models.rcp.EclipseModelIndex.suggest(EclipseModelIndex.java:212)
+	at org.eclipse.recommenders.models.SimpleModelProvider.acquireModel(SimpleModelProvider.java:70)
+	at org.eclipse.recommenders.models.PoolingModelProvider.access$0(PoolingModelProvider.java:1)
+	at org.eclipse.recommenders.models.PoolingModelProvider$ModelPoolFactoryMediator.makeObject(PoolingModelProvider.java:96)
+	at org.eclipse.recommenders.models.PoolingModelProvider$ModelPoolFactoryMediator.makeObject(PoolingModelProvider.java:1)
+	at org.apache.commons.pool.impl.GenericKeyedObjectPool.borrowObject(GenericKeyedObjectPool.java:1220)
+	at org.eclipse.recommenders.models.PoolingModelProvider.acquireModel(PoolingModelProvider.java:67)
+	at org.eclipse.recommenders.internal.calls.rcp.RcpCallModelProvider.acquireModel(RcpCallModelProvider.java:65)
+	at org.eclipse.recommenders.internal.calls.rcp.RcpCallModelProvider.acquireModel(RcpCallModelProvider.java:1)
+	at org.eclipse.recommenders.internal.models.rcp.PrefetchModelArchiveJob.run(PrefetchModelArchiveJob.java:43)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+
+!ENTRY org.eclipse.jface.text 2 0 2016-12-01 20:12:08.863
+!MESSAGE Duplicate template id: 'org.eclipse.wst.xslt.templates.xpath.number'
+
+!ENTRY org.eclipse.jface.text 2 0 2016-12-01 20:12:08.901
+!MESSAGE Duplicate template id: 'org.eclipse.wst.xslt.templates.xpath.round'
+
+!ENTRY org.eclipse.egit.ui 4 0 2016-12-02 18:20:09.052
+!MESSAGE Nothing to fetch.
+!STACK 1
+org.eclipse.core.runtime.CoreException: Nothing to fetch.
+	at org.eclipse.egit.ui.internal.fetch.FetchOperationUI.execute(FetchOperationUI.java:106)
+	at org.eclipse.egit.ui.internal.fetch.FetchOperationUI$1.runInWorkspace(FetchOperationUI.java:123)
+	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:39)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+Caused by: org.eclipse.jgit.api.errors.TransportException: Nothing to fetch.
+	at org.eclipse.jgit.api.FetchCommand.call(FetchCommand.java:135)
+	at org.eclipse.egit.core.op.FetchOperation.run(FetchOperation.java:136)
+	at org.eclipse.egit.ui.internal.fetch.FetchOperationUI.execute(FetchOperationUI.java:103)
+	... 3 more
+Caused by: org.eclipse.jgit.errors.TransportException: Nothing to fetch.
+	at org.eclipse.jgit.transport.Transport.fetch(Transport.java:1155)
+	at org.eclipse.jgit.api.FetchCommand.call(FetchCommand.java:128)
+	... 5 more
+!SUBENTRY 1 org.eclipse.egit.ui 4 0 2016-12-02 18:20:09.053
+!MESSAGE Nothing to fetch.
+!STACK 0
+org.eclipse.jgit.api.errors.TransportException: Nothing to fetch.
+	at org.eclipse.jgit.api.FetchCommand.call(FetchCommand.java:135)
+	at org.eclipse.egit.core.op.FetchOperation.run(FetchOperation.java:136)
+	at org.eclipse.egit.ui.internal.fetch.FetchOperationUI.execute(FetchOperationUI.java:103)
+	at org.eclipse.egit.ui.internal.fetch.FetchOperationUI$1.runInWorkspace(FetchOperationUI.java:123)
+	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:39)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+Caused by: org.eclipse.jgit.errors.TransportException: Nothing to fetch.
+	at org.eclipse.jgit.transport.Transport.fetch(Transport.java:1155)
+	at org.eclipse.jgit.api.FetchCommand.call(FetchCommand.java:128)
+	... 5 more
+
+!ENTRY org.eclipse.egit.ui 4 0 2016-12-02 18:20:09.289
+!MESSAGE Nothing to fetch.
+!STACK 1
+org.eclipse.core.runtime.CoreException: Nothing to fetch.
+	at org.eclipse.egit.ui.internal.fetch.FetchOperationUI.execute(FetchOperationUI.java:106)
+	at org.eclipse.egit.ui.internal.fetch.FetchOperationUI$1.runInWorkspace(FetchOperationUI.java:123)
+	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:39)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+Caused by: org.eclipse.jgit.api.errors.TransportException: Nothing to fetch.
+	at org.eclipse.jgit.api.FetchCommand.call(FetchCommand.java:135)
+	at org.eclipse.egit.core.op.FetchOperation.run(FetchOperation.java:136)
+	at org.eclipse.egit.ui.internal.fetch.FetchOperationUI.execute(FetchOperationUI.java:103)
+	... 3 more
+Caused by: org.eclipse.jgit.errors.TransportException: Nothing to fetch.
+	at org.eclipse.jgit.transport.Transport.fetch(Transport.java:1155)
+	at org.eclipse.jgit.api.FetchCommand.call(FetchCommand.java:128)
+	... 5 more
+!SUBENTRY 1 org.eclipse.egit.ui 4 0 2016-12-02 18:20:09.290
+!MESSAGE Nothing to fetch.
+!STACK 0
+org.eclipse.jgit.api.errors.TransportException: Nothing to fetch.
+	at org.eclipse.jgit.api.FetchCommand.call(FetchCommand.java:135)
+	at org.eclipse.egit.core.op.FetchOperation.run(FetchOperation.java:136)
+	at org.eclipse.egit.ui.internal.fetch.FetchOperationUI.execute(FetchOperationUI.java:103)
+	at org.eclipse.egit.ui.internal.fetch.FetchOperationUI$1.runInWorkspace(FetchOperationUI.java:123)
+	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:39)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+Caused by: org.eclipse.jgit.errors.TransportException: Nothing to fetch.
+	at org.eclipse.jgit.transport.Transport.fetch(Transport.java:1155)
+	at org.eclipse.jgit.api.FetchCommand.call(FetchCommand.java:128)
+	... 5 more
+
+!ENTRY org.eclipse.egit.ui 4 0 2016-12-02 18:21:52.999
+!MESSAGE Nothing to fetch.
+!STACK 0
+org.eclipse.jgit.api.errors.TransportException: Nothing to fetch.
+	at org.eclipse.jgit.api.FetchCommand.call(FetchCommand.java:135)
+	at org.eclipse.jgit.api.PullCommand.call(PullCommand.java:267)
+	at org.eclipse.egit.core.op.PullOperation$1.run(PullOperation.java:193)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2240)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2267)
+	at org.eclipse.egit.core.op.PullOperation.execute(PullOperation.java:225)
+	at org.eclipse.egit.ui.internal.pull.PullOperationUI.execute(PullOperationUI.java:156)
+	at org.eclipse.egit.ui.internal.pull.PullOperationUI$1.runInWorkspace(PullOperationUI.java:131)
+	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:39)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+Caused by: org.eclipse.jgit.errors.TransportException: Nothing to fetch.
+	at org.eclipse.jgit.transport.Transport.fetch(Transport.java:1155)
+	at org.eclipse.jgit.api.FetchCommand.call(FetchCommand.java:128)
+	... 9 more
+
+!ENTRY org.eclipse.egit.ui 4 0 2016-12-02 18:23:35.354
+!MESSAGE Nothing to fetch.
+!STACK 1
+org.eclipse.core.runtime.CoreException: Nothing to fetch.
+	at org.eclipse.egit.ui.internal.fetch.FetchOperationUI.execute(FetchOperationUI.java:106)
+	at org.eclipse.egit.ui.internal.fetch.FetchOperationUI$1.runInWorkspace(FetchOperationUI.java:123)
+	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:39)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+Caused by: org.eclipse.jgit.api.errors.TransportException: Nothing to fetch.
+	at org.eclipse.jgit.api.FetchCommand.call(FetchCommand.java:135)
+	at org.eclipse.egit.core.op.FetchOperation.run(FetchOperation.java:136)
+	at org.eclipse.egit.ui.internal.fetch.FetchOperationUI.execute(FetchOperationUI.java:103)
+	... 3 more
+Caused by: org.eclipse.jgit.errors.TransportException: Nothing to fetch.
+	at org.eclipse.jgit.transport.Transport.fetch(Transport.java:1155)
+	at org.eclipse.jgit.api.FetchCommand.call(FetchCommand.java:128)
+	... 5 more
+!SUBENTRY 1 org.eclipse.egit.ui 4 0 2016-12-02 18:23:35.355
+!MESSAGE Nothing to fetch.
+!STACK 0
+org.eclipse.jgit.api.errors.TransportException: Nothing to fetch.
+	at org.eclipse.jgit.api.FetchCommand.call(FetchCommand.java:135)
+	at org.eclipse.egit.core.op.FetchOperation.run(FetchOperation.java:136)
+	at org.eclipse.egit.ui.internal.fetch.FetchOperationUI.execute(FetchOperationUI.java:103)
+	at org.eclipse.egit.ui.internal.fetch.FetchOperationUI$1.runInWorkspace(FetchOperationUI.java:123)
+	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:39)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+Caused by: org.eclipse.jgit.errors.TransportException: Nothing to fetch.
+	at org.eclipse.jgit.transport.Transport.fetch(Transport.java:1155)
+	at org.eclipse.jgit.api.FetchCommand.call(FetchCommand.java:128)
+	... 5 more
+
+!ENTRY org.eclipse.egit.ui 4 0 2016-12-02 18:23:35.416
+!MESSAGE Nothing to fetch.
+!STACK 1
+org.eclipse.core.runtime.CoreException: Nothing to fetch.
+	at org.eclipse.egit.ui.internal.fetch.FetchOperationUI.execute(FetchOperationUI.java:106)
+	at org.eclipse.egit.ui.internal.fetch.FetchOperationUI$1.runInWorkspace(FetchOperationUI.java:123)
+	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:39)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+Caused by: org.eclipse.jgit.api.errors.TransportException: Nothing to fetch.
+	at org.eclipse.jgit.api.FetchCommand.call(FetchCommand.java:135)
+	at org.eclipse.egit.core.op.FetchOperation.run(FetchOperation.java:136)
+	at org.eclipse.egit.ui.internal.fetch.FetchOperationUI.execute(FetchOperationUI.java:103)
+	... 3 more
+Caused by: org.eclipse.jgit.errors.TransportException: Nothing to fetch.
+	at org.eclipse.jgit.transport.Transport.fetch(Transport.java:1155)
+	at org.eclipse.jgit.api.FetchCommand.call(FetchCommand.java:128)
+	... 5 more
+!SUBENTRY 1 org.eclipse.egit.ui 4 0 2016-12-02 18:23:35.417
+!MESSAGE Nothing to fetch.
+!STACK 0
+org.eclipse.jgit.api.errors.TransportException: Nothing to fetch.
+	at org.eclipse.jgit.api.FetchCommand.call(FetchCommand.java:135)
+	at org.eclipse.egit.core.op.FetchOperation.run(FetchOperation.java:136)
+	at org.eclipse.egit.ui.internal.fetch.FetchOperationUI.execute(FetchOperationUI.java:103)
+	at org.eclipse.egit.ui.internal.fetch.FetchOperationUI$1.runInWorkspace(FetchOperationUI.java:123)
+	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:39)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+Caused by: org.eclipse.jgit.errors.TransportException: Nothing to fetch.
+	at org.eclipse.jgit.transport.Transport.fetch(Transport.java:1155)
+	at org.eclipse.jgit.api.FetchCommand.call(FetchCommand.java:128)
+	... 5 more
+
+!ENTRY org.eclipse.egit.ui 4 0 2016-12-02 18:24:04.121
+!MESSAGE Nothing to fetch.
+!STACK 1
+org.eclipse.core.runtime.CoreException: Nothing to fetch.
+	at org.eclipse.egit.ui.internal.fetch.FetchOperationUI.execute(FetchOperationUI.java:106)
+	at org.eclipse.egit.ui.internal.fetch.FetchOperationUI$1.runInWorkspace(FetchOperationUI.java:123)
+	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:39)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+Caused by: org.eclipse.jgit.api.errors.TransportException: Nothing to fetch.
+	at org.eclipse.jgit.api.FetchCommand.call(FetchCommand.java:135)
+	at org.eclipse.egit.core.op.FetchOperation.run(FetchOperation.java:136)
+	at org.eclipse.egit.ui.internal.fetch.FetchOperationUI.execute(FetchOperationUI.java:103)
+	... 3 more
+Caused by: org.eclipse.jgit.errors.TransportException: Nothing to fetch.
+	at org.eclipse.jgit.transport.Transport.fetch(Transport.java:1155)
+	at org.eclipse.jgit.api.FetchCommand.call(FetchCommand.java:128)
+	... 5 more
+!SUBENTRY 1 org.eclipse.egit.ui 4 0 2016-12-02 18:24:04.121
+!MESSAGE Nothing to fetch.
+!STACK 0
+org.eclipse.jgit.api.errors.TransportException: Nothing to fetch.
+	at org.eclipse.jgit.api.FetchCommand.call(FetchCommand.java:135)
+	at org.eclipse.egit.core.op.FetchOperation.run(FetchOperation.java:136)
+	at org.eclipse.egit.ui.internal.fetch.FetchOperationUI.execute(FetchOperationUI.java:103)
+	at org.eclipse.egit.ui.internal.fetch.FetchOperationUI$1.runInWorkspace(FetchOperationUI.java:123)
+	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:39)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+Caused by: org.eclipse.jgit.errors.TransportException: Nothing to fetch.
+	at org.eclipse.jgit.transport.Transport.fetch(Transport.java:1155)
+	at org.eclipse.jgit.api.FetchCommand.call(FetchCommand.java:128)
+	... 5 more
+
+!ENTRY org.eclipse.egit.ui 4 0 2016-12-02 18:24:04.160
+!MESSAGE Nothing to fetch.
+!STACK 1
+org.eclipse.core.runtime.CoreException: Nothing to fetch.
+	at org.eclipse.egit.ui.internal.fetch.FetchOperationUI.execute(FetchOperationUI.java:106)
+	at org.eclipse.egit.ui.internal.fetch.FetchOperationUI$1.runInWorkspace(FetchOperationUI.java:123)
+	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:39)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+Caused by: org.eclipse.jgit.api.errors.TransportException: Nothing to fetch.
+	at org.eclipse.jgit.api.FetchCommand.call(FetchCommand.java:135)
+	at org.eclipse.egit.core.op.FetchOperation.run(FetchOperation.java:136)
+	at org.eclipse.egit.ui.internal.fetch.FetchOperationUI.execute(FetchOperationUI.java:103)
+	... 3 more
+Caused by: org.eclipse.jgit.errors.TransportException: Nothing to fetch.
+	at org.eclipse.jgit.transport.Transport.fetch(Transport.java:1155)
+	at org.eclipse.jgit.api.FetchCommand.call(FetchCommand.java:128)
+	... 5 more
+!SUBENTRY 1 org.eclipse.egit.ui 4 0 2016-12-02 18:24:04.160
+!MESSAGE Nothing to fetch.
+!STACK 0
+org.eclipse.jgit.api.errors.TransportException: Nothing to fetch.
+	at org.eclipse.jgit.api.FetchCommand.call(FetchCommand.java:135)
+	at org.eclipse.egit.core.op.FetchOperation.run(FetchOperation.java:136)
+	at org.eclipse.egit.ui.internal.fetch.FetchOperationUI.execute(FetchOperationUI.java:103)
+	at org.eclipse.egit.ui.internal.fetch.FetchOperationUI$1.runInWorkspace(FetchOperationUI.java:123)
+	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:39)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+Caused by: org.eclipse.jgit.errors.TransportException: Nothing to fetch.
+	at org.eclipse.jgit.transport.Transport.fetch(Transport.java:1155)
+	at org.eclipse.jgit.api.FetchCommand.call(FetchCommand.java:128)
+	... 5 more

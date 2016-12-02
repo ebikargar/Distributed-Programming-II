@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE WorkflowMonitor SYSTEM "assignment1a.dtd">
+
+<NffgVerifier>
+
+<LinkReader>
+
+<NodeReader></NodeReader>
+
+</LinkReader>
+<NamedEntityReader></NamedEntityReader>
+
+
+
+</NffgVerifier>

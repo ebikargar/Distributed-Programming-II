@@ -1,0 +1,81 @@
+package it.polito.dp2.NFFG.sol1;
+
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
+
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+
+import it.polito.dp2.NFFG.NffgVerifier;
+import it.polito.dp2.NFFG.NffgVerifierException;
+import it.polito.dp2.NFFG.NffgVerifierFactory;
+
+public class NffgInfoSerializer {
+	
+	private NffgVerifier monitor;
+	private DateFormat dateFormat;
+	private Document doc;
+	
+	/**
+	 * Default constructror
+	 * @throws NffgVerifierException 
+	 */
+	public  NffgInfoSerializer() throws NffgVerifierException {
+		NffgVerifierFactory factory = NffgVerifierFactory.newInstance();
+		monitor = factory.newNffgVerifier();
+		dateFormat = new SimpleDateFormat("dd/MM/yyyy hh:mm");
+	}
+	
+	public  NffgInfoSerializer(NffgVerifier monitor) {
+		super();
+		this.monitor = monitor;
+		dateFormat = new SimpleDateFormat("dd/MM/yyyy hh:mm");
+	}
+	private void build() throws ParserConfigurationException {
+  		DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+		DocumentBuilder builder = factory.newDocumentBuilder();
+		doc = builder.newDocument();
+		
+		Element rootTag = (Element)doc.createElement("nffgVerifier");
+		doc.appendChild(rootTag);
+		
+		
+	}
+	
+	public static void main(String[] args) throws NffgVerifierException, ParserConfigurationException, TransformerException, FileNotFoundException {
+		NffgInfoSerializer f = null;
+		
+		try {
+			f = new NffgInfoSerializer();
+		} catch (NffgVerifierException e) {
+			System.err.println("Could not instantiate flight monitor object");
+			throw e;
+		}
+			
+		try {
+			f.build();
+		} catch (ParserConfigurationException e) {
+			System.err.println("Could not locate a JAXP DocumentBuilder class");
+			throw e;
+		} 
+			
+		try {
+			f.serialize(args[0]);
+		} catch (TransformerException e) {
+			System.err.println("Serialization error");
+			throw e;
+		} catch (FileNotFoundException e) {
+			System.err.println("File not found exception");
+			throw e;
+		}
+	}
+	
+	
+	
+	
+
+}

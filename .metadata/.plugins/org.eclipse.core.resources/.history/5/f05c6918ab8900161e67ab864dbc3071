@@ -1,0 +1,12 @@
+package greeting.hello;
+
+public class HelloWorld {
+	public static void main(String[] args)
+	{
+		System.out.println("Hellow World");
+		
+		
+		int numero=56;
+		System.out.print(numero);
+	}
+}

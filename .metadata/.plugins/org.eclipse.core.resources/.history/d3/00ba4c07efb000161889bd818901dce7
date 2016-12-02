@@ -1,0 +1,7 @@
+package it.polito.dp2.NFFG.sol1;
+
+import it.polito.dp2.NFFG.ReachabilityPolicyReader;
+
+public class MyReachablilityPolicyReader implements ReachabilityPolicyReader{
+ 
+}

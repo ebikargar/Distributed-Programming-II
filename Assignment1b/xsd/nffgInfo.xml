@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tns:nffgVerifier xmlns:tns="http://www.example.org/nffgInfo" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.example.org/nffgInfo nffgInfo.xsd ">
+  <tns:nffg nffgName="">
+    <tns:node linkName="" nodeName="">
+      <tns:providerCat funcType="FW"/>
+    </tns:node>
+    <tns:links destNode="" linkName="" srcNode=""/>
+    <tns:policy destNode="" isPositive="" nffgName="" policyName="" srcNode="" verificationResult="">
+      <tns:traversComponent funcType="FW"/>
+    </tns:policy>
+    <tns:upTime hour="0" minute="0"/>
+  </tns:nffg>
+</tns:nffgVerifier>

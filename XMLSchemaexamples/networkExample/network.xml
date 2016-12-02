@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<xr:network     
+    xmlns:xr="http://www.example.org/network/"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" 
+    xsd:schemaLocation="http://www.example.org/network/ network.xsd">
+	<host id="Host1">
+		<administrator>administrator1</administrator>
+		<interface IP="130.192.3.21">
+			
+			<MAC>00:01:02:03:04:05</MAC>
+			<name>Host1</name>
+		</interface>
+	</host>
+	<host id="Host2">
+		<administrator>administrator1</administrator>
+		<interface IP="130.192.3.22">
+			<MAC>00:01:02:03:04:06</MAC>
+			<name>Host2_i0</name>
+		</interface>
+		<interface IP="130.192.3.23">
+			<MAC>00:01:02:03:04:07</MAC>
+			<name>Host2_i1</name>
+		</interface>
+	</host>
+</xr:network>

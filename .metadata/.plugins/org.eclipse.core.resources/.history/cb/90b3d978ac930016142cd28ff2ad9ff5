@@ -1,0 +1,10 @@
+package com.thoughtworks.selenium;
+
+public class DefaultSelenium {
+
+	public void start() {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

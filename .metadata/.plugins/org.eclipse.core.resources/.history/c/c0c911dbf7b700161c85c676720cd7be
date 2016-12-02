@@ -1,0 +1,90 @@
+package it.polito.dp2.NFFG.sol1;
+
+import it.polito.dp2.NFFG.NffgReader;
+import it.polito.dp2.NFFG.NodeReader;
+import it.polito.dp2.NFFG.ReachabilityPolicyReader;
+import it.polito.dp2.NFFG.VerificationResultReader;
+import it.polito.dp2.NFFG.sol1.jaxb.NffgType;
+import it.polito.dp2.NFFG.sol1.jaxb.NodeType;
+import it.polito.dp2.NFFG.sol1.jaxb.NodesType;
+import it.polito.dp2.NFFG.sol1.jaxb.PolicyType;
+import it.polito.dp2.NFFG.sol1.jaxb.ReachabilityPolicyType;
+
+public class MyReachablilityPolicyReader implements ReachabilityPolicyReader {
+
+	// ------------ Policy Element-----------------------//
+	private String reachability_policyName;
+	private NffgReader reachability_policy_nffg_r;
+	private VerificationResultReader reachability_policy_verification_r;
+	private Boolean reachability_policy_isPositive;
+	private NodeReader reachability_srcNode;
+	private NodeReader reachability_destNode;
+	// ---------------------------------------------------------//
+
+	public MyReachablilityPolicyReader(NffgType nffg, ReachabilityPolicyType reacability_policy_r) {
+
+		if (reacability_policy_r != null) {
+			this.reachability_policyName = reacability_policy_r.getPolicyName();
+			this.reachability_policy_nffg_r = new MyNffgReader(nffg);
+			this.reachability_policy_verification_r = new MyVerificationResultReader(nffg, reacability_policy_r);
+			this.reachability_policy_isPositive = reacability_policy_r.isIsPositive();
+
+			NodesType nodes = nffg.getNodes();
+			for (NodeType node_r : nodes.getNode()) {
+				node_r.equals(reacability_policy_r.getSrcNode());
+				this.reachability_srcNode = new MyNodeReader(node_r, nffg);
+			}
+			for (NodeType node_r : nodes.getNode()) {
+				node_r.equals(reacability_policy_r.getDestNode());
+				this.reachability_destNode = new MyNodeReader(node_r, nffg);
+			}
+
+		}
+
+	}
+
+	// getting srcNode & destNode from reachability
+
+	System.out.println("ReachablilityPolicyReader fulfilled Correctly");
+
+}
+
+	// ---------------------------------------------------------//
+
+	@Override
+	public NffgReader getNffg() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public VerificationResultReader getResult() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Boolean isPositive() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String getName() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public NodeReader getDestinationNode() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public NodeReader getSourceNode() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

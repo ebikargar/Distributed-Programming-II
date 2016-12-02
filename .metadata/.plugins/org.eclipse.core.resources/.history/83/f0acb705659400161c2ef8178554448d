@@ -1,0 +1,14 @@
+<!ELEMENT NffgVerifier (NF_FG|NodeReaders)*>
+
+
+<!ELEMENT NF_FG (Nodes*)>
+<!ATTLIST NF_FG  
+	Name NMTOKEN #REQUIRED>
+
+<!ELEMENT Nodes (Node*)>
+<!ATTLIST NF_FG  
+	Name NMTOKEN #REQUIRED>
+
+
+
+

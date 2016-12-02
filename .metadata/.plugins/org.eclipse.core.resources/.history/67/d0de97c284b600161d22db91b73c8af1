@@ -1,0 +1,63 @@
+package it.polito.dp2.NFFG.sol1;
+
+import java.util.Calendar;
+import java.util.Set;
+import javax.xml.datatype.XMLGregorianCalendar;
+import java.util.HashSet;
+
+import it.polito.dp2.NFFG.*;
+import it.polito.dp2.NFFG.sol1.jaxb.NffgType;
+import it.polito.dp2.NFFG.sol1.jaxb.NodeType;
+import it.polito.dp2.NFFG.sol1.jaxb.NodesType;
+
+public class MyNffgReader implements NffgReader {
+
+	private String nffgName;
+	private Calendar upTime;
+	private XMLGregorianCalendar upTimeTmp;
+	private Set<NodeReader> node_r_set;node_r_set=new HashSet<NondeReader>();
+
+	public MyNffgReader(NffgType nffg) {
+
+		this.nffgName = nffg.getNffgName();
+		this.upTimeTmp = nffg.getUpTime();
+		this.upTime = upTimeTmp.toGregorianCalendar();
+
+		NodesType nodes = nffg.getNodes();
+		for (NodeType node : nodes.getNode()) {
+			NodeReader node_r = new MyNodeReader(node, nffg);
+			this.node_r_set.add(node_r);
+
+		}
+
+		System.out.println("My LinkReader fulfilled Correctly");
+
+	}
+
+	@Override
+	public String getName() {
+		return this.nffgName;
+	}
+
+	@Override
+	public NodeReader getNode(String arg0) {
+		//to check if the node is the one on the set of read nodes
+		for (NodeReader node_r : node_r_set) {
+			if (node_r.equals(arg0)) {
+				return node_r;
+			}
+		}
+		return null;
+	}
+
+	@Override
+	public Set<NodeReader> getNodes() {
+		return this.node_r_set;
+	}
+
+	@Override
+	public Calendar getUpdateTime() {
+		return this.upTime;
+	}
+
+}

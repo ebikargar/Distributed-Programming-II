@@ -1,0 +1,15 @@
+<!ELEMENT NffgVerifier (NF_FG|SetOfPolicies)*>
+
+<!ELEMENT NF_FG (SetOfNodes*)>
+<!ATTLIST NF_FG  
+	Name ID #REQUIRED>
+<!ELEMENT SetOfNodes (Node*)>
+
+<!ELEMENT Node (FunctionalType*)>
+<!ATTLIST Node 
+	Name ID #REQUIRED>
+
+
+
+
+

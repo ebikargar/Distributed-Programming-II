@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE nffgVerifier SYSTEM "nffgInfo.dtd" >
+<nffgVerifier>
+  <nffgSet>
+    <nffg nffgName="idvalue0" upTime="">
+      <nodeSet>
+        <node nodeName="idvalue1">
+          <providerCat funcType="FW"/>
+        </node>
+      </nodeSet>
+      <linkSet>
+        <links destNode="idvalue0" linkName="idvalue2" srcNode="idvalue0"/>
+      </linkSet>
+      <policySet>
+        <policy>
+          <providerCat funcType="FW"/>
+        </policy>
+      </policySet>
+    </nffg>
+  </nffgSet>
+</nffgVerifier>

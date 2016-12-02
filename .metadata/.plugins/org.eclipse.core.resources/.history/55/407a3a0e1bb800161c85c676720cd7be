@@ -1,0 +1,32 @@
+package it.polito.dp2.NFFG.sol1;
+
+import javax.xml.bind.JAXBException;
+
+import org.xml.sax.SAXException;
+
+import it.polito.dp2.NFFG.NffgVerifier;
+import it.polito.dp2.NFFG.NffgVerifierException;
+
+public class NffgVerifierFactory extends it.polito.dp2.NFFG.NffgVerifierFactory {
+
+	@Override
+	public NffgVerifier newNffgVerifier() throws NffgVerifierException {
+		NffgVerifier myNffgVerifier = null;
+		try {
+			myNffgVerifier = new MyNffgVerifier();
+			System.out.println("myNffgVerifier created sucessfully");
+		} catch (SAXException e) {
+			System.out.println("SAXException: " + e.getMessage());
+			e.printStackTrace();
+			System.exit(1);
+		} catch (JAXBException e) {
+			System.out.println("JAXBException: " + e.getMessage());
+			e.printStackTrace();
+			System.exit(1);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return myNffgVerifier;
+	}
+}
+

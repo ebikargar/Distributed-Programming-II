@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="java.io.File"/>
+<fullyQualifiedTypeName name="java.io.FileReader"/>
+<fullyQualifiedTypeName name="java.io.BufferedReader"/>
+<fullyQualifiedTypeName name="java.util.stream.Stream"/>
+<fullyQualifiedTypeName name="java.nio.file.Files"/>
+<fullyQualifiedTypeName name="java.nio.file.Paths"/>
+<fullyQualifiedTypeName name="java.io.IOException"/>
+<fullyQualifiedTypeName name="java.awt.List"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="org.openqa.selenium.WebDriver"/>
+<fullyQualifiedTypeName name="javax.xml.parsers.ParserConfigurationException"/>
+<fullyQualifiedTypeName name="javax.xml.parsers.DocumentBuilderFactory"/>
+<fullyQualifiedTypeName name="javax.xml.parsers.DocumentBuilder"/>
+<fullyQualifiedTypeName name="com.sun.xml.internal.txw2.Document"/>
+<fullyQualifiedTypeName name="org.w3c.dom.Document"/>
+<fullyQualifiedTypeName name="org.w3c.dom.Element"/>
+<fullyQualifiedTypeName name="java.util.Set"/>
+<fullyQualifiedTypeName name="java.util.GregorianCalendar"/>
+<fullyQualifiedTypeName name="java.io.FileNotFoundException"/>
+<fullyQualifiedTypeName name="javax.xml.transform.TransformerException"/>
+<fullyQualifiedTypeName name="javax.xml.transform.TransformerFactory"/>
+<fullyQualifiedTypeName name="javax.xml.transform.Transformer"/>
+<fullyQualifiedTypeName name="javax.xml.transform.OutputKeys"/>
+<fullyQualifiedTypeName name="javax.xml.transform.Source"/>
+<fullyQualifiedTypeName name="it.polito.dp2.NFFG.PolicyReader"/>
+<fullyQualifiedTypeName name="javax.xml.datatype.XMLGregorianCalendar"/>
+<fullyQualifiedTypeName name="it.polito.dp2.NFFG.sol1.jaxb.PolicyType"/>
+<fullyQualifiedTypeName name="it.polito.dp2.NFFG.sol1.jaxb.NffgType"/>
+<fullyQualifiedTypeName name="it.polito.dp2.NFFG.VerificationResultReader"/>
+<fullyQualifiedTypeName name="it.polito.dp2.NFFG.sol1.MyNffgReader"/>
+<fullyQualifiedTypeName name="it.polito.dp2.NFFG.sol1.MyVerificationResultReader"/>
+<fullyQualifiedTypeName name="it.polito.dp2.NFFG.NffgVerifier"/>
+<fullyQualifiedTypeName name="it.polito.dp2.NFFG.sol2.MyReachabilityTester"/>
+<fullyQualifiedTypeName name="it.polito.dp2.NFFG.NffgReader"/>
+<fullyQualifiedTypeName name="it.polito.dp2.NFFG.sol1.jaxb.ReachabilitypolicyType"/>
+<fullyQualifiedTypeName name="it.polito.dp2.NFFG.ReachabilityPolicyReader"/>
+<fullyQualifiedTypeName name="it.polito.dp2.NFFG.sol1.jaxb.TraversalPolicyType"/>
+<fullyQualifiedTypeName name="it.polito.dp2.NFFG.sol1.jaxb.ReachabilityPolicyType"/>
+<fullyQualifiedTypeName name="java.lang.System"/>
+<fullyQualifiedTypeName name="it.polito.dp2.NFFG.TraversalPolicyReader"/>
+</qualifiedTypeNameHistroy>

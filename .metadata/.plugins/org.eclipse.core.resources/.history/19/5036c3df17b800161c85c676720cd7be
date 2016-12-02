@@ -1,0 +1,37 @@
+package it.polito.dp2.NFFG.sol1;
+
+import java.util.List;
+import java.util.Set;
+
+import it.polito.dp2.NFFG.FunctionalType;
+import it.polito.dp2.NFFG.NffgReader;
+import it.polito.dp2.NFFG.NodeReader;
+import it.polito.dp2.NFFG.TraversalPolicyReader;
+import it.polito.dp2.NFFG.VerificationResultReader;
+import it.polito.dp2.NFFG.sol1.jaxb.FuncType;
+import it.polito.dp2.NFFG.sol1.jaxb.NffgType;
+import it.polito.dp2.NFFG.sol1.jaxb.ProviderCatType;
+import it.polito.dp2.NFFG.sol1.jaxb.ReachabilityPolicyType;
+import it.polito.dp2.NFFG.sol1.jaxb.TraversalPolicyType;
+
+public class MyTraversalPolicyReader extends MyReachablilityPolicyReader {
+
+	private TraversalPolicyReader traversal_r;
+	private TraversalPolicyType traversal_policy;
+	private Set<FunctionalType> read_travers_list;
+
+	public MyTraversalPolicyReader(NffgType nffg, TraversalPolicyType traversal_policy_r) {
+		super(nffg, traversal_policy_r);
+	}
+
+	@Override
+	public Set<FunctionalType> getTraversedFuctionalTypes() {
+
+		Set<FunctionalType> read_travers_list = traversal_r.getTraversedFuctionalTypes();
+		for (FunctionalType travers_r : read_travers_list) {
+			traversal_policy.getTraversComponent().add(FuncType.fromValue(travers_r.name()));
+		}
+
+		return this.read_travers_list;
+	}
+}

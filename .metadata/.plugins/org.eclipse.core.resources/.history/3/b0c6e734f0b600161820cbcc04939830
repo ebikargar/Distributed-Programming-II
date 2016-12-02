@@ -1,0 +1,68 @@
+package it.polito.dp2.NFFG.sol1;
+
+import it.polito.dp2.NFFG.NffgReader;
+import it.polito.dp2.NFFG.NodeReader;
+import it.polito.dp2.NFFG.ReachabilityPolicyReader;
+import it.polito.dp2.NFFG.VerificationResultReader;
+import it.polito.dp2.NFFG.sol1.jaxb.NffgType;
+import it.polito.dp2.NFFG.sol1.jaxb.PolicyType;
+
+public class MyReachablilityPolicyReader implements ReachabilityPolicyReader {
+
+	// ------------ Policy Element-----------------------//
+	private String plicyName;
+	private NffgReader policy_nffg_r;
+	private VerificationResultReader policy_verification_r;
+	private Boolean policy_isPositive;
+	// ---------------------------------------------------------//
+
+	public public MyReachablilityPolicyReader(NffgType nffg, PolicyType policy_r) {
+
+		if (policy_r != null) {
+			this.plicyName = policy_r.getPolicyName();
+			this.policy_nffg_r = new MyNffgReader(nffg);
+			this.policy_verification_r = new MyVerificationResultReader(nffg, policy_r);
+			this.policy_isPositive = policy_r.isIsPositive();
+		}
+		System.out.println("ReachablilityPolicyReader fulfilled Correctly");
+	}
+
+	// ---------------------------------------------------------//
+
+	@Override
+	public NffgReader getNffg() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public VerificationResultReader getResult() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Boolean isPositive() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String getName() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public NodeReader getDestinationNode() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public NodeReader getSourceNode() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

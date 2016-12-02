@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE NffgVerifier SYSTEM "assignment1a.dtd" >
+<NffgVerifier>
+  <nffgSet>
+    <nffg name="idvalue0"/>
+  </nffgSet>
+  <policySet>
+    <policy/>
+  </policySet>
+</NffgVerifier>

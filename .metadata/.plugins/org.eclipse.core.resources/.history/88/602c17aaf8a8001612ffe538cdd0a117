@@ -1,0 +1,29 @@
+<!ELEMENT nffgVerifier (nffgSet)*>
+<!ELEMENT nffgSet (nffg)+>
+<!ELEMENT nffg (nodeSet*,linkSet*,policySet?)>
+	<!ATTLIST nffg  
+				nffgName 			ID 		#REQUIRED
+				upTime				CDATA	#REQUIRED> <!-- do wee needed update time? -->
+	<!ELEMENT nodeSet (node*)>
+	<!ELEMENT node (providerCat*)>
+	<!ATTLIST node 
+		nodeName 		ID 		#REQUIRED>		
+<!ELEMENT providerCat EMPTY>
+	<!ATTLIST  providerCat
+						funcType	(FW|DPI|NAT|SPAM|CACHE|VPN|WEB_SERVER|WEB_CLIENT|MAIL_SERVER|MAIL_CLIENT)	#REQUIRED>
+
+<!ELEMENT linkSet (links*)>
+<!ELEMENT links EMPTY>
+	<!ATTLIST links
+					linkName	ID 		#REQUIRED
+					srcNode 	IDREF	#REQUIRED
+					destNode	IDREF	#REQUIRED>
+<!ELEMENT policySet (policy)*>
+<!ELEMENT policy (providerCat*)>
+	<!ATTLIST Policy
+			policyName	   			ID 							#REQUIRED
+			policyType				(reacheablility|travesal)	#REQUIRED
+			verificationResult		(TRUE|FALSE)				#REQUIRED
+			srcNode 				IDREF					 	#REQUIRED
+			destNode				IDREF 						#REQUIRED>
+					

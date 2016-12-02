@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE account [
+<!ELEMENT account (holder+,yearOperations*)>
+<!ATTLIST account
+	  number NMTOKEN #REQUIRED>
+<!ELEMENT holder EMPTY>
+<!ATTLIST holder
+	  name 		CDATA 	#REQUIRED
+	  address 	CDATA	#REQUIRED>
+<!ELEMENT yearOperations (operation+)>
+<!ATTLIST yearOperations
+	  year 		NMTOKEN #REQUIRED>
+<!ELEMENT operation (description?)>
+<!ATTLIST operation
+	  date 		CDATA 	#REQUIRED
+	  amount 	CDATA	#REQUIRED>
+<!ELEMENT description (#PCDATA)>]
+>
+
+<account number="101998" number="xyzw">
+  <holder name="Elia" address="Via dei Piopp1, 20"/>
+  <yearOperations year="2003">
+    <operation date="10/02/2003" amount="190.00">
+      <description> Withdrawal </description>
+    </operation>
+  </yearOperations>
+</account>

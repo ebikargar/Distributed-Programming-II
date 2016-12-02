@@ -1,0 +1,5 @@
+Books
+Book
+
+//this file specyfing value class in 
+//in this way,jaxb doesnt need object factory to create schema starting from this class.

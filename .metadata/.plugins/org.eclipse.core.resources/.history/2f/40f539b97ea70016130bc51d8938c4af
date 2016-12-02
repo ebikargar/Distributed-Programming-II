@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema targetNamespace="http://www.example.org/nffgInfo" xmlns="http://www.w3.org/2001/XMLSchema"
+	xmlns:tns="http://www.example.org/nffgInfo" elementFormDefault="qualified">
+
+	<element name="nffgVerifier" type="tns:nffgVerifierType"></element>
+
+	<complexType name="nffgVerifierType">
+		<sequence>
+			<element name="nffgSet" type="tns:nffgSetType" minOccurs="0"
+				maxOccurs="unbounded">
+
+				<key name="nffgNameKey">
+					<selector xpath="tns:nffgSet/tns:nffg" />
+					<field xpath="@nffgName" />
+				</key>
+				<keyref name="nffgNameRef" refer="tns:nffgNameKey">
+					<selector xpath="tns:nffgSet/tns:nffg"></selector><!-- where do we use reference to 
+						this key? -->
+					<field xpath="@nffgName"></field>
+				</keyref>
+			</element>
+		</sequence>
+	</complexType>
+	<!-- am I right by defining this key and keyref -->
+	<complexType name="nffgSetType">
+		<sequence>
+			<element name="nffg" type="tns:nffgType" minOccurs="1"
+				maxOccurs="1">
+				<key name="nodeNameKey">
+					<selector xpath="tns:nodeSet/node" />
+					<field xpath="@nodeName" />
+				</key>
+				<key name="linkNameKey">
+					<selector xpath="tns:linkSet/links" />
+					<field xpath="@linkName" />
+				</key>
+			</element>
+		</sequence>
+	</complexType>
+	<complexType name="nffgType">
+		<sequence>
+			<element name="nodeSet" type="tns:nodeSetType" minOccurs="0"
+				maxOccurs="unbounded"></element>
+			<element name="linkSet" type="tns:linkSetType" minOccurs="0"
+				maxOccurs="unbounded">
+			</element>
+			<element name="policySet" type="tns:policySetType" minOccurs="0"
+				maxOccurs="unbounded"></element>
+		</sequence>
+		<attribute name="nffgName" type="tns:myStringType" use="required" /> <!-- how/do we need to define it's uniqueness -->
+		<attribute name="upTime" type="dateTime" use="required" />
+	</complexType>
+	<simpleType name="myStringType">
+		<restriction base="string">
+			<pattern value="([a-zA-Z][a-zA-Z0-9])*"></pattern> <!-- do we need digits in pattern here -->
+		</restriction>
+	</simpleType>
+	<complexType name="nodeSetType">
+		<sequence>
+			<element name="node" type="tns:nodeType" minOccurs="0"
+				maxOccurs="unbounded"></element>
+		</sequence>
+	</complexType>
+
+	<complexType name="nodeType">
+		<sequence>
+			<element name="providerCat" type="tns:providerCatType"
+				minOccurs="0" maxOccurs="unbounded"></element>
+		</sequence>
+		<attribute name="nodeName" type="tns:myStringType" use="required"></attribute><!-- 
+			define as myString -->
+	</complexType>
+	<complexType name="providerCatType">
+		<attribute name="funcType" type="tns:funcType" use="required"></attribute>
+	</complexType>
+
+	<simpleType name="funcType">
+		<restriction base="string">
+			<enumeration value="FW"></enumeration>
+			<enumeration value="DPI"></enumeration>
+			<enumeration value="NAT"></enumeration>
+			<enumeration value="SPAM"></enumeration>
+			<enumeration value="CACHE"></enumeration>
+			<enumeration value="VPN"></enumeration>
+			<enumeration value="WEB_SERVER"></enumeration>
+			<enumeration value="WEB_CLIENT"></enumeration>
+			<enumeration value="MAIL_SERVER"></enumeration>
+			<enumeration value="MAIL_CLIENT"></enumeration>
+		</restriction>
+	</simpleType>
+
+	<complexType name="linkSetType">
+		<sequence>
+			<element name="links" type="tns:linksType" minOccurs="0"
+				maxOccurs="unbounded"></element>
+		</sequence>
+	</complexType>
+
+	<complexType name="linksType">
+		<attribute name="linkName" type="string" use="required" />
+		<attribute name="sourceNode" type="string" use="required" />
+		<attribute name="destNode" type="string" use="required" />
+	</complexType> <!-- key and keyref need to be add on root element or no -->
+
+	<complexType name="policySetType">
+		<sequence>
+			<element name="policy" type="tns:policyType" minOccurs="0"
+				maxOccurs="unbounded">
+				<unique name="policyNameUnique">
+					<selector xpath="tns:policy" /> <!-- policyname is unique inside policy or nffg,roottttt -->
+					<field xpath="@policyName" />
+				</unique>
+			</element>
+		</sequence>
+	</complexType>
+
+	<complexType name="policyType">
+		<sequence>
+			<element name="traversComponent" type="tns:providerCatType"
+				minOccurs="0" maxOccurs="unbounded"></element>
+		</sequence>
+		<attribute name="policyName" type="string" use="required"></attribute>
+		<attribute name="policyType" type="string" use="required"></attribute> <!-- define one type,and the second one as extension -->
+		<attribute name="verificationResult" type="tns:resultType"
+			use="required"></attribute> <!-- define a simpletype by two enum -->
+		<attribute name="srcNode" type="tns:myStringType" use="required"></attribute>
+		<attribute name="destNode" type="tns:myStringType" use="required"></attribute>  <!-- it's better to not use IDREF -->
+	</complexType>
+
+	<simpleType name="resultType">
+		<restriction base="string">
+			<pattern value="positive|negative" />  <!-- should be positive-negative or true-false -->
+		</restriction>
+	</simpleType>
+</schema>

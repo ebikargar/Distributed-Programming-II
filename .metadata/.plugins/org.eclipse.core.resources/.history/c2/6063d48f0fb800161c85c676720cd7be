@@ -1,0 +1,41 @@
+package it.polito.dp2.NFFG.sol1;
+
+import java.util.Set;
+
+import it.polito.dp2.NFFG.FunctionalType;
+import it.polito.dp2.NFFG.NffgReader;
+import it.polito.dp2.NFFG.NodeReader;
+import it.polito.dp2.NFFG.TraversalPolicyReader;
+import it.polito.dp2.NFFG.VerificationResultReader;
+import it.polito.dp2.NFFG.sol1.jaxb.FuncType;
+import it.polito.dp2.NFFG.sol1.jaxb.NffgType;
+import it.polito.dp2.NFFG.sol1.jaxb.ProviderCatType;
+import it.polito.dp2.NFFG.sol1.jaxb.ReachabilityPolicyType;
+import it.polito.dp2.NFFG.sol1.jaxb.TraversalPolicyType;
+
+public class MyTraversalPolicyReader extends MyReachablilityPolicyReader {
+
+	private TraversalPolicyType traversal_r;
+	private ProviderCatType providerCat_r;
+	private Set<FunctionalType> traversal_functional;
+	
+
+	public MyTraversalPolicyReader(NffgType nffg, TraversalPolicyType traversal_policy_r) {
+		super(nffg, traversal_policy_r);
+	}
+
+	@Override
+	public Set<FunctionalType> getTraversedFuctionalTypes() {
+		
+		Set<FunctionalType> read_travers_list = ((TraversalPolicyReader) reacability_policy_r).getTraversedFuctionalTypes();
+			for (FunctionalType travers_r : read_travers_list) {
+				((TraversalPolicyType) policyTmp).getTraversComponent().add(FuncType.fromValue(travers_r.name()));
+				// ((TraversalPolicyType) policyTmp).se.add(traversalTmp);
+			}
+		
+		
+		
+		return null;
+	}
+
+}

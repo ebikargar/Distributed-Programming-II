@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<item value="0" key="ant.properties.block.property.sortColumn"/>
+	<item value="1024" key="ant.properties.block.property.sortDirection"/>
+	<item value="76" key="ant.properties.block.property.columnWidth2"/>
+	<item value="167" key="ant.properties.block.property.columnWidth0"/>
+	<item value="655" key="ant.properties.block.property.columnWidth1"/>
+	<section name="org.eclipse.ant.internal.ui.views.AntView">
+		<item value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&#x0D;&#x0A;&lt;antView&gt;&#x0D;&#x0A;&lt;project default=&quot;build&quot; error=&quot;false&quot; name=&quot;NFFG-1&quot; path=&quot;/Assignment1b/build.xml&quot;/&gt;&#x0D;&#x0A;&lt;filterInternalTargets value=&quot;false&quot;/&gt;&#x0D;&#x0A;&lt;/antView&gt;" key="memento"/>
+	</section>
+</section>

@@ -1,0 +1,200 @@
+package it.polito.dp2.NFFG.sol1;
+
+import it.polito.dp2.NFFG.*;
+import it.polito.dp2.NFFG.sol1.jaxb.LinksType;
+import it.polito.dp2.NFFG.sol1.jaxb.NffgType;
+import it.polito.dp2.NFFG.sol1.jaxb.NffgVerifierType;
+import it.polito.dp2.NFFG.sol1.jaxb.NodeType;
+import it.polito.dp2.NFFG.sol1.jaxb.PolicyType;
+import it.polito.dp2.NFFG.sol1.jaxb.ProviderCatType;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.PrintStream;
+import java.math.BigInteger;
+import java.net.MalformedURLException;
+import java.util.*;
+
+import javax.xml.bind.JAXBContext;
+import javax.xml.bind.JAXBElement;
+import javax.xml.bind.JAXBException;
+import javax.xml.bind.Marshaller;
+import javax.xml.datatype.DatatypeConfigurationException;
+import javax.xml.datatype.DatatypeFactory;
+import javax.xml.datatype.XMLGregorianCalendar;
+import javax.xml.validation.Schema;
+import javax.xml.validation.SchemaFactory;
+
+import org.xml.sax.SAXException;
+
+public class NffgInfoSerializer {
+
+	private static it.polito.dp2.NFFG.sol1.jaxb.NffgVerifierType monitorType;
+
+	private static NffgVerifier monitor;
+	private static final String SCHEMA_FILE = "xsd" + File.separatorChar + "nffgInfo.xsd";
+	private static final String SCHEMA_LOCATION = "http://www.example.org/nffgInfo nffgInfo.xsd";
+
+	public NffgInfoSerializer() throws NffgVerifierException {
+		it.polito.dp2.NFFG.NffgVerifierFactory factory = it.polito.dp2.NFFG.NffgVerifierFactory.newInstance();
+		monitor = factory.newNffgVerifier();
+	}
+
+	public static void main(String[] arg) throws SAXException {
+
+		try {
+			// NffgInfoSerializer NffgInfoSerializerObj = new
+			// NffgInfoSerializer();
+			monitorType = new it.polito.dp2.NFFG.sol1.jaxb.NffgVerifierType();
+
+			// Read list of Nffg
+			List<it.polito.dp2.NFFG.sol1.jaxb.NffgType> nffg_List = monitorType.getNffg();
+			for (NffgReader nffg_r : monitor.getNffgs()) {
+				nffg_List.add(createNffg(nffg_r));
+			}
+			for (PolicyReader policy : monitor.getPolicies()) {
+				String nffg_name = policy.getNffg().getName();
+				for (it.polito.dp2.NFFG.sol1.jaxb.NffgType nffgType : nffg_List)
+					if (nffgType.getNffgName().equals(nffg_name))
+						nffgType.getPolicy().add(createPolicy(policy));
+			}
+
+			JAXBContext jct = JAXBContext.newInstance("it.polito.dp2.NFFG.sol1.jaxb");
+			JAXBElement<it.polito.dp2.NFFG.sol1.jaxb.NffgVerifierType> mElement = (new it.polito.dp2.NFFG.sol1.jaxb.ObjectFactory())
+					.createNffgVerifier(monitorType);
+			Marshaller m = jct.createMarshaller();
+			m.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
+			m.marshal(mElement, new FileOutputStream(arg[0]));
+			m.marshal(mElement, new PrintStream(System.out));
+
+		} catch (JAXBException e) {
+			System.out.println("JAXBException: " + e.getMessage());
+			e.printStackTrace();
+			System.exit(1);
+		} catch (NffgVerifierException e) {
+			System.out.println("NffgVerifierException: " + e.getMessage());
+			e.printStackTrace();
+			System.exit(1);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	// create Nffg Element
+	private static NffgType createNffg(NffgReader nffg_r) {
+		// TODO Auto-generated method stub
+		it.polito.dp2.NFFG.sol1.jaxb.NffgType nffgType = new it.polito.dp2.NFFG.sol1.jaxb.NffgType();
+
+		nffgType.setNffgName(nffg_r.getName());
+		nffgType.setUpTime(convertDate(nffg_r.getUpdateTime()));
+
+		List<it.polito.dp2.NFFG.sol1.jaxb.NodeType> node_list = nffgType.getNode();
+		List<it.polito.dp2.NFFG.sol1.jaxb.LinksType> link_list = nffgType.getLinks();
+		for (NodeReader node_r : nffg_r.getNodes()) {
+			node_list.add(createNode(node_r));
+
+			for (LinkReader link : node_r.getLinks()) {
+				link_list.add(createLinks(link));
+			}
+		}
+
+		return nffgType;
+	}
+
+	// Create node element
+	private static NodeType createNode(NodeReader node_r) {
+
+		it.polito.dp2.NFFG.sol1.jaxb.NodeType nodeType = new it.polito.dp2.NFFG.sol1.jaxb.NodeType();
+		nodeType.setNodeName(node_r.getName());
+		nodeType.setLinkName(node_r.getName());
+
+		// Create providerCat element
+		it.polito.dp2.NFFG.sol1.jaxb.ProviderCatType providerCat = new it.polito.dp2.NFFG.sol1.jaxb.ProviderCatType();
+		it.polito.dp2.NFFG.sol1.jaxb.FuncType funcTypeStatus;
+		switch (node_r.getFuncType()) {
+		case FW:
+			funcTypeStatus = it.polito.dp2.NFFG.sol1.jaxb.FuncType.FW;
+			break;
+		case DPI:
+			funcTypeStatus = it.polito.dp2.NFFG.sol1.jaxb.FuncType.DPI;
+			break;
+		case NAT:
+			funcTypeStatus = it.polito.dp2.NFFG.sol1.jaxb.FuncType.NAT;
+			break;
+		case SPAM:
+			funcTypeStatus = it.polito.dp2.NFFG.sol1.jaxb.FuncType.SPAM;
+			break;
+		case CACHE:
+			funcTypeStatus = it.polito.dp2.NFFG.sol1.jaxb.FuncType.CACHE;
+			break;
+		case VPN:
+			funcTypeStatus = it.polito.dp2.NFFG.sol1.jaxb.FuncType.VPN;
+			break;
+		case WEB_SERVER:
+			funcTypeStatus = it.polito.dp2.NFFG.sol1.jaxb.FuncType.WEB_SERVER;
+			break;
+		case WEB_CLIENT:
+			funcTypeStatus = it.polito.dp2.NFFG.sol1.jaxb.FuncType.WEB_CLIENT;
+			break;
+		case MAIL_SERVER:
+			funcTypeStatus = it.polito.dp2.NFFG.sol1.jaxb.FuncType.MAIL_SERVER;
+			break;
+		case MAIL_CLIENT:
+			funcTypeStatus = it.polito.dp2.NFFG.sol1.jaxb.FuncType.MAIL_CLIENT;
+			break;
+
+		default:
+			funcTypeStatus = it.polito.dp2.NFFG.sol1.jaxb.FuncType.FW;
+		}
+		providerCat.setFuncType(funcTypeStatus);
+
+		return nodeType;
+	}
+
+	// Create link element
+	private static LinksType createLinks(LinkReader link_r) {
+		it.polito.dp2.NFFG.sol1.jaxb.LinksType linksType = new it.polito.dp2.NFFG.sol1.jaxb.LinksType();
+		
+		linksType.setLinkName(link_r.getName());
+		linksType.getSrcNode();
+		linksType.getDestNode();
+		
+		return linksType;
+	}
+
+	// Create policy element
+	private static PolicyType createPolicy(PolicyReader policy_r) {
+		it.polito.dp2.NFFG.sol1.jaxb.PolicyType policyType = new it.polito.dp2.NFFG.sol1.jaxb.PolicyType();
+		
+		policyType.setPolicyName(policy_r.getName());
+		policyType.setNffgName(policy_r.getNffg().getName());
+		policyType.setIsPositive(policy_r.isPositive());
+		
+		policyType.setSrcNode(policy_r.getNffg().get;
+		policyType.setDestNode(policy_r.getNffg().getNode(policy_r.getNffg().getNode()));
+		
+		it.polito.dp2.NFFG.sol1.jaxb.ResultType resultType = new it.polito.dp2.NFFG.sol1.jaxb.ResultType();
+		policyType.setVerificationResult(policy_r.getResult());
+		
+		List<it.polito.dp2.NFFG.sol1.jaxb.ProviderCatType> providerCat_list = policyType.getTraversComponent();
+	      //how we should get them here
+	
+		
+		return policyType;
+	}
+
+	private static XMLGregorianCalendar convertDate(Calendar calendar) {
+		try {
+			GregorianCalendar gregorianCalendar = new GregorianCalendar();
+			gregorianCalendar.setTime(calendar.getTime());
+			gregorianCalendar.setTimeZone(calendar.getTimeZone());
+			return DatatypeFactory.newInstance().newXMLGregorianCalendar(gregorianCalendar);
+		} catch (DatatypeConfigurationException e) {
+			System.err.println("convertDate - DatatypeConfigurationException");
+			e.printStackTrace();
+			System.exit(1);
+			return null; // compiler warning
+		}
+	}
+}// end of Serializer

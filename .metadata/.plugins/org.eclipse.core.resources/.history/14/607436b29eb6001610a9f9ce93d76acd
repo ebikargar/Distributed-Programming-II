@@ -1,0 +1,48 @@
+package it.polito.dp2.NFFG.sol1;
+
+import javax.xml.datatype.XMLGregorianCalendar;
+
+import it.polito.dp2.NFFG.NffgReader;
+import it.polito.dp2.NFFG.PolicyReader;
+import it.polito.dp2.NFFG.VerificationResultReader;
+import it.polito.dp2.NFFG.sol1.jaxb.NffgType;
+import it.polito.dp2.NFFG.sol1.jaxb.PolicyType;
+
+public class MyPolicyReader implements PolicyReader{
+
+	// ------------ Policy Element-----------------------//
+	private String plicyName;
+	private NffgType nffg_r;
+	private VerificationResultReader verification_r;
+	private Boolean ispositive;
+	// ---------------------------------------------------------//
+		
+	public MyPolicyReader(NffgType nffg, PolicyType policy_r) {
+		
+	}
+
+	@Override
+	public String getName() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public NffgReader getNffg() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public VerificationResultReader getResult() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Boolean isPositive() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

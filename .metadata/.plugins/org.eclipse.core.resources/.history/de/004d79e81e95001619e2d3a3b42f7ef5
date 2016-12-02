@@ -1,0 +1,14 @@
+<!ELEMENT NffgVerifier (NF_FG|Nodes)*>
+
+
+<!ELEMENT NF_FG (Nodes*)>
+<!ATTLIST NF_FG  
+	Name NMTOKEN #REQUIRED>
+
+<!ELEMENT Nodes (NodeName,FunctionalType*)>
+<!ATTLIST NF_FG  
+	Name NMTOKEN #REQUIRED>
+
+
+
+

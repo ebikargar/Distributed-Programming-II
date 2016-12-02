@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<!DOCTYPE account SYSTEM "account.dtd">
+
+<account number="101998">
+  <holder name="Elia" address="Via dei Piopp1, 20"/>
+  <yearOperations year="2003">
+    <operation date="10/02/2003" amount="190.00">
+      <description> Payment </description>
+    </operation>
+  </yearOperations>
+</account>

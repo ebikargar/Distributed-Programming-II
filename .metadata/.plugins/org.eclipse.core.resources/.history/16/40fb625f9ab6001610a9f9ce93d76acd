@@ -1,0 +1,64 @@
+package it.polito.dp2.NFFG.sol1;
+
+import java.util.Calendar;
+import java.util.List;
+import java.util.Set;
+
+import javax.xml.datatype.XMLGregorianCalendar;
+
+import it.polito.dp2.NFFG.LinkReader;
+import it.polito.dp2.NFFG.PolicyReader;
+import it.polito.dp2.NFFG.ReachabilityPolicyReader;
+import it.polito.dp2.NFFG.VerificationResultReader;
+import it.polito.dp2.NFFG.sol1.jaxb.NffgType;
+import it.polito.dp2.NFFG.sol1.jaxb.PolicyType;
+import it.polito.dp2.NFFG.sol1.jaxb.ProviderCatType;
+
+public class MyVerificationResultReader implements VerificationResultReader {
+
+	// ------------ VerificationResult Element --------------------------------//
+	private PolicyReader polcicy_r;
+	private Boolean verification_r;
+	private String verification_r_msg;
+	private XMLGregorianCalendar verification_t;
+
+	// ---------------------------------------------------------//
+	
+	public MyVerificationResultReader(NffgType nffg , PolicyType policy_r) {
+		
+		this.polcicy_r = new MyPolicyReader(nffg, policy_r);
+		this.verification_r= policy_r.getVerificationResult().isVerificationResult();
+		this.verification_r_msg = policy_r.getVerificationResult().getVerificationMessage(); 
+		this.verification_t = policy_r.getVerificationResult().getVerificationTime();
+	}
+	
+	System.out.println("fileName: "+fileName);
+	
+	
+	
+	// ---------------------------------------------------------//
+	@Override
+	public PolicyReader getPolicy() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Boolean getVerificationResult() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String getVerificationResultMsg() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Calendar getVerificationTime() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

@@ -1,0 +1,25 @@
+package it.polito.dp2.NFFG.sol1;
+
+import java.util.Set;
+
+import it.polito.dp2.NFFG.FunctionalType;
+import it.polito.dp2.NFFG.NffgReader;
+import it.polito.dp2.NFFG.NodeReader;
+import it.polito.dp2.NFFG.TraversalPolicyReader;
+import it.polito.dp2.NFFG.VerificationResultReader;
+import it.polito.dp2.NFFG.sol1.jaxb.NffgType;
+import it.polito.dp2.NFFG.sol1.jaxb.ReachabilityPolicyType;
+
+public class MyTraversalPolicyReader extends MyReachablilityPolicyReader {
+
+	public MyTraversalPolicyReader(NffgType nffg, ReachabilityPolicyType reacability_policy_r) {
+		super(nffg, reacability_policy_r);
+	}
+
+	@Override
+	public Set<FunctionalType> getTraversedFuctionalTypes() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

@@ -1,0 +1,11 @@
+<!ELEMENT NffgVerifier (NF_FG|NodeReaders)*>
+
+
+
+<!ELEMENT NF_FG (Nodes*)>
+
+<!ELEMENT Nodes (Node*)>
+
+
+
+

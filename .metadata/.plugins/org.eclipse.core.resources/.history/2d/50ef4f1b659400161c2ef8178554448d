@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE NffgVerifier SYSTEM "assignment1a.dtd">
+
+<NffgVerifier>
+
+<NffgReader></NffgReader>
+<LinkReader>
+
+<NodeReader></NodeReader>
+
+<PolicyReader>
+<ReachabilityPolicyReader>
+<TraversalPolicyReader></TraversalPolicyReader>
+</ReachabilityPolicyReader>
+
+</PolicyReader>
+
+</LinkReader>
+<NamedEntityReader></NamedEntityReader>
+
+<NffgVerifierException></NffgVerifierException>
+<NffgVerifierFactory></NffgVerifierFactory>
+</NffgVerifier>

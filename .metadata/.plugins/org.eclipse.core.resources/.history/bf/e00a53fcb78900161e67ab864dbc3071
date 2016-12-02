@@ -1,0 +1,31 @@
+package greeting.hello;
+
+public class HelloWorld {
+	
+	private static int age=50;
+	
+	public static void main(String[] args)
+	{
+		System.out.println("Hellow World");
+		
+		int numero=6;
+		{
+			int age=30;
+		}
+		
+		int age=20;
+		String firstName= new String ("Ebiii");
+		firstName +=   " Kargar";
+		
+		System.out.println(firstName.indexOf('b'));
+		
+		
+		
+		numero+=age;
+		String name="Ebi";
+		boolean value=false;
+		System.out.println(3==3);
+		System.out.println(numero);
+		System.out.println(name);
+	}
+}

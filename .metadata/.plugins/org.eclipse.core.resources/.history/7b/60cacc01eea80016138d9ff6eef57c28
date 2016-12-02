@@ -1,0 +1,178 @@
+package it.polito.dp2.NFFG.sol1;
+
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
+import java.util.Set;
+
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
+
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.w3c.dom.Node;
+
+import it.polito.dp2.NFFG.LinkReader;
+import it.polito.dp2.NFFG.NffgReader;
+import it.polito.dp2.NFFG.NffgVerifier;
+import it.polito.dp2.NFFG.NffgVerifierException;
+import it.polito.dp2.NFFG.NffgVerifierFactory;
+import it.polito.dp2.NFFG.NodeReader;
+import it.polito.dp2.NFFG.PolicyReader;
+import it.polito.dp2.NFFG.VerificationResultReader;
+
+public class NffgInfoSerializer {
+
+	private NffgVerifier monitor;
+	private DateFormat dateFormat;
+	private Document doc;
+
+	/**
+	 * Default constructror
+	 * 
+	 * @throws NffgVerifierException
+	 */
+	public NffgInfoSerializer() throws NffgVerifierException {
+		NffgVerifierFactory factory = NffgVerifierFactory.newInstance();
+		monitor = factory.newNffgVerifier();
+		dateFormat = new SimpleDateFormat("dd/MM/yyyy hh:mm");
+	}
+
+	public NffgInfoSerializer(NffgVerifier monitor) {
+		super();
+		this.monitor = monitor;
+		dateFormat = new SimpleDateFormat("dd/MM/yyyy hh:mm");
+	}
+
+	private void build() throws ParserConfigurationException {
+		DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+		DocumentBuilder builder = factory.newDocumentBuilder();
+		doc = builder.newDocument();
+
+		Element rootTag = (Element) doc.createElement("nffgVerifier");
+		doc.appendChild(rootTag);
+
+		rootTag.appendChild(buildNffgs());
+
+		rootTag.appendChild(buildPolicies());
+
+	}
+
+	private Node buildPolicies() {
+		// TODO Auto-generated method stub
+		Element policySetTag = (Element) doc.createElement("policySet");
+		Set<PolicyReader> set = monitor.getPolicies();
+
+		for (PolicyReader pr : set) {
+			Element policyTag = (Element) doc.createElement("policy");
+			policySetTag.appendChild(policyTag);
+
+			policyTag.setAttribute("policyName", pr.getName());
+			// policyTag.setIDAttribute("policyType", pr.isPositive());
+			policyTag.setAttribute("nffgName", pr.getNffg().getName());
+			policyTag.setIdAttribute("verificationResult", pr.isPositive());
+
+			// policyTag.setAttribute("srcNode", pr.getName(srcNode));
+			// policyTag.setAttribute("srcNode", pr.getName()); destNode
+
+		}
+		return null;
+	}
+
+	private Node buildNffgs() {
+		// TODO Auto-generated method stub
+		Element nffgSetTag = (Element) doc.createElement("nffgSet");
+		Set<NffgReader> set = monitor.getNffgs();
+		
+		
+		for (NffgReader nffg_r: set) {
+			Element nffgTag = (Element) doc.createElement("nffg");
+			nffgSetTag.appendChild(nffgTag);
+
+			//GregorianCalendar updateTime = nffg_r.getUpdateTime();
+			Calendar updateTime = nffg_r.getUpdateTime();
+			nffgTag.setAttribute("upTime", dateFormat.format(updateTime));
+			nffgTag.setAttribute("nffgName", nffg_r.getName());
+			
+			//get the nodes
+			Set<NodeReader> nodeSet = nffg_r.getNodes();
+			Element nodeSetTag = (Element) doc.createElement("nodeSet");
+			
+			for (NodeReader nr: nodeSet) {
+				Element nodeTag = (Element) doc.createElement("node");
+				nodeSetTag.appendChild(nodeTag);
+			
+				nodeTag.setAttribute("nodeName",nr.getName());
+				
+				Set<LinkReader> linkSet = nr.getLinks();
+				Element linkSetTag = (Element) doc.createElement("linkSet");
+				nodeTag.appendChild(linkSetTag);
+				
+				for (LinkReader lr: linkSet) {
+					Element linkTag = (Element) doc.createElement("link");
+					linkSetTag.appendChild(linkTag);
+					
+					linkTag.setAttribute("srcNode", lr.getSourceNode().getName());
+					linkTag.setAttribute("destNode", lr.getDestinationNode().getName());
+
+					
+					
+					
+				}
+					
+		}
+			
+			
+			
+		
+		
+		
+		
+		
+		
+		return null;
+	}
+
+	public static void main(String[] args)
+			throws NffgVerifierException, ParserConfigurationException, TransformerException, FileNotFoundException {
+		NffgInfoSerializer f = null;
+
+		try {
+			f = new NffgInfoSerializer();
+			f.printall(args[0]);
+		} catch (NffgVerifierException e) {
+			System.err.println("Could not instantiate flight monitor object");
+			throw e;
+		}
+
+		try {
+			f.build();
+		} catch (ParserConfigurationException e) {
+			System.err.println("Could not locate a JAXP DocumentBuilder class");
+			throw e;
+		}
+
+		try {
+			f.serialize(args[0]);
+		} catch (TransformerException e) {
+			System.err.println("Serialization error");
+			throw e;
+		} catch (FileNotFoundException e) {
+			System.err.println("File not found exception");
+			throw e;
+		}
+	}
+
+	private void printall(String filename) {
+		// TODO Auto-generated method stub
+
+	}
+
+	private static String formatDate(GregorianCalendar calendar) {
+		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd z");
+		dateFormat.setTimeZone(calendar.getTimeZone());
+		return dateFormat.format(calendar.getTime());
+	}
+}

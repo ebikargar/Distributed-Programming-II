@@ -1,0 +1,55 @@
+package it.polito.dp2.NFFG.sol1;
+import java.util.Calendar;
+import java.util.Set;
+import javax.xml.datatype.XMLGregorianCalendar;
+
+
+import it.polito.dp2.NFFG.*;
+import it.polito.dp2.NFFG.sol1.jaxb.NffgType;
+
+public class MyNffgReader implements NffgReader {
+
+	private String nffgName;
+	private Calendar upTime;
+	private XMLGregorianCalendar upTimeTmp;
+	
+		
+	
+	public MyNffgReader (NffgType nffg) {
+		
+		this.nffgName = nffg.getNffgName();
+		this.upTimeTmp = nffg.getUpTime();
+		this.upTime = upTimeTmp.toGregorianCalendar();
+		
+		
+		
+		
+		
+	}
+	
+	@Override
+	public String getName() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public NodeReader getNode(String arg0) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Set<NodeReader> getNodes() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Calendar getUpdateTime() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	
+}

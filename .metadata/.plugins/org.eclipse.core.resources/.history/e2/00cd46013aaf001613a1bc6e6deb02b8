@@ -1,0 +1,175 @@
+package it.polito.dp2.NFFG.sol1;
+
+import it.polito.dp2.NFFG.*;
+import it.polito.dp2.NFFG.sol1.jaxb.LinksType;
+import it.polito.dp2.NFFG.sol1.jaxb.NffgType;
+import it.polito.dp2.NFFG.sol1.jaxb.NffgVerifierType;
+import it.polito.dp2.NFFG.sol1.jaxb.NodeType;
+import it.polito.dp2.NFFG.sol1.jaxb.ProviderCatType;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.PrintStream;
+import java.math.BigInteger;
+import java.net.MalformedURLException;
+import java.util.*;
+
+import javax.xml.bind.JAXBContext;
+import javax.xml.bind.JAXBElement;
+import javax.xml.bind.JAXBException;
+import javax.xml.bind.Marshaller;
+import javax.xml.datatype.DatatypeConfigurationException;
+import javax.xml.datatype.DatatypeFactory;
+import javax.xml.datatype.XMLGregorianCalendar;
+import javax.xml.validation.Schema;
+import javax.xml.validation.SchemaFactory;
+
+import org.xml.sax.SAXException;
+
+public class NffgInfoSerializer {
+
+	private static it.polito.dp2.NFFG.sol1.jaxb.NffgVerifierType monitorType;
+
+	private static NffgVerifier monitor;
+	private static final String SCHEMA_FILE = "xsd" + File.separatorChar + "nffgInfo.xsd";
+	private static final String SCHEMA_LOCATION = "http://www.example.org/nffgInfo nffgInfo.xsd";
+
+	public NffgInfoSerializer() throws NffgVerifierException {
+		it.polito.dp2.NFFG.NffgVerifierFactory factory = it.polito.dp2.NFFG.NffgVerifierFactory.newInstance();
+		monitor = factory.newNffgVerifier();
+	}
+
+	public static void main(String[] arg) throws SAXException {
+
+		try {
+			NffgInfoSerializer NffgInfoSerializerObj = new NffgInfoSerializer();
+			monitorType = new it.polito.dp2.NFFG.sol1.jaxb.NffgVerifierType();
+
+			// Read list of Nffg
+			List<it.polito.dp2.NFFG.sol1.jaxb.NffgType> nffg_List = monitorType.getNffg();
+			for (NffgReader nffg_r : monitor.getNffgs()) {
+				nffg_List.add(createNffg(nffg_r));
+
+			}
+			JAXBContext jct = JAXBContext.newInstance("it.polito.dp2.NFFG.sol1.jaxb");
+			JAXBElement<it.polito.dp2.NFFG.sol1.jaxb.NffgVerifierType> mElement = (new it.polito.dp2.NFFG.sol1.jaxb.ObjectFactory())
+					.createNffgVerifier(monitorType);
+			Marshaller m = jct.createMarshaller();
+			m.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
+			m.marshal(mElement, new FileOutputStream(arg[0]));
+			m.marshal(mElement, new PrintStream(System.out));
+
+		} catch (JAXBException e) {
+			System.out.println("JAXBException: " + e.getMessage());
+			e.printStackTrace();
+			System.exit(1);
+		} catch (NffgVerifierException e) {
+			System.out.println("NffgVerifierException: " + e.getMessage());
+			e.printStackTrace();
+			System.exit(1);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	// create Nffg Element
+	private static NffgType createNffg(NffgReader nffg_r) {
+		// TODO Auto-generated method stub
+		it.polito.dp2.NFFG.sol1.jaxb.NffgType nffgType = new it.polito.dp2.NFFG.sol1.jaxb.NffgType();
+
+		nffgType.setNffgName(nffg_r.getName());
+		nffgType.setUpTime(convertDate(nffg_r.getUpdateTime()));
+
+		List<it.polito.dp2.NFFG.sol1.jaxb.NodeType> node_list = nffgType.getNode();
+		for (NodeReader node_r : nffg_r.getNodes()) {
+			node_list.add(createNode(node_r));
+		}
+		
+		List<it.polito.dp2.NFFG.sol1.jaxb.LinksType> link_list = nffgType.getLinks();
+		for (LinkReader link : ) {
+			link_list.add(createLinks(link));
+		}
+		
+		List<it.polito.dp2.NFFG.sol1.jaxb.PolicyType> policy_list = nffgType.getPolicy();
+		for (PolicyReader policy : nffg_r  ) {
+			policy_list.add(createPolicy(policy));
+		}
+		
+		return nffgType;
+	}
+
+	// Create node element
+	private static NodeType createNode(NodeReader node_r) {
+
+		it.polito.dp2.NFFG.sol1.jaxb.NodeType nodeType = new it.polito.dp2.NFFG.sol1.jaxb.NodeType();
+		nodeType.setNodeName(node_r.getName());
+		nodeType.setLinkName(node_r.getName());
+
+		it.polito.dp2.NFFG.sol1.jaxb.ProviderCatType providerCat = nodeType.getProviderCat();
+
+		String fucnstatus;
+		switch (providerCat.getFuncType()) {
+		case FW:
+			fucnstatus = "FW";
+			break;
+		case DPI:
+			fucnstatus = "DPI";
+			break;
+		case NAT:
+			fucnstatus = "NAT";
+			break;
+		case SPAM:
+			fucnstatus = "SPAM";
+			break;
+		case CACHE:
+			fucnstatus = "CACHE";
+			break;
+		case VPN:
+			fucnstatus = "VPN";
+			break;
+		case WEB_SERVER:
+			fucnstatus = "WEB_SERVER";
+			break;
+		case WEB_CLIENT:
+			fucnstatus = "WEB_CLIENT";
+			break;
+		case MAIL_SERVER:
+			fucnstatus = "MAIL_SERVER";
+			break;
+		case MAIL_CLIENT:
+			fucnstatus = "MAIL_CLIENT";
+			break;
+
+		default:
+			fucnstatus = "FW"; // does it matter in this case ?!
+		}
+		return nodeType;
+	}
+
+	// Create link element
+	private static LinksType createLinks(LinkReader link) {
+		// TODO Auto-generated method stub
+		return linksType;
+	}
+
+	// Create policy element
+	private static PolicyType createPolicy(PolicyReader node) {
+
+		return policyType;
+	}
+
+	private static XMLGregorianCalendar convertDate(Calendar calendar) {
+		try {
+			GregorianCalendar gregorianCalendar = new GregorianCalendar();
+			gregorianCalendar.setTime(calendar.getTime());
+			gregorianCalendar.setTimeZone(calendar.getTimeZone());
+			return DatatypeFactory.newInstance().newXMLGregorianCalendar(gregorianCalendar);
+		} catch (DatatypeConfigurationException e) {
+			System.err.println("convertDate - DatatypeConfigurationException");
+			e.printStackTrace();
+			System.exit(1);
+			return null; // compiler warning
+		}
+	}
+}//end of serializer

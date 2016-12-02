@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://library.xml.dp2.polito.it" targetNamespace="http://library.xml.dp2.polito.it">
+    <include schemaLocation="../gen-schema/books.xsd"/>
+    <simpleType name="ISBNCode">
+    	<restriction base="string">
+    		<pattern value="[0-9]{13}"/> 
+   			<pattern value="[0-9]{9}([0-9]|X)"/>
+    	</restriction>
+    </simpleType>
+</schema>
