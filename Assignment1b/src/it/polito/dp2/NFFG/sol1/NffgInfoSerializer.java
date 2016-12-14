@@ -35,6 +35,7 @@ import org.xml.sax.SAXException;
 
 public class NffgInfoSerializer {
 
+	// ------------ NffgInfoSerializer --------------------------------//
 	ObjectFactory objFact = new ObjectFactory();
 	NffgVerifierType rootElement = objFact.createNffgVerifierType();
 	JAXBElement<NffgVerifierType> root = objFact.createNffgVerifier(rootElement);
@@ -42,6 +43,8 @@ public class NffgInfoSerializer {
 	private NffgVerifier monitor;
 	public static final String SCHEMA_FILE = "xsd" + File.separatorChar + "nffgInfo.xsd";
 	public static final String SCHEMA_LOCATION = "http://www.example.org/nffgInfo nffgInfo.xsd";
+
+	// ---------------------------------------------------------//
 
 	/**
 	 * Default constructor
@@ -57,6 +60,8 @@ public class NffgInfoSerializer {
 		super();
 		this.monitor = monitor;
 	}
+
+	// ---------------------------------------------------------//
 
 	public void marshaller(PrintStream filename) {
 		try {
@@ -86,6 +91,7 @@ public class NffgInfoSerializer {
 			e.printStackTrace();
 		}
 	}
+	// ---------------------------------------------------------//
 
 	public static void main(String[] arg) {
 
@@ -107,7 +113,7 @@ public class NffgInfoSerializer {
 
 	}
 
-	/////////////////////////////////////////////////////////////////////////////////////////////
+	// -------------------------NFFG Element--------------------------------//
 	private void createNffg() {
 
 		Set<NffgReader> read_nffg_List = monitor.getNffgs();
@@ -162,7 +168,7 @@ public class NffgInfoSerializer {
 
 	}
 
-	// Create node element
+	// -------------------------Node Element--------------------------------//
 	private NodeType createNode(NodeReader node_r) {
 
 		NodeType nodeTmp = objFact.createNodeType();
@@ -213,7 +219,7 @@ public class NffgInfoSerializer {
 		return nodeTmp;
 	}
 
-	// Create link element
+	// -------------------------Link Element--------------------------------//
 	private LinkType createLinks(LinkReader link_r) {
 		LinkType linkTmp = objFact.createLinkType();
 
@@ -223,7 +229,7 @@ public class NffgInfoSerializer {
 		return linkTmp;
 	}
 
-	// Create policy element
+	// -------------------------Policy Element--------------------------------//
 	private ReachabilityPolicyType createPolicy(PolicyReader policy_r) {
 		ReachabilityPolicyType policyTmp;
 		if (policy_r instanceof TraversalPolicyReader)
@@ -258,8 +264,7 @@ public class NffgInfoSerializer {
 		return policyTmp;
 	}
 
-	/////////////////////////////////////////////////////////////////////////////////////////
-
+	// -------------------------Convert Date--------------------------------//
 	private static XMLGregorianCalendar convertDate(Calendar calendar) {
 		try {
 			GregorianCalendar gregorianCalendar = new GregorianCalendar();

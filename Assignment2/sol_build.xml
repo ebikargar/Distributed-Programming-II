@@ -5,18 +5,18 @@
 		Ant script for assignment2
 	</description>
 
+	<!-- define wjc task (WADL to JAVA) -->
 	<taskdef name="wjc" classname="org.jvnet.ws.wadl2java.WJCTask">
 		<classpath>
 			<fileset dir="${lib.dir}" includes="*.jar" />
 		</classpath>
-
 	</taskdef>
+	
+	<!-- define client artifact generation path -->
 	<target name="generate-artifacts">
-
 		<mkdir dir="${gen.dir}" />
-		<wjc target="${gen.dir}" autoSchemaPackage="false"
-			package="it.polito.dp2.NFFG.sol2" description="${WADL}" />
-
+		<echo message="Compiling the descritption..." />
+		<wjc target="${gen.dir}" autoSchemaPackage="false" package="it.polito.dp2.NFFG.sol2" description="${WADL}" />
 	</target>
-	</project>
+</project>
 

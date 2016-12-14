@@ -17,12 +17,14 @@ public class MyNffgReader implements NffgReader {
 	private Calendar upTime;
 	private XMLGregorianCalendar upTimeTmp;
 	private Set<NodeReader> node_r_set;
+	private Set<LinkReader> link_r_set;
+
 	// ---------------------------------------------------------//
 
 	public MyNffgReader(NffgType nffg) {
 		if (nffg != null) {
-			this.nffgName = nffg.getNffgName();
 
+			this.nffgName = nffg.getNffgName();
 			this.upTimeTmp = nffg.getUpTime();
 			this.upTime = upTimeTmp.toGregorianCalendar();
 
@@ -33,11 +35,19 @@ public class MyNffgReader implements NffgReader {
 				this.node_r_set.add(node_r);
 
 			}
+
+			link_r_set = new HashSet<LinkReader>();
+			for (NodeReader node_r : node_r_set) {
+				for (LinkReader link_r : node_r.getLinks()) {
+					this.link_r_set.add(link_r);
+				}//do we need to set src/dest node of a link here??
+			}
+
 			System.out.println("MyNffgReader fulfilled Correctly");
 		}
 	}
 
-// ----------------------------------------------------------------------//
+	// ----------------------------------------------------------------------//
 
 	@Override
 	public String getName() {
@@ -54,7 +64,7 @@ public class MyNffgReader implements NffgReader {
 		// to check if the read node is the one on the set of nodes has been
 		// read
 		for (NodeReader node_r : node_r_set) {
-			if (node_r.equals(arg0)) {
+			if (node_r.getName().equals(arg0)) {
 				return node_r;
 			}
 		}

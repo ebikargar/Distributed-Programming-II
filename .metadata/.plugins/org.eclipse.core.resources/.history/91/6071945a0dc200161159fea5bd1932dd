@@ -1,0 +1,196 @@
+package it.polito.dp2.NFFG.sol2;
+
+import javax.ws.rs.ProcessingException;
+import javax.ws.rs.WebApplicationException;
+import javax.ws.rs.client.Client;
+import javax.ws.rs.client.ClientBuilder;
+import javax.ws.rs.client.Entity;
+import javax.ws.rs.client.WebTarget;
+import javax.ws.rs.core.Response;
+import java.net.URI;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Set;
+
+import it.polito.dp2.NFFG.LinkReader;
+import it.polito.dp2.NFFG.NffgReader;
+import it.polito.dp2.NFFG.NffgVerifier;
+import it.polito.dp2.NFFG.NodeReader;
+import it.polito.dp2.NFFG.lab2.NoGraphException;
+import it.polito.dp2.NFFG.lab2.ReachabilityTester;
+import it.polito.dp2.NFFG.lab2.ServiceException;
+import it.polito.dp2.NFFG.lab2.UnknownNameException;
+
+import javax.ws.rs.core.GenericType;
+import javax.ws.rs.core.Link;
+import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.UriBuilder;
+
+public class MyReachabilityTester implements ReachabilityTester {
+
+	private String url;
+	private NffgVerifier monitor;
+	String nffgName;
+	ObjectFactory objFact = new ObjectFactory();
+	WebTarget target;
+
+	public MyReachabilityTester(String url_address, NffgVerifier monitor) {
+
+		this.url = url_address;
+		this.monitor = monitor;
+
+		Client client = ClientBuilder.newClient();
+
+		// make the web targets
+		target = client.target(getBaseURI());
+		System.out.println("Client is Ready to invoke remote operations");
+
+	}
+
+	private static URI getBaseURI() {
+		return UriBuilder.fromUri("localhost:8080/Neo4JXML/rest/").build();
+	}
+
+	@Override
+	public void loadNFFG(String name) throws UnknownNameException, ServiceException {
+
+		NffgReader nffg_r = monitor.getNffg(name);
+		nffgName = nffg_r.getName();
+
+		Set<NodeReader> node_set = nffg_r.getNodes();
+		HashMap<String, String> hm = new HashMap<String, String>();
+
+		for (NodeReader node_r : node_set) {
+
+			Node node = objFact.createNode();
+			Property nodeProperty = objFact.createProperty();
+			nodeProperty.setName("name");
+			nodeProperty.setValue(node_r.getName());
+			node.getProperty().add(nodeProperty);
+
+			try {
+				Node request = target.path("resource/node/").request(MediaType.APPLICATION_XML)
+						.post(Entity.entity(Node, MediaType.APPLICATION_XML), Node.class);
+
+				List<Node> response = target.path("resource/node").request().accept(MediaType.APPLICATION_XML)
+						.get(new GenericType<List<Node>>() {
+						});
+				hm.put(node_r.getName(), request.id); // put name and id of node
+														// into hm
+			} catch (ProcessingException pe) {
+				System.out.println("Error during JAX-RS request processing");
+				pe.printStackTrace();
+			} catch (WebApplicationException wae) {
+				System.out.println("Server returned error");
+				wae.printStackTrace();
+			} catch (Exception e) {
+				System.out.println("Unexpected exception");
+				e.printStackTrace();
+			}
+		}
+
+		// get the id node from hashmap
+		for (NodeReader node_r : node_set) {
+			Set<LinkReader> link_set = node_r.getLinks();
+			Path link = objFact.createPath();
+
+			for (LinkReader link_r : link_set) {
+				Property linkProperty = objFact.createProperty();
+
+				linkProperty.setName("dstNode");
+				linkProperty.setValue(hm.get(link_r.getName()));// get the
+																// srcNode by id
+																// // from hm
+				link.setDstNode();
+				link.setSrcNode(value);
+
+				// instead of name we should get the id of node
+
+			}
+
+		}
+
+		WebTarget target;
+		try {
+
+			ObjectFactory objFact = new ObjectFactory();
+			Node xmlGetNode = objFact.createNode();
+
+			// extarct data from java object
+			System.out.println(" --------- First request completed --------- ");
+			System.out.println("Result of resolution of ");
+			printNode(xmlGetNode);
+
+		} catch (ProcessingException pe) {
+			System.out.println("Error during JAX-RS request processing");
+			pe.printStackTrace();
+		} catch (WebApplicationException wae) {
+			System.out.println("Server returned error");
+			wae.printStackTrace();
+		} catch (Exception e) {
+			System.out.println("Unexpected exception");
+			e.printStackTrace();
+		}
+	}
+
+	private void performGet(Node xmlGetNode) {
+		System.out.println();
+		System.out.println(" --- Performing a GET --- ");
+		List<Node> jsonResponse = target.path("localhost:8080/Neo4JXML/rest/resource/node/").request()
+				.accept(MediaType.APPLICATION_XML).get(new GenericType<List<Node>>() {
+				});// when we have a collection type we use GenericType
+	}
+
+	private void performpost(Node xmlGetNode) {
+		System.out.println();
+		System.out.println("--- Performing a Post node --- \n");
+		System.out.println(" min " + xmlGetNode.getId());
+		System.out.println(" max " + xmlGetNode.getLabels());
+
+		Node response = target.path("localhost:8080/Neo4JXML/rest/resource/node/").request(MediaType.APPLICATION_XML)
+				.post(Entity.entity(xmlGetNode, MediaType.APPLICATION_XML), Node.class);
+	}
+
+	// upload on neo4j ,the nodes and the links
+	// 1.
+	// first: append the resource
+	// append then nodes
+	// do DELETE localhost:8080/Neo4JXML/rest/resource/nodes,based ;
+
+	// second,for each node,create the node element and set property
+	// post on current endl point : localhost:8080/Neo4JXML/rest/resource/node
+
+	// do the same 3 step of work for loading the links
+	// you need store Id of the node from prveious step to be used here
+
+	// 3. store the name of nffg -->done
+
+	// private void printNode(Node xmlGetNode) {
+	//
+	// if (xmlGetNode != null)
+	// System.out.println("Node name is: " + xmlGetNode.getId());
+	// System.out.println("Node name is: " + xmlGetNode.getProperty());
+	// }
+
+	// here read the id of source and destination node from created hashmap and
+	// check reachability policy
+	@Override
+	public boolean testReachability(String srcName, String destName)
+			throws UnknownNameException, ServiceException, NoGraphException {
+		// call GET localhost:8080/Neo4JXML/rest/resource/node/0/paths?dst=2
+		List<Node> response = target.path("resource/node/0/paths?dst=2").request().accept(MediaType.APPLICATION_XML)
+				.get(new GenericType<List<Node>>() {
+				});
+		// (0=srcId,2=destId from previous step)
+		// check the number of path from src to dest, if it's >0 we return: true
+		// if there is no return false
+
+		return false;
+	}
+
+	@Override
+	public String getCurrentGraphName() {
+		return nffgName;
+	}
+
+}

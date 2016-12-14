@@ -23,7 +23,7 @@ public class MyNodeReader implements NodeReader {
 	public MyNodeReader(NodeType node_r, NffgType nffg) {
 		if (node_r != null) {
 			this.nodeName = node_r.getNodeName();
-			// this.provider_r = provider_r
+			//this.provider_r = node_r.getProviderCat();//??
 
 			LinksType links = nffg.getLinks();
 			for (LinkType link_r : links.getLink()) {
