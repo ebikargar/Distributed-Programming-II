@@ -55,10 +55,8 @@ public class MyReachabilityTester implements ReachabilityTester {
 	public void loadNFFG(String name) throws UnknownNameException, ServiceException {
 
 		NffgReader nffg_r = monitor.getNffg(name);
-		if (nffg_r == null) {
-			System.out.println("nffgName can't be retrieve correctly");
+		if (nffg_r == null)
 			throw new UnknownNameException();
-		}
 		nffgName = nffg_r.getName();
 
 		// Delete response each time
@@ -82,7 +80,7 @@ public class MyReachabilityTester implements ReachabilityTester {
 						.post(Entity.entity(node, MediaType.APPLICATION_XML), Node.class);
 
 				hm.put(node_r.getName(), request.id); // put name and id of node
-														// into the HashMap
+														// inside a hm
 			} catch (ProcessingException pe) {
 				System.out.println("Error during JAX-RS request processing");
 				pe.printStackTrace();

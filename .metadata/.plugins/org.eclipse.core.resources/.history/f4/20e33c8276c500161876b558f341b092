@@ -55,10 +55,8 @@ public class MyReachabilityTester implements ReachabilityTester {
 	public void loadNFFG(String name) throws UnknownNameException, ServiceException {
 
 		NffgReader nffg_r = monitor.getNffg(name);
-		if (nffg_r == null) {
-			System.out.println("nffgName can't be retrieve correctly");
+		if (nffg_r == null)
 			throw new UnknownNameException();
-		}
 		nffgName = nffg_r.getName();
 
 		// Delete response each time
@@ -68,7 +66,7 @@ public class MyReachabilityTester implements ReachabilityTester {
 			throw new ServiceException();
 		}
 
-		// Getting the nodes
+		// upload the nodes
 		Set<NodeReader> node_set = nffg_r.getNodes();
 		for (NodeReader node_r : node_set) {
 			Node node = objFact.createNode();
@@ -82,7 +80,7 @@ public class MyReachabilityTester implements ReachabilityTester {
 						.post(Entity.entity(node, MediaType.APPLICATION_XML), Node.class);
 
 				hm.put(node_r.getName(), request.id); // put name and id of node
-														// into the HashMap
+														// inside a hm
 			} catch (ProcessingException pe) {
 				System.out.println("Error during JAX-RS request processing");
 				pe.printStackTrace();
@@ -95,7 +93,7 @@ public class MyReachabilityTester implements ReachabilityTester {
 			}
 		}
 
-		// Getting the links
+		// Upload the links
 		for (NodeReader node_r : node_set) {
 			Set<LinkReader> link_set = node_r.getLinks();
 
@@ -137,7 +135,7 @@ public class MyReachabilityTester implements ReachabilityTester {
 		String srcId = hm.get(srcName);
 		String destId = hm.get(destName);
 		if (srcId == null || destId == null) {
-			System.out.println("Source || Destination Node can't be retrieve from HashMap correctly");
+			System.out.println("Source || Destination Node can't be retrieve from hm correctly");
 			throw new UnknownNameException();
 		}
 

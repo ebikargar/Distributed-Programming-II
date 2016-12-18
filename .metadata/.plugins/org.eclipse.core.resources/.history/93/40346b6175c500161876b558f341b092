@@ -55,10 +55,8 @@ public class MyReachabilityTester implements ReachabilityTester {
 	public void loadNFFG(String name) throws UnknownNameException, ServiceException {
 
 		NffgReader nffg_r = monitor.getNffg(name);
-		if (nffg_r == null) {
-			System.out.println("nffgName can't be retrieve correctly");
+		if (nffg_r == null)
 			throw new UnknownNameException();
-		}
 		nffgName = nffg_r.getName();
 
 		// Delete response each time
@@ -67,8 +65,8 @@ public class MyReachabilityTester implements ReachabilityTester {
 			System.out.println("Error in deleting response...");
 			throw new ServiceException();
 		}
-
-		// Getting the nodes
+		
+		// upload the nodes
 		Set<NodeReader> node_set = nffg_r.getNodes();
 		for (NodeReader node_r : node_set) {
 			Node node = objFact.createNode();
@@ -82,7 +80,7 @@ public class MyReachabilityTester implements ReachabilityTester {
 						.post(Entity.entity(node, MediaType.APPLICATION_XML), Node.class);
 
 				hm.put(node_r.getName(), request.id); // put name and id of node
-														// into the HashMap
+														// inside a hm
 			} catch (ProcessingException pe) {
 				System.out.println("Error during JAX-RS request processing");
 				pe.printStackTrace();
@@ -95,7 +93,7 @@ public class MyReachabilityTester implements ReachabilityTester {
 			}
 		}
 
-		// Getting the links
+		// Upload the links
 		for (NodeReader node_r : node_set) {
 			Set<LinkReader> link_set = node_r.getLinks();
 
@@ -129,28 +127,21 @@ public class MyReachabilityTester implements ReachabilityTester {
 	public boolean testReachability(String srcName, String destName)
 			throws UnknownNameException, ServiceException, NoGraphException {
 
-		if (nffgName == null) {
-			System.out.println("nffgName can't be  retrieve correctly");
+		if (nffgName == null)
 			throw new NoGraphException();
-		}
 
 		String srcId = hm.get(srcName);
 		String destId = hm.get(destName);
-		if (srcId == null || destId == null) {
-			System.out.println("Source || Destination Node can't be retrieve from HashMap correctly");
+		if (srcId == null || destId == null)
 			throw new UnknownNameException();
-		}
 
 		try {
 			Paths pathResp = target.path("resource/node/" + srcId + "/paths").queryParam("dst", destId).request()
 					.accept(MediaType.APPLICATION_XML).get(Paths.class);
-			if (pathResp.getPath().size() > 0) {
-				System.out.println("Path response Successfully retrieved");
+			if (pathResp.getPath().size() > 0)
 				return true;
-			} else {
-				System.out.println("Path response can't be retrieve correctly");
+			else
 				return false;
-			}
 		} catch (ProcessingException pe) {
 			System.out.println("Error during JAX-RS request processing");
 			pe.printStackTrace();
@@ -170,7 +161,7 @@ public class MyReachabilityTester implements ReachabilityTester {
 		if (nffgName != null)
 			return nffgName;
 		else {
-			System.out.println("Can't fill getCurrentGraphNamerg object");
+			System.out.println("Can't fill getCurrentGraphNamerg object);");
 			return null;
 		}
 	}
