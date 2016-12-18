@@ -7,8 +7,11 @@ import it.polito.dp2.NFFG.lab2.ReachabilityTesterException;
 
 public class ReachabilityTesterFactory extends it.polito.dp2.NFFG.lab2.ReachabilityTesterFactory {
 
+	// ------------ ReachabilityTesterFactory --------------------------------//
 	private NffgVerifier monitor;
+	// ----------------------------------------------------------------//
 
+	// ----------------------------------------------------------------//
 	@Override
 	public ReachabilityTester newReachabilityTester() throws ReachabilityTesterException {
 
@@ -16,11 +19,12 @@ public class ReachabilityTesterFactory extends it.polito.dp2.NFFG.lab2.Reachabil
 		try {
 			monitor = factory.newNffgVerifier();
 		} catch (NffgVerifierException e) {
+			System.out.println("NffgVerifierException: Error during NffgVerifier");
 			e.printStackTrace();
 		}
-		
-		String Url_address = System.getProperty("it.polito.dp2.NFFG.lab2.URL");			
-		return new MyReachabilityTester(Url_address,monitor);
+
+		String Url_address = System.getProperty("it.polito.dp2.NFFG.lab2.URL");
+		return new MyReachabilityTester(Url_address, monitor);
 	}
 
 }

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://pad.polito.it/accountRESTSchema" xmlns:tns="http://pad.polito.it/accountRESTSchema">
+
+<element name="Nffg" type="tns:NffgType"/> <!--these global element refere to the name we put in table-->
+<element name="operation" type="tns:operationType"/>
+<element name="amount" type="decimal"/>
+<element name="reason" type="tns:reasonType"/>
+
+<complexType name="NffgType">
+	<sequence>
+		<element name="balance" type="decimal"/>
+		<element name="holder" type="string" maxOccurs="unbounded"/>
+	</sequence>
+	<attribute name="id" type="string"/>
+</complexType>
+
+<complexType name="operationType">
+	<sequence>
+		<choice>
+			<element name="deposit" type="tns:depositType"/>
+			<element name="withdrawal" type="tns:withdrawalType"/>
+		</choice>
+		<element name="amount" type="decimal"/>
+		<element name="description" type="string"/>
+	</sequence>
+	<attribute name="transId" type="string"/>
+</complexType>
+
+<complexType name="depositType">
+</complexType>
+
+<complexType name="withdrawalType">
+	<attribute name="reducible" type="boolean"/>
+</complexType>
+
+<simpleType name="reasonType">
+	<restriction base="string">
+		<enumeration value="Replicated Transaction Id"/>
+		<enumeration value="Requested Amount Unavailable"/>
+	</restriction>
+</simpleType>
+
+</schema>

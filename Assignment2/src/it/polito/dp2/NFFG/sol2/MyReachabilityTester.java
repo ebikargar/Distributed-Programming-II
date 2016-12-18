@@ -28,12 +28,14 @@ import javax.ws.rs.core.UriBuilder;
 
 public class MyReachabilityTester implements ReachabilityTester {
 
+	// ------------ ReachabilityTester --------------------------------//
 	private String url;
 	private NffgVerifier monitor;
 	String nffgName;
 	ObjectFactory objFact = new ObjectFactory();
 	WebTarget target;
 	HashMap<String, String> hm = new HashMap<String, String>();
+	// ----------------------------------------------------------------//
 
 	public MyReachabilityTester(String url_address, NffgVerifier monitor) {
 
@@ -47,21 +49,23 @@ public class MyReachabilityTester implements ReachabilityTester {
 		System.out.println("Client is ready to invoke remote operations");
 	}
 
+	// ----------------------------------------------------------------//
+
 	@Override
 	public void loadNFFG(String name) throws UnknownNameException, ServiceException {
 
 		NffgReader nffg_r = monitor.getNffg(name);
-
 		if (nffg_r == null)
 			throw new UnknownNameException();
 		nffgName = nffg_r.getName();
 
-		Set<NodeReader> node_set = nffg_r.getNodes();
-
+		// Delete response each time
 		Response delRes = target.path("resource/nodes/").request(MediaType.APPLICATION_XML).delete();
 		if (delRes.getStatus() != 200)
 			throw new ServiceException();
 
+		// upload the nodes
+		Set<NodeReader> node_set = nffg_r.getNodes();
 		for (NodeReader node_r : node_set) {
 			Node node = objFact.createNode();
 			Property nodeProperty = objFact.createProperty();
@@ -87,10 +91,10 @@ public class MyReachabilityTester implements ReachabilityTester {
 			}
 		}
 
-		// get the id node from hashmap
+		// Upload the links
 		for (NodeReader node_r : node_set) {
 			Set<LinkReader> link_set = node_r.getLinks();
-			
+
 			for (LinkReader link_r : link_set) {
 				Relationship link = objFact.createRelationship();
 				link.setDstNode(hm.get(link_r.getDestinationNode().getName()));
@@ -116,6 +120,7 @@ public class MyReachabilityTester implements ReachabilityTester {
 		}
 	}
 
+	// Test reachability of src & dest Node
 	@Override
 	public boolean testReachability(String srcName, String destName)
 			throws UnknownNameException, ServiceException, NoGraphException {
@@ -148,6 +153,7 @@ public class MyReachabilityTester implements ReachabilityTester {
 		return false;
 	}
 
+	// Return name of the graph
 	@Override
 	public String getCurrentGraphName() {
 		return nffgName;
