@@ -4,25 +4,24 @@ import it.polito.dp2.NFFG.NffgReader;
 import it.polito.dp2.NFFG.PolicyReader;
 import it.polito.dp2.NFFG.VerificationResultReader;
 import it.polito.dp2.NFFG.sol1.jaxb.NffgType;
-import it.polito.dp2.NFFG.sol1.jaxb.ReachabilityPolicyType;
-//import it.polito.dp2.NFFG.sol1.jaxb.PolicyType;
+import it.polito.dp2.NFFG.sol1.jaxb.ResultType;
 
 public class MyPolicyReader implements PolicyReader {
 
 	// ------------ Policy Element-----------------------//
 	private String plicyName;
-	private NffgReader policy_nffg_r;
-	private VerificationResultReader policy_verification_r;
-	private Boolean policy_isPositive;
+	protected NffgReader policy_nffg_r;
+	protected VerificationResultReader policy_verification_r;
+	protected Boolean policy_isPositive;
 	// ---------------------------------------------------------//
 
-	public MyPolicyReader(NffgType nffg, ReachabilityPolicyType policy_r) {
-		if (policy_r != null) {
-			this.plicyName = policy_r.getPolicyName();
-			this.policy_nffg_r = new MyNffgReader(nffg);
-			this.policy_verification_r = new MyVerificationResultReader(nffg, policy_r);
-			this.policy_isPositive = policy_r.isIsPositive();
-		}
+	public MyPolicyReader(NffgType nffg, String policyName, Boolean isPositive, ResultType verification_result_r,
+			NffgReader policy_nffg_r) {
+		this.plicyName = policyName;
+		this.policy_nffg_r = policy_nffg_r;
+		if (verification_result_r != null)
+			this.policy_verification_r = new MyVerificationResultReader(nffg, verification_result_r, this);
+		this.policy_isPositive = isPositive;
 		System.out.println("MyPolicyReader fulfilled Correctly");
 	}
 	// ---------------------------------------------------------//

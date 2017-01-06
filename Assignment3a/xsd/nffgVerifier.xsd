@@ -1,43 +1,52 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://pad.polito.it/accountRESTSchema" xmlns:tns="http://pad.polito.it/accountRESTSchema">
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://pad.polito.it/accountRESTSchema"
+	xmlns:tns="http://pad.polito.it/accountRESTSchema">
 
-<element name="Nffg" type="tns:NffgType"/> <!--these global element refere to the name we put in table-->
-<element name="operation" type="tns:operationType"/>
-<element name="amount" type="decimal"/>
-<element name="reason" type="tns:reasonType"/>
+	<element name="Nffgs" type="tns:NffgsType" /> <!--these global element refer to the name we put in table -->
+	<element name="Policies" type="tns:PoliciesType" />
 
-<complexType name="NffgType">
-	<sequence>
-		<element name="balance" type="decimal"/>
-		<element name="holder" type="string" maxOccurs="unbounded"/>
-	</sequence>
-	<attribute name="id" type="string"/>
-</complexType>
+	<complexType name="NffgsType">
+		<sequence>
+			<element name="Nffg" type="decimal" />
+		</sequence>
+		<attribute name="upTime" type="tns:myStringType" />
+	</complexType>
 
-<complexType name="operationType">
-	<sequence>
-		<choice>
-			<element name="deposit" type="tns:depositType"/> <!-- we can use choice approach to select one of these -->
-			<element name="withdrawal" type="tns:withdrawalType"/>
-		</choice>
-		<element name="amount" type="decimal"/>
-		<element name="description" type="string"/>
-	</sequence>
-	<attribute name="transId" type="string"/>
-</complexType>
+	<complexType name="PoliciesType">
+		<sequence>
+			<element name="reachabilityPolicy" type="tns:reachabilityPolicyType" />
+		</sequence>
+		<attribute name="upTime" type="tns:myStringType" />
+	</complexType>
 
-<complexType name="depositType">
-</complexType>
+	<complexType name="reachabilityPolicyType">
+		<sequence>
+			<element name="srcNode" type="tns:myStringType" />
+			<element name="destNode" type="tns:myStringType" />
+			<element name="isPositive" type="boolean" />
+			<element name="verificationResult" type="tns:resultType"
+				minOccurs="0" />
+		</sequence>
+		<attribute name="policyName" type="tns:myStringType" use="required"></attribute>
+	</complexType>
+	<complexType name="resultType">
+		<sequence>
+			<element name="verificationTime" type="dateTime" minOccurs="0" />
+			<element name="verificationMessage" type="string" minOccurs="0" />
+			<element name="verificationResult" type="boolean" minOccurs="0" />
+		</sequence>
+	</complexType>
 
-<complexType name="withdrawalType">
-	<attribute name="reducible" type="boolean"/>
-</complexType>
+	<simpleType name="verfificationResultType">
+		<restriction base="string">
+			<enumeration value="Replicated Transaction Id" />
+			<enumeration value="Requested Amount Unavailable" />
+		</restriction>
+	</simpleType>
 
-<simpleType name="reasonType">
-	<restriction base="string">
-		<enumeration value="Replicated Transaction Id"/>
-		<enumeration value="Requested Amount Unavailable"/>
-	</restriction>
-</simpleType>
-
+	<simpleType name="myStringType">
+		<restriction base="string">
+			<pattern value="([a-zA-Z][a-zA-Z0-9]*)"></pattern>
+		</restriction>
+	</simpleType>
 </schema>

@@ -3,8 +3,6 @@ package it.polito.dp2.NFFG.sol1;
 import it.polito.dp2.NFFG.*;
 import it.polito.dp2.NFFG.sol1.jaxb.LinkType;
 import it.polito.dp2.NFFG.sol1.jaxb.NffgType;
-import it.polito.dp2.NFFG.sol1.jaxb.NodeType;
-import it.polito.dp2.NFFG.sol1.jaxb.NodesType;
 
 public class MyLinkReader implements LinkReader {
 
@@ -13,24 +11,12 @@ public class MyLinkReader implements LinkReader {
 	private NodeReader srcNode, destNode;
 	// ---------------------------------------------------------//
 
-	public MyLinkReader(NffgType nffg, LinkType link_r) {
+	public MyLinkReader(NffgType nffg, LinkType link_r, NodeReader srcNode_parameter, NodeReader destNode_parameter) {
 
 		if (link_r != null) {
 			this.linkName = link_r.getLinkName();
-
-			NodesType nodes = new NodesType();
-			nodes = nffg.getNodes();
-			for (NodeType node_r : nodes.getNode()) {
-				String nodeName;
-				nodeName = node_r.getNodeName();
-
-				if (nodeName.equals(link_r.getSrcNode()))
-					this.srcNode = new MyNodeReader(node_r, nffg);
-				else if (nodeName.equals(link_r.getDestNode()))
-					this.destNode = new MyNodeReader(node_r, nffg);
-				else
-					System.out.println("Node is not recognized");
-			}
+			this.srcNode = srcNode_parameter;
+			this.destNode = destNode_parameter;
 			System.out.println("My LinkReader fulfilled Correctly");
 		}
 

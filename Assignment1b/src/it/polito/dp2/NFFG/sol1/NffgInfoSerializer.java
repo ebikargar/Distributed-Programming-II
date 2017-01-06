@@ -16,7 +16,6 @@ import it.polito.dp2.NFFG.sol1.jaxb.TraversalPolicyType;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.PrintStream;
 import java.util.*;
 
@@ -27,7 +26,6 @@ import javax.xml.bind.Marshaller;
 import javax.xml.datatype.DatatypeConfigurationException;
 import javax.xml.datatype.DatatypeFactory;
 import javax.xml.datatype.XMLGregorianCalendar;
-import javax.xml.validation.Schema;
 import javax.xml.validation.SchemaFactory;
 import static javax.xml.XMLConstants.W3C_XML_SCHEMA_NS_URI;
 
@@ -213,7 +211,7 @@ public class NffgInfoSerializer {
 			funcTypeStatus = it.polito.dp2.NFFG.sol1.jaxb.FuncType.FW;
 		}
 
-		providerCat.getFuncType().add(FuncType.fromValue(funcTypeStatus.value()));
+		providerCat.setFuncType((FuncType.fromValue(funcTypeStatus.value())));
 		nodeTmp.setProviderCat(providerCat);
 
 		return nodeTmp;

@@ -1,0 +1,174 @@
+package it.polito.dp2.NFFG.lab1.tests;
+
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
+
+import org.junit.Before;
+import org.junit.BeforeClass;
+import org.junit.Test;
+
+import it.polito.dp2.NFFG.*;
+
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Comparator;
+import java.util.Iterator;
+import java.util.Set;
+import java.util.TreeSet;
+
+
+public class NFFGTests {
+	DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy hh:mm");
+    
+    class NamedEntityReaderComparator implements Comparator<NamedEntityReader> {
+        public int compare(NamedEntityReader f0, NamedEntityReader f1) {
+        	return f0.getName().compareTo(f1.getName());
+        }
+    }
+    
+	private static NffgVerifier referenceNffgVerifier;	// reference data generator
+	private static NffgVerifier testNffgVerifier;		// implementation under test
+	private static long testcase;
+	
+    @BeforeClass
+    public static void setUpBeforeClass() throws Exception {
+    	// Create reference data generator
+        System.setProperty("it.polito.dp2.NFFG.NffgVerifierFactory", "it.polito.dp2.NFFG.Random.NffgVerifierFactoryImpl");
+
+        referenceNffgVerifier = NffgVerifierFactory.newInstance().newNffgVerifier();
+
+        // Create implementation under test
+        System.setProperty("it.polito.dp2.NFFG.NffgVerifierFactory", "it.polito.dp2.NFFG.sol1.NffgVerifierFactory");
+
+        testNffgVerifier = NffgVerifierFactory.newInstance().newNffgVerifier();
+        
+        // read testcase property
+        Long testcaseObj = Long.getLong("it.polito.dp2.NFFG.Random.testcase");
+        if (testcaseObj == null)
+        	testcase = 0;
+        else
+        	testcase = testcaseObj.longValue();
+    }
+    
+    @Before
+    public void setUp() throws Exception {
+        assertNotNull("Internal tester error during test setup: null reference", referenceNffgVerifier);
+        assertNotNull("Could not run tests: the implementation under test generated a null NffgVerifier", testNffgVerifier);
+    }
+
+	// method for comparing two non-null strings    
+	private void compareString(String rs, String ts, String meaning) {
+		assertNotNull("NULL "+meaning, ts);
+        assertEquals("Wrong "+meaning, rs, ts);		
+	}
+	
+	private void compareTime(Calendar rc, Calendar tc, String meaning) {
+		if (testcase != 2) // no time checking in this case
+			return;
+		assertNotNull(rc);
+		assertNotNull("Null "+meaning, tc);
+		
+		// Compute lower and upper bounds for checking with precision of 1 minute
+		Calendar upperBound, lowerBound;
+		upperBound = (Calendar)rc.clone();
+		upperBound.add(Calendar.MINUTE, 1);
+		lowerBound = (Calendar)rc.clone();
+		lowerBound.add(Calendar.MINUTE, -1);
+		
+		// Compute the condition to be checked
+		boolean condition = tc.after(lowerBound) && tc.before(upperBound);
+		
+		assertTrue("Wrong "+meaning, condition);
+	}
+	
+    @Test
+    public final void testGetNffgs() {
+    		// call getWorkflows on the two implementations
+			Set<NffgReader> rs = referenceNffgVerifier.getNffgs();
+			Set<NffgReader> ts = testNffgVerifier.getNffgs();
+			
+			compareNffgSets(rs, ts);
+    }
+
+	private void compareNffgSets(Set<NffgReader> rs, Set<NffgReader> ts) {
+		// if one of the two calls returned null while the other didn't return null, the test fails
+		if ((rs == null) && (ts != null) || (rs != null) && (ts == null)) {
+		    fail("getNffgs returns null when it should return non-null or vice versa");
+		    return;
+		}
+
+		// if both calls returned null, there are no nffgs, and the test passes
+		if ((rs == null) && (ts == null)) {
+		    assertTrue("There are no Nffgs!", true);
+		    return;
+		}
+		
+		// check that the number of nffgs matches
+		assertEquals("Wrong Number of Nffgs", rs.size(), ts.size());
+		
+		// create treesets of nffgs, using the comparator for sorting, one for reference and one for impl. under test 
+		TreeSet<NffgReader> rts = new TreeSet<NffgReader>(new NamedEntityReaderComparator());
+		TreeSet<NffgReader> tts = new TreeSet<NffgReader>(new NamedEntityReaderComparator());
+   
+		rts.addAll(rs);
+		tts.addAll(ts);
+		
+		// check that all nffgs match one by one
+		Iterator<NffgReader> ri = rts.iterator();
+		Iterator<NffgReader> ti = tts.iterator();
+
+		while (ri.hasNext() && ti.hasNext()) {
+			compareNffgReader(ri.next(),ti.next());
+		}
+	}
+
+    // private method for comparing two non-null NffgReader objects
+	private void compareNffgReader(NffgReader rwr, NffgReader twr) {
+		// check the NffgReaders are not null
+		assertNotNull("Internal tester error: null nffg reader", rwr);
+        assertNotNull("Unexpected null nffg reader", twr);
+        System.out.println("Comparing nffg "+rwr.getName());
+
+        // check the NffgReaders return the same data
+        compareString(rwr.getName(), twr.getName(), "nffg name");
+        compareTime(rwr.getUpdateTime(), twr.getUpdateTime(), "update time");
+        compareNodeSets(rwr.getNodes(), twr.getNodes());
+	}
+
+	private void compareNodeSets(Set<NodeReader> rs, Set<NodeReader> ts) {
+		// if one of the two calls returned null while the other didn't return null, the test fails
+		if ((rs == null) && (ts != null) || (rs != null) && (ts == null)) {
+		    fail("getNodes returns null when it should return non-null or vice versa");
+		    return;
+		}
+
+        // if both calls returned null, there are no nodes, and the test passes
+		if ((rs == null) && (ts == null)) {
+		    assertTrue("There are no nodes!", true);
+		    return;
+		}
+		
+		for(NodeReader rsitem : rs){
+			System.out.println("this is node1 number" + rsitem.getName());
+		}
+		for(NodeReader tsitem : ts){
+			System.out.println("this is node2 number" + tsitem.getName());
+		}
+        // check that the number of nodes matches
+		assertEquals("Wrong Number of nodes", rs.size(), ts.size());
+		
+        // create treesets of nodes, using the comparator for sorting, one for reference and one for impl. under test 
+		TreeSet<NodeReader> rts = new TreeSet<NodeReader>(new NamedEntityReaderComparator());
+		TreeSet<NodeReader> tts = new TreeSet<NodeReader>(new NamedEntityReaderComparator());
+   
+		rts.addAll(rs);
+		tts.addAll(ts);
+		
+		Iterator<NodeReader> ri = rts.iterator();
+		Iterator<NodeReader> ti = tts.iterator();
+	}
+}

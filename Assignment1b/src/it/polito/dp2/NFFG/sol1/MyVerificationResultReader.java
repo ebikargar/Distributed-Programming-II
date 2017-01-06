@@ -6,23 +6,22 @@ import javax.xml.datatype.XMLGregorianCalendar;
 import it.polito.dp2.NFFG.PolicyReader;
 import it.polito.dp2.NFFG.VerificationResultReader;
 import it.polito.dp2.NFFG.sol1.jaxb.NffgType;
-//import it.polito.dp2.NFFG.sol1.jaxb.PolicyType;
-import it.polito.dp2.NFFG.sol1.jaxb.ReachabilityPolicyType;
+import it.polito.dp2.NFFG.sol1.jaxb.ResultType;
 
 public class MyVerificationResultReader implements VerificationResultReader {
 
 	// ------------ VerificationResult Element-----------------------//
-	private PolicyReader verification_policy; //??should be reachability
+	private PolicyReader verification_policy;
 	private Boolean verification_r;
 	private String verification_r_msg;
 	private XMLGregorianCalendar verification_t;
 	// ---------------------------------------------------------//
 
-	public MyVerificationResultReader(NffgType nffg, ReachabilityPolicyType policy_r) {
-		this.verification_policy = new MyReachablilityPolicyReader(nffg, policy_r);
-		this.verification_r = policy_r.getVerificationResult().isVerificationResult();
-		this.verification_r_msg = policy_r.getVerificationResult().getVerificationMessage();
-		this.verification_t = policy_r.getVerificationResult().getVerificationTime();
+	public MyVerificationResultReader(NffgType nffg, ResultType result_r, MyPolicyReader policy_r) {
+		this.verification_policy = policy_r;
+		this.verification_r = result_r.isVerificationResult();
+		this.verification_r_msg = result_r.getVerificationMessage();
+		this.verification_t = result_r.getVerificationTime();
 
 		System.out.println("MyVerificationResultReader fulfilled correctly");
 	}

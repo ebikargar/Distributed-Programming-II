@@ -19,7 +19,7 @@
 <mapEntry key="outfile" value="output_xml"/>
 <mapEntry key="seed" value="3"/>
 </mapAttribute>
-<stringAttribute key="org.eclipse.ui.externaltools.ATTR_ANT_TARGETS" value="NffgInfoSerializer,"/>
+<stringAttribute key="org.eclipse.ui.externaltools.ATTR_ANT_TARGETS" value="runFuncTest,"/>
 <stringAttribute key="org.eclipse.ui.externaltools.ATTR_LOCATION" value="${workspace_loc:/Assignment1b/build.xml}"/>
 <stringAttribute key="process_factory_id" value="org.eclipse.ant.ui.remoteAntProcessFactory"/>
 </launchConfiguration>
