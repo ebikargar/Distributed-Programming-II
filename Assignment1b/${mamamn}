@@ -1,0 +1,2470 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<nffgVerifier xmlns="http://www.example.org/nffgInfo" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.example.org/nffgInfo nffgInfo.xsd">
+    <nffg nffgName="Nffg4" upTime="2016-09-27T03:45:20.000+02:00">
+        <nodes>
+            <node nodeName="NAT13">
+                <providerCat>
+                    <funcType>NAT</funcType>
+                </providerCat>
+            </node>
+            <node nodeName="NAT0">
+                <providerCat>
+                    <funcType>NAT</funcType>
+                </providerCat>
+            </node>
+            <node nodeName="VPN8">
+                <providerCat>
+                    <funcType>VPN</funcType>
+                </providerCat>
+            </node>
+            <node nodeName="NAT14">
+                <providerCat>
+                    <funcType>NAT</funcType>
+                </providerCat>
+            </node>
+            <node nodeName="MAILCLIENT5">
+                <providerCat>
+                    <funcType>MAIL_CLIENT</funcType>
+                </providerCat>
+            </node>
+            <node nodeName="DPI3">
+                <providerCat>
+                    <funcType>DPI</funcType>
+                </providerCat>
+            </node>
+            <node nodeName="MAILCLIENT6">
+                <providerCat>
+                    <funcType>MAIL_CLIENT</funcType>
+                </providerCat>
+            </node>
+            <node nodeName="WEBCLIENT3">
+                <providerCat>
+                    <funcType>WEB_CLIENT</funcType>
+                </providerCat>
+            </node>
+            <node nodeName="CACHE2">
+                <providerCat>
+                    <funcType>CACHE</funcType>
+                </providerCat>
+            </node>
+            <node nodeName="WEBCLIENT4">
+                <providerCat>
+                    <funcType>WEB_CLIENT</funcType>
+                </providerCat>
+            </node>
+            <node nodeName="DPI6">
+                <providerCat>
+                    <funcType>DPI</funcType>
+                </providerCat>
+            </node>
+            <node nodeName="CACHE4">
+                <providerCat>
+                    <funcType>CACHE</funcType>
+                </providerCat>
+            </node>
+            <node nodeName="SPAM5">
+                <providerCat>
+                    <funcType>SPAM</funcType>
+                </providerCat>
+            </node>
+            <node nodeName="NAT9">
+                <providerCat>
+                    <funcType>NAT</funcType>
+                </providerCat>
+            </node>
+            <node nodeName="WEBCLIENT0">
+                <providerCat>
+                    <funcType>WEB_CLIENT</funcType>
+                </providerCat>
+            </node>
+            <node nodeName="WEBSERVER0">
+                <providerCat>
+                    <funcType>WEB_SERVER</funcType>
+                </providerCat>
+            </node>
+            <node nodeName="CACHE7">
+                <providerCat>
+                    <funcType>CACHE</funcType>
+                </providerCat>
+            </node>
+            <node nodeName="CACHE12">
+                <providerCat>
+                    <funcType>CACHE</funcType>
+                </providerCat>
+            </node>
+            <node nodeName="WEBCLIENT1">
+                <providerCat>
+                    <funcType>WEB_CLIENT</funcType>
+                </providerCat>
+            </node>
+            <node nodeName="WEBSERVER1">
+                <providerCat>
+                    <funcType>WEB_SERVER</funcType>
+                </providerCat>
+            </node>
+            <node nodeName="SPAM1">
+                <providerCat>
+                    <funcType>SPAM</funcType>
+                </providerCat>
+            </node>
+            <node nodeName="DPI11">
+                <providerCat>
+                    <funcType>DPI</funcType>
+                </providerCat>
+            </node>
+            <node nodeName="WEBCLIENT2">
+                <providerCat>
+                    <funcType>WEB_CLIENT</funcType>
+                </providerCat>
+            </node>
+            <node nodeName="CACHE10">
+                <providerCat>
+                    <funcType>CACHE</funcType>
+                </providerCat>
+            </node>
+        </nodes>
+        <links>
+            <link linkName="Link45">
+                <srcNode>NAT13</srcNode>
+                <destNode>CACHE12</destNode>
+            </link>
+            <link linkName="Link37">
+                <srcNode>NAT13</srcNode>
+                <destNode>VPN8</destNode>
+            </link>
+            <link linkName="Link3">
+                <srcNode>NAT13</srcNode>
+                <destNode>WEBCLIENT1</destNode>
+            </link>
+            <link linkName="Link18">
+                <srcNode>NAT13</srcNode>
+                <destNode>CACHE7</destNode>
+            </link>
+            <link linkName="Link5">
+                <srcNode>NAT13</srcNode>
+                <destNode>WEBCLIENT2</destNode>
+            </link>
+            <link linkName="Link7">
+                <srcNode>NAT13</srcNode>
+                <destNode>WEBCLIENT3</destNode>
+            </link>
+            <link linkName="Link86">
+                <srcNode>NAT0</srcNode>
+                <destNode>CACHE2</destNode>
+            </link>
+            <link linkName="Link27">
+                <srcNode>NAT0</srcNode>
+                <destNode>WEBCLIENT3</destNode>
+            </link>
+            <link linkName="Link1">
+                <srcNode>NAT0</srcNode>
+                <destNode>WEBCLIENT0</destNode>
+            </link>
+            <link linkName="Link96">
+                <srcNode>NAT0</srcNode>
+                <destNode>DPI11</destNode>
+            </link>
+            <link linkName="Link26">
+                <srcNode>VPN8</srcNode>
+                <destNode>WEBCLIENT3</destNode>
+            </link>
+            <link linkName="Link50">
+                <srcNode>VPN8</srcNode>
+                <destNode>NAT13</destNode>
+            </link>
+            <link linkName="Link61">
+                <srcNode>VPN8</srcNode>
+                <destNode>WEBCLIENT4</destNode>
+            </link>
+            <link linkName="Link67">
+                <srcNode>NAT14</srcNode>
+                <destNode>MAILCLIENT5</destNode>
+            </link>
+            <link linkName="Link93">
+                <srcNode>NAT14</srcNode>
+                <destNode>WEBCLIENT2</destNode>
+            </link>
+            <link linkName="Link23">
+                <srcNode>MAILCLIENT5</srcNode>
+                <destNode>DPI6</destNode>
+            </link>
+            <link linkName="Link56">
+                <srcNode>MAILCLIENT5</srcNode>
+                <destNode>CACHE12</destNode>
+            </link>
+            <link linkName="Link10">
+                <srcNode>MAILCLIENT5</srcNode>
+                <destNode>SPAM5</destNode>
+            </link>
+            <link linkName="Link38">
+                <srcNode>MAILCLIENT5</srcNode>
+                <destNode>SPAM1</destNode>
+            </link>
+            <link linkName="Link47">
+                <srcNode>MAILCLIENT5</srcNode>
+                <destNode>CACHE4</destNode>
+            </link>
+            <link linkName="Link90">
+                <srcNode>MAILCLIENT5</srcNode>
+                <destNode>NAT0</destNode>
+            </link>
+            <link linkName="Link62">
+                <srcNode>MAILCLIENT5</srcNode>
+                <destNode>VPN8</destNode>
+            </link>
+            <link linkName="Link33">
+                <srcNode>DPI3</srcNode>
+                <destNode>NAT13</destNode>
+            </link>
+            <link linkName="Link66">
+                <srcNode>DPI3</srcNode>
+                <destNode>WEBCLIENT2</destNode>
+            </link>
+            <link linkName="Link30">
+                <srcNode>DPI3</srcNode>
+                <destNode>NAT0</destNode>
+            </link>
+            <link linkName="Link41">
+                <srcNode>DPI3</srcNode>
+                <destNode>CACHE4</destNode>
+            </link>
+            <link linkName="Link82">
+                <srcNode>DPI3</srcNode>
+                <destNode>CACHE7</destNode>
+            </link>
+            <link linkName="Link12">
+                <srcNode>MAILCLIENT6</srcNode>
+                <destNode>NAT9</destNode>
+            </link>
+            <link linkName="Link39">
+                <srcNode>MAILCLIENT6</srcNode>
+                <destNode>DPI11</destNode>
+            </link>
+            <link linkName="Link40">
+                <srcNode>MAILCLIENT6</srcNode>
+                <destNode>CACHE12</destNode>
+            </link>
+            <link linkName="Link49">
+                <srcNode>WEBCLIENT3</srcNode>
+                <destNode>DPI11</destNode>
+            </link>
+            <link linkName="Link6">
+                <srcNode>WEBCLIENT3</srcNode>
+                <destNode>NAT13</destNode>
+            </link>
+            <link linkName="Link60">
+                <srcNode>WEBCLIENT3</srcNode>
+                <destNode>DPI6</destNode>
+            </link>
+            <link linkName="Link89">
+                <srcNode>CACHE2</srcNode>
+                <destNode>SPAM1</destNode>
+            </link>
+            <link linkName="Link88">
+                <srcNode>CACHE2</srcNode>
+                <destNode>CACHE4</destNode>
+            </link>
+            <link linkName="Link43">
+                <srcNode>CACHE2</srcNode>
+                <destNode>NAT14</destNode>
+            </link>
+            <link linkName="Link31">
+                <srcNode>CACHE2</srcNode>
+                <destNode>CACHE12</destNode>
+            </link>
+            <link linkName="Link29">
+                <srcNode>CACHE2</srcNode>
+                <destNode>WEBCLIENT1</destNode>
+            </link>
+            <link linkName="Link72">
+                <srcNode>CACHE2</srcNode>
+                <destNode>MAILCLIENT5</destNode>
+            </link>
+            <link linkName="Link34">
+                <srcNode>WEBCLIENT4</srcNode>
+                <destNode>NAT13</destNode>
+            </link>
+            <link linkName="Link32">
+                <srcNode>WEBCLIENT4</srcNode>
+                <destNode>NAT14</destNode>
+            </link>
+            <link linkName="Link87">
+                <srcNode>WEBCLIENT4</srcNode>
+                <destNode>CACHE4</destNode>
+            </link>
+            <link linkName="Link64">
+                <srcNode>WEBCLIENT4</srcNode>
+                <destNode>DPI3</destNode>
+            </link>
+            <link linkName="Link8">
+                <srcNode>WEBCLIENT4</srcNode>
+                <destNode>SPAM1</destNode>
+            </link>
+            <link linkName="Link76">
+                <srcNode>DPI6</srcNode>
+                <destNode>NAT14</destNode>
+            </link>
+            <link linkName="Link52">
+                <srcNode>DPI6</srcNode>
+                <destNode>DPI11</destNode>
+            </link>
+            <link linkName="Link55">
+                <srcNode>CACHE4</srcNode>
+                <destNode>SPAM1</destNode>
+            </link>
+            <link linkName="Link15">
+                <srcNode>CACHE4</srcNode>
+                <destNode>WEBSERVER0</destNode>
+            </link>
+            <link linkName="Link92">
+                <srcNode>CACHE4</srcNode>
+                <destNode>MAILCLIENT5</destNode>
+            </link>
+            <link linkName="Link51">
+                <srcNode>CACHE4</srcNode>
+                <destNode>NAT13</destNode>
+            </link>
+            <link linkName="Link11">
+                <srcNode>SPAM5</srcNode>
+                <destNode>MAILCLIENT5</destNode>
+            </link>
+            <link linkName="Link99">
+                <srcNode>SPAM5</srcNode>
+                <destNode>CACHE12</destNode>
+            </link>
+            <link linkName="Link21">
+                <srcNode>SPAM5</srcNode>
+                <destNode>CACHE4</destNode>
+            </link>
+            <link linkName="Link100">
+                <srcNode>SPAM5</srcNode>
+                <destNode>NAT13</destNode>
+            </link>
+            <link linkName="Link48">
+                <srcNode>SPAM5</srcNode>
+                <destNode>WEBCLIENT0</destNode>
+            </link>
+            <link linkName="Link36">
+                <srcNode>SPAM5</srcNode>
+                <destNode>DPI3</destNode>
+            </link>
+            <link linkName="Link24">
+                <srcNode>SPAM5</srcNode>
+                <destNode>DPI11</destNode>
+            </link>
+            <link linkName="Link19">
+                <srcNode>SPAM5</srcNode>
+                <destNode>NAT14</destNode>
+            </link>
+            <link linkName="Link73">
+                <srcNode>SPAM5</srcNode>
+                <destNode>WEBCLIENT2</destNode>
+            </link>
+            <link linkName="Link83">
+                <srcNode>SPAM5</srcNode>
+                <destNode>WEBCLIENT4</destNode>
+            </link>
+            <link linkName="Link65">
+                <srcNode>NAT9</srcNode>
+                <destNode>WEBCLIENT0</destNode>
+            </link>
+            <link linkName="Link13">
+                <srcNode>NAT9</srcNode>
+                <destNode>MAILCLIENT6</destNode>
+            </link>
+            <link linkName="Link85">
+                <srcNode>NAT9</srcNode>
+                <destNode>WEBCLIENT4</destNode>
+            </link>
+            <link linkName="Link95">
+                <srcNode>NAT9</srcNode>
+                <destNode>SPAM1</destNode>
+            </link>
+            <link linkName="Link77">
+                <srcNode>WEBCLIENT0</srcNode>
+                <destNode>DPI11</destNode>
+            </link>
+            <link linkName="Link53">
+                <srcNode>WEBCLIENT0</srcNode>
+                <destNode>CACHE7</destNode>
+            </link>
+            <link linkName="Link0">
+                <srcNode>WEBCLIENT0</srcNode>
+                <destNode>NAT0</destNode>
+            </link>
+            <link linkName="Link25">
+                <srcNode>WEBCLIENT0</srcNode>
+                <destNode>SPAM5</destNode>
+            </link>
+            <link linkName="Link14">
+                <srcNode>WEBSERVER0</srcNode>
+                <destNode>CACHE4</destNode>
+            </link>
+            <link linkName="Link68">
+                <srcNode>WEBSERVER0</srcNode>
+                <destNode>CACHE12</destNode>
+            </link>
+            <link linkName="Link97">
+                <srcNode>CACHE7</srcNode>
+                <destNode>SPAM5</destNode>
+            </link>
+            <link linkName="Link44">
+                <srcNode>CACHE12</srcNode>
+                <destNode>MAILCLIENT6</destNode>
+            </link>
+            <link linkName="Link28">
+                <srcNode>CACHE12</srcNode>
+                <destNode>NAT13</destNode>
+            </link>
+            <link linkName="Link71">
+                <srcNode>CACHE12</srcNode>
+                <destNode>CACHE2</destNode>
+            </link>
+            <link linkName="Link2">
+                <srcNode>WEBCLIENT1</srcNode>
+                <destNode>NAT13</destNode>
+            </link>
+            <link linkName="Link81">
+                <srcNode>WEBCLIENT1</srcNode>
+                <destNode>VPN8</destNode>
+            </link>
+            <link linkName="Link102">
+                <srcNode>WEBCLIENT1</srcNode>
+                <destNode>CACHE4</destNode>
+            </link>
+            <link linkName="Link54">
+                <srcNode>WEBSERVER1</srcNode>
+                <destNode>DPI11</destNode>
+            </link>
+            <link linkName="Link16">
+                <srcNode>WEBSERVER1</srcNode>
+                <destNode>CACHE10</destNode>
+            </link>
+            <link linkName="Link59">
+                <srcNode>WEBSERVER1</srcNode>
+                <destNode>NAT9</destNode>
+            </link>
+            <link linkName="Link78">
+                <srcNode>SPAM1</srcNode>
+                <destNode>NAT13</destNode>
+            </link>
+            <link linkName="Link22">
+                <srcNode>SPAM1</srcNode>
+                <destNode>VPN8</destNode>
+            </link>
+            <link linkName="Link20">
+                <srcNode>SPAM1</srcNode>
+                <destNode>DPI3</destNode>
+            </link>
+            <link linkName="Link75">
+                <srcNode>SPAM1</srcNode>
+                <destNode>NAT0</destNode>
+            </link>
+            <link linkName="Link58">
+                <srcNode>SPAM1</srcNode>
+                <destNode>DPI11</destNode>
+            </link>
+            <link linkName="Link69">
+                <srcNode>SPAM1</srcNode>
+                <destNode>WEBCLIENT0</destNode>
+            </link>
+            <link linkName="Link74">
+                <srcNode>SPAM1</srcNode>
+                <destNode>WEBCLIENT3</destNode>
+            </link>
+            <link linkName="Link84">
+                <srcNode>SPAM1</srcNode>
+                <destNode>CACHE2</destNode>
+            </link>
+            <link linkName="Link101">
+                <srcNode>SPAM1</srcNode>
+                <destNode>WEBCLIENT1</destNode>
+            </link>
+            <link linkName="Link94">
+                <srcNode>SPAM1</srcNode>
+                <destNode>CACHE10</destNode>
+            </link>
+            <link linkName="Link9">
+                <srcNode>SPAM1</srcNode>
+                <destNode>WEBCLIENT4</destNode>
+            </link>
+            <link linkName="Link46">
+                <srcNode>DPI11</srcNode>
+                <destNode>WEBCLIENT4</destNode>
+            </link>
+            <link linkName="Link35">
+                <srcNode>WEBCLIENT2</srcNode>
+                <destNode>DPI6</destNode>
+            </link>
+            <link linkName="Link57">
+                <srcNode>WEBCLIENT2</srcNode>
+                <destNode>CACHE2</destNode>
+            </link>
+            <link linkName="Link80">
+                <srcNode>WEBCLIENT2</srcNode>
+                <destNode>NAT14</destNode>
+            </link>
+            <link linkName="Link4">
+                <srcNode>WEBCLIENT2</srcNode>
+                <destNode>NAT13</destNode>
+            </link>
+            <link linkName="Link63">
+                <srcNode>WEBCLIENT2</srcNode>
+                <destNode>CACHE4</destNode>
+            </link>
+            <link linkName="Link98">
+                <srcNode>CACHE10</srcNode>
+                <destNode>CACHE4</destNode>
+            </link>
+            <link linkName="Link42">
+                <srcNode>CACHE10</srcNode>
+                <destNode>DPI3</destNode>
+            </link>
+            <link linkName="Link79">
+                <srcNode>CACHE10</srcNode>
+                <destNode>WEBCLIENT1</destNode>
+            </link>
+            <link linkName="Link70">
+                <srcNode>CACHE10</srcNode>
+                <destNode>DPI6</destNode>
+            </link>
+            <link linkName="Link91">
+                <srcNode>CACHE10</srcNode>
+                <destNode>MAILCLIENT6</destNode>
+            </link>
+            <link linkName="Link17">
+                <srcNode>CACHE10</srcNode>
+                <destNode>WEBSERVER1</destNode>
+            </link>
+        </links>
+        <policies>
+            <reachabilityPolicy policyName="Policy22">
+                <srcNode>WEBCLIENT0</srcNode>
+                <destNode>WEBSERVER1</destNode>
+                <isPositive>false</isPositive>
+            </reachabilityPolicy>
+            <reachabilityPolicy policyName="Policy27">
+                <srcNode>WEBSERVER1</srcNode>
+                <destNode>MAILCLIENT6</destNode>
+                <isPositive>true</isPositive>
+                <verificationResult>
+                    <verificationTime>2016-09-26T09:26:20.000+02:00</verificationTime>
+                    <verificationMessage>Policy verification result not true</verificationMessage>
+                    <verificationResult>false</verificationResult>
+                </verificationResult>
+            </reachabilityPolicy>
+            <reachabilityPolicy policyName="Policy26">
+                <srcNode>WEBSERVER1</srcNode>
+                <destNode>WEBCLIENT0</destNode>
+                <isPositive>true</isPositive>
+                <verificationResult>
+                    <verificationTime>2016-09-27T03:07:20.000+02:00</verificationTime>
+                    <verificationMessage>Policy verification result not true</verificationMessage>
+                    <verificationResult>false</verificationResult>
+                </verificationResult>
+            </reachabilityPolicy>
+            <reachabilityPolicy policyName="Policy25">
+                <srcNode>MAILCLIENT6</srcNode>
+                <destNode>WEBSERVER1</destNode>
+                <isPositive>true</isPositive>
+            </reachabilityPolicy>
+            <traversalPolicy policyName="Policy23">
+                <srcNode>WEBCLIENT1</srcNode>
+                <destNode>WEBSERVER0</destNode>
+                <isPositive>true</isPositive>
+                <verificationResult>
+                    <verificationTime>2016-09-26T17:25:20.000+02:00</verificationTime>
+                    <verificationMessage>Policy verification result not true</verificationMessage>
+                    <verificationResult>false</verificationResult>
+                </verificationResult>
+                <traversComponent>CACHE</traversComponent>
+            </traversalPolicy>
+            <traversalPolicy policyName="Policy24">
+                <srcNode>WEBCLIENT3</srcNode>
+                <destNode>WEBSERVER0</destNode>
+                <isPositive>true</isPositive>
+                <traversComponent>FW</traversComponent>
+                <traversComponent>MAIL_SERVER</traversComponent>
+                <traversComponent>CACHE</traversComponent>
+            </traversalPolicy>
+            <traversalPolicy policyName="Policy28">
+                <srcNode>WEBSERVER0</srcNode>
+                <destNode>WEBCLIENT3</destNode>
+                <isPositive>false</isPositive>
+                <verificationResult>
+                    <verificationTime>2016-09-26T23:32:20.000+02:00</verificationTime>
+                    <verificationMessage>Policy verification result not true</verificationMessage>
+                    <verificationResult>false</verificationResult>
+                </verificationResult>
+                <traversComponent>FW</traversComponent>
+                <traversComponent>MAIL_SERVER</traversComponent>
+                <traversComponent>CACHE</traversComponent>
+            </traversalPolicy>
+        </policies>
+    </nffg>
+    <nffg nffgName="Nffg3" upTime="2016-09-25T04:09:20.000+02:00">
+        <nodes>
+            <node nodeName="FW2">
+                <providerCat>
+                    <funcType>FW</funcType>
+                </providerCat>
+            </node>
+            <node nodeName="SPAM11">
+                <providerCat>
+                    <funcType>SPAM</funcType>
+                </providerCat>
+            </node>
+            <node nodeName="DPI14">
+                <providerCat>
+                    <funcType>DPI</funcType>
+                </providerCat>
+            </node>
+            <node nodeName="FW6">
+                <providerCat>
+                    <funcType>FW</funcType>
+                </providerCat>
+            </node>
+            <node nodeName="FW5">
+                <providerCat>
+                    <funcType>FW</funcType>
+                </providerCat>
+            </node>
+            <node nodeName="NAT10">
+                <providerCat>
+                    <funcType>NAT</funcType>
+                </providerCat>
+            </node>
+            <node nodeName="MAILCLIENT1">
+                <providerCat>
+                    <funcType>MAIL_CLIENT</funcType>
+                </providerCat>
+            </node>
+            <node nodeName="VPN9">
+                <providerCat>
+                    <funcType>VPN</funcType>
+                </providerCat>
+            </node>
+            <node nodeName="VPN12">
+                <providerCat>
+                    <funcType>VPN</funcType>
+                </providerCat>
+            </node>
+            <node nodeName="FW17">
+                <providerCat>
+                    <funcType>FW</funcType>
+                </providerCat>
+            </node>
+            <node nodeName="VPN13">
+                <providerCat>
+                    <funcType>VPN</funcType>
+                </providerCat>
+            </node>
+            <node nodeName="WEBCLIENT3">
+                <providerCat>
+                    <funcType>WEB_CLIENT</funcType>
+                </providerCat>
+            </node>
+            <node nodeName="VPN16">
+                <providerCat>
+                    <funcType>VPN</funcType>
+                </providerCat>
+            </node>
+            <node nodeName="VPN15">
+                <providerCat>
+                    <funcType>VPN</funcType>
+                </providerCat>
+            </node>
+            <node nodeName="CACHE4">
+                <providerCat>
+                    <funcType>CACHE</funcType>
+                </providerCat>
+            </node>
+            <node nodeName="WEBCLIENT0">
+                <providerCat>
+                    <funcType>WEB_CLIENT</funcType>
+                </providerCat>
+            </node>
+            <node nodeName="CACHE7">
+                <providerCat>
+                    <funcType>CACHE</funcType>
+                </providerCat>
+            </node>
+            <node nodeName="WEBCLIENT2">
+                <providerCat>
+                    <funcType>WEB_CLIENT</funcType>
+                </providerCat>
+            </node>
+            <node nodeName="MAILSERVER2">
+                <providerCat>
+                    <funcType>MAIL_SERVER</funcType>
+                </providerCat>
+            </node>
+            <node nodeName="MAILSERVER1">
+                <providerCat>
+                    <funcType>MAIL_SERVER</funcType>
+                </providerCat>
+            </node>
+            <node nodeName="MAILSERVER0">
+                <providerCat>
+                    <funcType>MAIL_SERVER</funcType>
+                </providerCat>
+            </node>
+            <node nodeName="NAT8">
+                <providerCat>
+                    <funcType>NAT</funcType>
+                </providerCat>
+            </node>
+            <node nodeName="VPN0">
+                <providerCat>
+                    <funcType>VPN</funcType>
+                </providerCat>
+            </node>
+            <node nodeName="VPN3">
+                <providerCat>
+                    <funcType>VPN</funcType>
+                </providerCat>
+            </node>
+            <node nodeName="SPAM1">
+                <providerCat>
+                    <funcType>SPAM</funcType>
+                </providerCat>
+            </node>
+        </nodes>
+        <links>
+            <link linkName="Link19">
+                <srcNode>FW2</srcNode>
+                <destNode>MAILSERVER2</destNode>
+            </link>
+            <link linkName="Link49">
+                <srcNode>SPAM11</srcNode>
+                <destNode>NAT10</destNode>
+            </link>
+            <link linkName="Link48">
+                <srcNode>SPAM11</srcNode>
+                <destNode>CACHE4</destNode>
+            </link>
+            <link linkName="Link18">
+                <srcNode>SPAM11</srcNode>
+                <destNode>MAILCLIENT1</destNode>
+            </link>
+            <link linkName="Link11">
+                <srcNode>DPI14</srcNode>
+                <destNode>MAILSERVER1</destNode>
+            </link>
+            <link linkName="Link20">
+                <srcNode>DPI14</srcNode>
+                <destNode>NAT8</destNode>
+            </link>
+            <link linkName="Link21">
+                <srcNode>FW6</srcNode>
+                <destNode>MAILSERVER1</destNode>
+            </link>
+            <link linkName="Link46">
+                <srcNode>FW6</srcNode>
+                <destNode>MAILSERVER0</destNode>
+            </link>
+            <link linkName="Link42">
+                <srcNode>FW5</srcNode>
+                <destNode>VPN16</destNode>
+            </link>
+            <link linkName="Link40">
+                <srcNode>FW5</srcNode>
+                <destNode>FW17</destNode>
+            </link>
+            <link linkName="Link34">
+                <srcNode>MAILCLIENT1</srcNode>
+                <destNode>VPN13</destNode>
+            </link>
+            <link linkName="Link24">
+                <srcNode>MAILCLIENT1</srcNode>
+                <destNode>CACHE4</destNode>
+            </link>
+            <link linkName="Link2">
+                <srcNode>MAILCLIENT1</srcNode>
+                <destNode>FW17</destNode>
+            </link>
+            <link linkName="Link25">
+                <srcNode>VPN9</srcNode>
+                <destNode>FW17</destNode>
+            </link>
+            <link linkName="Link36">
+                <srcNode>VPN9</srcNode>
+                <destNode>VPN16</destNode>
+            </link>
+            <link linkName="Link35">
+                <srcNode>VPN9</srcNode>
+                <destNode>MAILCLIENT1</destNode>
+            </link>
+            <link linkName="Link23">
+                <srcNode>VPN12</srcNode>
+                <destNode>FW6</destNode>
+            </link>
+            <link linkName="Link43">
+                <srcNode>VPN12</srcNode>
+                <destNode>WEBCLIENT2</destNode>
+            </link>
+            <link linkName="Link31">
+                <srcNode>VPN12</srcNode>
+                <destNode>FW2</destNode>
+            </link>
+            <link linkName="Link22">
+                <srcNode>FW17</srcNode>
+                <destNode>VPN16</destNode>
+            </link>
+            <link linkName="Link14">
+                <srcNode>FW17</srcNode>
+                <destNode>WEBCLIENT0</destNode>
+            </link>
+            <link linkName="Link3">
+                <srcNode>FW17</srcNode>
+                <destNode>MAILCLIENT1</destNode>
+            </link>
+            <link linkName="Link15">
+                <srcNode>VPN13</srcNode>
+                <destNode>CACHE7</destNode>
+            </link>
+            <link linkName="Link6">
+                <srcNode>WEBCLIENT3</srcNode>
+                <destNode>SPAM1</destNode>
+            </link>
+            <link linkName="Link45">
+                <srcNode>VPN16</srcNode>
+                <destNode>VPN9</destNode>
+            </link>
+            <link linkName="Link44">
+                <srcNode>VPN16</srcNode>
+                <destNode>WEBCLIENT2</destNode>
+            </link>
+            <link linkName="Link38">
+                <srcNode>VPN16</srcNode>
+                <destNode>FW6</destNode>
+            </link>
+            <link linkName="Link26">
+                <srcNode>VPN16</srcNode>
+                <destNode>DPI14</destNode>
+            </link>
+            <link linkName="Link52">
+                <srcNode>VPN16</srcNode>
+                <destNode>VPN13</destNode>
+            </link>
+            <link linkName="Link39">
+                <srcNode>VPN15</srcNode>
+                <destNode>WEBCLIENT2</destNode>
+            </link>
+            <link linkName="Link47">
+                <srcNode>CACHE4</srcNode>
+                <destNode>DPI14</destNode>
+            </link>
+            <link linkName="Link13">
+                <srcNode>CACHE4</srcNode>
+                <destNode>MAILSERVER2</destNode>
+            </link>
+            <link linkName="Link9">
+                <srcNode>CACHE4</srcNode>
+                <destNode>MAILSERVER0</destNode>
+            </link>
+            <link linkName="Link0">
+                <srcNode>WEBCLIENT0</srcNode>
+                <destNode>VPN3</destNode>
+            </link>
+            <link linkName="Link29">
+                <srcNode>WEBCLIENT0</srcNode>
+                <destNode>SPAM11</destNode>
+            </link>
+            <link linkName="Link33">
+                <srcNode>CACHE7</srcNode>
+                <destNode>MAILSERVER0</destNode>
+            </link>
+            <link linkName="Link54">
+                <srcNode>CACHE7</srcNode>
+                <destNode>FW17</destNode>
+            </link>
+            <link linkName="Link53">
+                <srcNode>CACHE7</srcNode>
+                <destNode>VPN16</destNode>
+            </link>
+            <link linkName="Link28">
+                <srcNode>CACHE7</srcNode>
+                <destNode>WEBCLIENT0</destNode>
+            </link>
+            <link linkName="Link30">
+                <srcNode>CACHE7</srcNode>
+                <destNode>VPN12</destNode>
+            </link>
+            <link linkName="Link4">
+                <srcNode>WEBCLIENT2</srcNode>
+                <destNode>SPAM1</destNode>
+            </link>
+            <link linkName="Link12">
+                <srcNode>MAILSERVER2</srcNode>
+                <destNode>CACHE4</destNode>
+            </link>
+            <link linkName="Link10">
+                <srcNode>MAILSERVER1</srcNode>
+                <destNode>DPI14</destNode>
+            </link>
+            <link linkName="Link27">
+                <srcNode>MAILSERVER0</srcNode>
+                <destNode>VPN3</destNode>
+            </link>
+            <link linkName="Link41">
+                <srcNode>MAILSERVER0</srcNode>
+                <destNode>FW17</destNode>
+            </link>
+            <link linkName="Link8">
+                <srcNode>MAILSERVER0</srcNode>
+                <destNode>CACHE4</destNode>
+            </link>
+            <link linkName="Link16">
+                <srcNode>NAT8</srcNode>
+                <destNode>FW2</destNode>
+            </link>
+            <link linkName="Link37">
+                <srcNode>NAT8</srcNode>
+                <destNode>MAILSERVER2</destNode>
+            </link>
+            <link linkName="Link51">
+                <srcNode>NAT8</srcNode>
+                <destNode>WEBCLIENT2</destNode>
+            </link>
+            <link linkName="Link50">
+                <srcNode>NAT8</srcNode>
+                <destNode>VPN16</destNode>
+            </link>
+            <link linkName="Link17">
+                <srcNode>VPN0</srcNode>
+                <destNode>VPN16</destNode>
+            </link>
+            <link linkName="Link1">
+                <srcNode>VPN3</srcNode>
+                <destNode>WEBCLIENT0</destNode>
+            </link>
+            <link linkName="Link32">
+                <srcNode>SPAM1</srcNode>
+                <destNode>NAT8</destNode>
+            </link>
+            <link linkName="Link5">
+                <srcNode>SPAM1</srcNode>
+                <destNode>WEBCLIENT2</destNode>
+            </link>
+            <link linkName="Link7">
+                <srcNode>SPAM1</srcNode>
+                <destNode>WEBCLIENT3</destNode>
+            </link>
+        </links>
+        <policies>
+            <reachabilityPolicy policyName="Policy21">
+                <srcNode>MAILSERVER2</srcNode>
+                <destNode>WEBCLIENT3</destNode>
+                <isPositive>true</isPositive>
+            </reachabilityPolicy>
+            <reachabilityPolicy policyName="Policy20">
+                <srcNode>WEBCLIENT3</srcNode>
+                <destNode>MAILSERVER2</destNode>
+                <isPositive>false</isPositive>
+                <verificationResult>
+                    <verificationTime>2016-09-24T23:53:20.000+02:00</verificationTime>
+                    <verificationMessage>Policy verificarion result true</verificationMessage>
+                    <verificationResult>true</verificationResult>
+                </verificationResult>
+            </reachabilityPolicy>
+            <reachabilityPolicy policyName="Policy18">
+                <srcNode>WEBCLIENT0</srcNode>
+                <destNode>MAILSERVER0</destNode>
+                <isPositive>false</isPositive>
+                <verificationResult>
+                    <verificationTime>2016-09-24T23:53:20.000+02:00</verificationTime>
+                    <verificationMessage>Policy verificarion result true</verificationMessage>
+                    <verificationResult>true</verificationResult>
+                </verificationResult>
+            </reachabilityPolicy>
+            <reachabilityPolicy policyName="Policy17">
+                <srcNode>WEBCLIENT0</srcNode>
+                <destNode>MAILSERVER0</destNode>
+                <isPositive>false</isPositive>
+                <verificationResult>
+                    <verificationTime>2016-09-24T23:53:20.000+02:00</verificationTime>
+                    <verificationMessage>Policy verification result not true</verificationMessage>
+                    <verificationResult>false</verificationResult>
+                </verificationResult>
+            </reachabilityPolicy>
+            <traversalPolicy policyName="Policy19">
+                <srcNode>WEBCLIENT2</srcNode>
+                <destNode>MAILSERVER0</destNode>
+                <isPositive>true</isPositive>
+                <verificationResult>
+                    <verificationTime>2016-09-24T23:53:20.000+02:00</verificationTime>
+                    <verificationMessage>Policy verification result not true</verificationMessage>
+                    <verificationResult>false</verificationResult>
+                </verificationResult>
+                <traversComponent>SPAM</traversComponent>
+                <traversComponent>WEB_SERVER</traversComponent>
+            </traversalPolicy>
+        </policies>
+    </nffg>
+    <nffg nffgName="Nffg2" upTime="2016-09-28T22:56:20.000+02:00">
+        <nodes>
+            <node nodeName="CACHE1">
+                <providerCat>
+                    <funcType>CACHE</funcType>
+                </providerCat>
+            </node>
+            <node nodeName="VPN0">
+                <providerCat>
+                    <funcType>VPN</funcType>
+                </providerCat>
+            </node>
+            <node nodeName="VPN3">
+                <providerCat>
+                    <funcType>VPN</funcType>
+                </providerCat>
+            </node>
+            <node nodeName="WEBCLIENT3">
+                <providerCat>
+                    <funcType>WEB_CLIENT</funcType>
+                </providerCat>
+            </node>
+            <node nodeName="WEBCLIENT4">
+                <providerCat>
+                    <funcType>WEB_CLIENT</funcType>
+                </providerCat>
+            </node>
+            <node nodeName="WEBCLIENT5">
+                <providerCat>
+                    <funcType>WEB_CLIENT</funcType>
+                </providerCat>
+            </node>
+            <node nodeName="CACHE4">
+                <providerCat>
+                    <funcType>CACHE</funcType>
+                </providerCat>
+            </node>
+            <node nodeName="SPAM5">
+                <providerCat>
+                    <funcType>SPAM</funcType>
+                </providerCat>
+            </node>
+            <node nodeName="WEBCLIENT0">
+                <providerCat>
+                    <funcType>WEB_CLIENT</funcType>
+                </providerCat>
+            </node>
+            <node nodeName="WEBSERVER0">
+                <providerCat>
+                    <funcType>WEB_SERVER</funcType>
+                </providerCat>
+            </node>
+            <node nodeName="WEBCLIENT1">
+                <providerCat>
+                    <funcType>WEB_CLIENT</funcType>
+                </providerCat>
+            </node>
+            <node nodeName="WEBSERVER1">
+                <providerCat>
+                    <funcType>WEB_SERVER</funcType>
+                </providerCat>
+            </node>
+            <node nodeName="WEBCLIENT2">
+                <providerCat>
+                    <funcType>WEB_CLIENT</funcType>
+                </providerCat>
+            </node>
+            <node nodeName="SPAM2">
+                <providerCat>
+                    <funcType>SPAM</funcType>
+                </providerCat>
+            </node>
+        </nodes>
+        <links>
+            <link linkName="Link9">
+                <srcNode>CACHE1</srcNode>
+                <destNode>WEBCLIENT4</destNode>
+            </link>
+            <link linkName="Link11">
+                <srcNode>VPN3</srcNode>
+                <destNode>WEBCLIENT5</destNode>
+            </link>
+            <link linkName="Link5">
+                <srcNode>VPN3</srcNode>
+                <destNode>WEBCLIENT2</destNode>
+            </link>
+            <link linkName="Link6">
+                <srcNode>WEBCLIENT3</srcNode>
+                <destNode>CACHE4</destNode>
+            </link>
+            <link linkName="Link8">
+                <srcNode>WEBCLIENT4</srcNode>
+                <destNode>CACHE1</destNode>
+            </link>
+            <link linkName="Link10">
+                <srcNode>WEBCLIENT5</srcNode>
+                <destNode>VPN3</destNode>
+            </link>
+            <link linkName="Link1">
+                <srcNode>CACHE4</srcNode>
+                <destNode>WEBCLIENT0</destNode>
+            </link>
+            <link linkName="Link7">
+                <srcNode>CACHE4</srcNode>
+                <destNode>WEBCLIENT3</destNode>
+            </link>
+            <link linkName="Link13">
+                <srcNode>SPAM5</srcNode>
+                <destNode>WEBSERVER0</destNode>
+            </link>
+            <link linkName="Link0">
+                <srcNode>WEBCLIENT0</srcNode>
+                <destNode>CACHE4</destNode>
+            </link>
+            <link linkName="Link12">
+                <srcNode>WEBSERVER0</srcNode>
+                <destNode>SPAM5</destNode>
+            </link>
+            <link linkName="Link2">
+                <srcNode>WEBCLIENT1</srcNode>
+                <destNode>SPAM2</destNode>
+            </link>
+            <link linkName="Link14">
+                <srcNode>WEBSERVER1</srcNode>
+                <destNode>SPAM2</destNode>
+            </link>
+            <link linkName="Link4">
+                <srcNode>WEBCLIENT2</srcNode>
+                <destNode>VPN3</destNode>
+            </link>
+            <link linkName="Link15">
+                <srcNode>SPAM2</srcNode>
+                <destNode>WEBSERVER1</destNode>
+            </link>
+            <link linkName="Link3">
+                <srcNode>SPAM2</srcNode>
+                <destNode>WEBCLIENT1</destNode>
+            </link>
+        </links>
+        <policies>
+            <reachabilityPolicy policyName="Policy14">
+                <srcNode>WEBCLIENT3</srcNode>
+                <destNode>WEBSERVER0</destNode>
+                <isPositive>true</isPositive>
+                <verificationResult>
+                    <verificationTime>2016-09-28T09:12:20.000+02:00</verificationTime>
+                    <verificationMessage>Policy verificarion result true</verificationMessage>
+                    <verificationResult>true</verificationResult>
+                </verificationResult>
+            </reachabilityPolicy>
+            <traversalPolicy policyName="Policy16">
+                <srcNode>WEBSERVER1</srcNode>
+                <destNode>WEBCLIENT4</destNode>
+                <isPositive>true</isPositive>
+                <traversComponent>WEB_SERVER</traversComponent>
+                <traversComponent>MAIL_CLIENT</traversComponent>
+                <traversComponent>MAIL_SERVER</traversComponent>
+            </traversalPolicy>
+            <traversalPolicy policyName="Policy15">
+                <srcNode>WEBCLIENT4</srcNode>
+                <destNode>WEBSERVER1</destNode>
+                <isPositive>true</isPositive>
+                <verificationResult>
+                    <verificationTime>2016-09-28T19:56:20.000+02:00</verificationTime>
+                    <verificationMessage>Policy verification result not true</verificationMessage>
+                    <verificationResult>false</verificationResult>
+                </verificationResult>
+                <traversComponent>WEB_SERVER</traversComponent>
+                <traversComponent>MAIL_CLIENT</traversComponent>
+                <traversComponent>MAIL_SERVER</traversComponent>
+            </traversalPolicy>
+        </policies>
+    </nffg>
+    <nffg nffgName="Nffg1" upTime="2016-09-27T06:51:20.000+02:00">
+        <nodes>
+            <node nodeName="MAILSERVER3">
+                <providerCat>
+                    <funcType>MAIL_SERVER</funcType>
+                </providerCat>
+            </node>
+            <node nodeName="FW3">
+                <providerCat>
+                    <funcType>FW</funcType>
+                </providerCat>
+            </node>
+            <node nodeName="FW9">
+                <providerCat>
+                    <funcType>FW</funcType>
+                </providerCat>
+            </node>
+            <node nodeName="MAILSERVER1">
+                <providerCat>
+                    <funcType>MAIL_SERVER</funcType>
+                </providerCat>
+            </node>
+            <node nodeName="MAILCLIENT0">
+                <providerCat>
+                    <funcType>MAIL_CLIENT</funcType>
+                </providerCat>
+            </node>
+            <node nodeName="NAT7">
+                <providerCat>
+                    <funcType>NAT</funcType>
+                </providerCat>
+            </node>
+            <node nodeName="VPN10">
+                <providerCat>
+                    <funcType>VPN</funcType>
+                </providerCat>
+            </node>
+            <node nodeName="DPI0">
+                <providerCat>
+                    <funcType>DPI</funcType>
+                </providerCat>
+            </node>
+            <node nodeName="VPN2">
+                <providerCat>
+                    <funcType>VPN</funcType>
+                </providerCat>
+            </node>
+            <node nodeName="WEBCLIENT3">
+                <providerCat>
+                    <funcType>WEB_CLIENT</funcType>
+                </providerCat>
+            </node>
+            <node nodeName="CACHE5">
+                <providerCat>
+                    <funcType>CACHE</funcType>
+                </providerCat>
+            </node>
+            <node nodeName="SPAM6">
+                <providerCat>
+                    <funcType>SPAM</funcType>
+                </providerCat>
+            </node>
+            <node nodeName="DPI8">
+                <providerCat>
+                    <funcType>DPI</funcType>
+                </providerCat>
+            </node>
+            <node nodeName="WEBSERVER0">
+                <providerCat>
+                    <funcType>WEB_SERVER</funcType>
+                </providerCat>
+            </node>
+            <node nodeName="SPAM4">
+                <providerCat>
+                    <funcType>SPAM</funcType>
+                </providerCat>
+            </node>
+            <node nodeName="WEBCLIENT1">
+                <providerCat>
+                    <funcType>WEB_CLIENT</funcType>
+                </providerCat>
+            </node>
+            <node nodeName="SPAM1">
+                <providerCat>
+                    <funcType>SPAM</funcType>
+                </providerCat>
+            </node>
+            <node nodeName="WEBCLIENT2">
+                <providerCat>
+                    <funcType>WEB_CLIENT</funcType>
+                </providerCat>
+            </node>
+            <node nodeName="WEBSERVER2">
+                <providerCat>
+                    <funcType>WEB_SERVER</funcType>
+                </providerCat>
+            </node>
+        </nodes>
+        <links>
+            <link linkName="Link89">
+                <srcNode>MAILSERVER3</srcNode>
+                <destNode>SPAM6</destNode>
+            </link>
+            <link linkName="Link22">
+                <srcNode>MAILSERVER3</srcNode>
+                <destNode>FW3</destNode>
+            </link>
+            <link linkName="Link32">
+                <srcNode>MAILSERVER3</srcNode>
+                <destNode>NAT7</destNode>
+            </link>
+            <link linkName="Link65">
+                <srcNode>MAILSERVER3</srcNode>
+                <destNode>SPAM4</destNode>
+            </link>
+            <link linkName="Link76">
+                <srcNode>MAILSERVER3</srcNode>
+                <destNode>DPI0</destNode>
+            </link>
+            <link linkName="Link14">
+                <srcNode>MAILSERVER3</srcNode>
+                <destNode>VPN10</destNode>
+            </link>
+            <link linkName="Link75">
+                <srcNode>FW3</srcNode>
+                <destNode>CACHE5</destNode>
+            </link>
+            <link linkName="Link48">
+                <srcNode>FW3</srcNode>
+                <destNode>WEBCLIENT1</destNode>
+            </link>
+            <link linkName="Link35">
+                <srcNode>FW3</srcNode>
+                <destNode>WEBCLIENT3</destNode>
+            </link>
+            <link linkName="Link94">
+                <srcNode>FW3</srcNode>
+                <destNode>WEBCLIENT2</destNode>
+            </link>
+            <link linkName="Link44">
+                <srcNode>FW9</srcNode>
+                <destNode>WEBCLIENT3</destNode>
+            </link>
+            <link linkName="Link66">
+                <srcNode>FW9</srcNode>
+                <destNode>WEBSERVER0</destNode>
+            </link>
+            <link linkName="Link77">
+                <srcNode>FW9</srcNode>
+                <destNode>MAILSERVER3</destNode>
+            </link>
+            <link linkName="Link36">
+                <srcNode>FW9</srcNode>
+                <destNode>MAILSERVER1</destNode>
+            </link>
+            <link linkName="Link13">
+                <srcNode>FW9</srcNode>
+                <destNode>WEBSERVER2</destNode>
+            </link>
+            <link linkName="Link45">
+                <srcNode>MAILSERVER1</srcNode>
+                <destNode>SPAM6</destNode>
+            </link>
+            <link linkName="Link10">
+                <srcNode>MAILSERVER1</srcNode>
+                <destNode>SPAM1</destNode>
+            </link>
+            <link linkName="Link70">
+                <srcNode>MAILSERVER1</srcNode>
+                <destNode>DPI8</destNode>
+            </link>
+            <link linkName="Link73">
+                <srcNode>MAILSERVER1</srcNode>
+                <destNode>VPN2</destNode>
+            </link>
+            <link linkName="Link0">
+                <srcNode>MAILCLIENT0</srcNode>
+                <destNode>SPAM6</destNode>
+            </link>
+            <link linkName="Link93">
+                <srcNode>MAILCLIENT0</srcNode>
+                <destNode>VPN2</destNode>
+            </link>
+            <link linkName="Link23">
+                <srcNode>NAT7</srcNode>
+                <destNode>WEBSERVER0</destNode>
+            </link>
+            <link linkName="Link78">
+                <srcNode>NAT7</srcNode>
+                <destNode>WEBSERVER2</destNode>
+            </link>
+            <link linkName="Link43">
+                <srcNode>NAT7</srcNode>
+                <destNode>MAILCLIENT0</destNode>
+            </link>
+            <link linkName="Link3">
+                <srcNode>NAT7</srcNode>
+                <destNode>WEBCLIENT1</destNode>
+            </link>
+            <link linkName="Link7">
+                <srcNode>NAT7</srcNode>
+                <destNode>WEBCLIENT3</destNode>
+            </link>
+            <link linkName="Link71">
+                <srcNode>NAT7</srcNode>
+                <destNode>SPAM6</destNode>
+            </link>
+            <link linkName="Link67">
+                <srcNode>VPN10</srcNode>
+                <destNode>NAT7</destNode>
+            </link>
+            <link linkName="Link20">
+                <srcNode>VPN10</srcNode>
+                <destNode>WEBSERVER0</destNode>
+            </link>
+            <link linkName="Link15">
+                <srcNode>VPN10</srcNode>
+                <destNode>MAILSERVER3</destNode>
+            </link>
+            <link linkName="Link47">
+                <srcNode>VPN10</srcNode>
+                <destNode>FW9</destNode>
+            </link>
+            <link linkName="Link29">
+                <srcNode>VPN10</srcNode>
+                <destNode>SPAM6</destNode>
+            </link>
+            <link linkName="Link60">
+                <srcNode>VPN10</srcNode>
+                <destNode>WEBCLIENT1</destNode>
+            </link>
+            <link linkName="Link56">
+                <srcNode>DPI0</srcNode>
+                <destNode>SPAM6</destNode>
+            </link>
+            <link linkName="Link64">
+                <srcNode>DPI0</srcNode>
+                <destNode>MAILSERVER1</destNode>
+            </link>
+            <link linkName="Link27">
+                <srcNode>DPI0</srcNode>
+                <destNode>NAT7</destNode>
+            </link>
+            <link linkName="Link37">
+                <srcNode>DPI0</srcNode>
+                <destNode>VPN10</destNode>
+            </link>
+            <link linkName="Link58">
+                <srcNode>DPI0</srcNode>
+                <destNode>MAILSERVER3</destNode>
+            </link>
+            <link linkName="Link96">
+                <srcNode>DPI0</srcNode>
+                <destNode>WEBSERVER2</destNode>
+            </link>
+            <link linkName="Link40">
+                <srcNode>DPI0</srcNode>
+                <destNode>MAILCLIENT0</destNode>
+            </link>
+            <link linkName="Link84">
+                <srcNode>DPI0</srcNode>
+                <destNode>WEBCLIENT3</destNode>
+            </link>
+            <link linkName="Link72">
+                <srcNode>DPI0</srcNode>
+                <destNode>WEBCLIENT1</destNode>
+            </link>
+            <link linkName="Link21">
+                <srcNode>VPN2</srcNode>
+                <destNode>DPI8</destNode>
+            </link>
+            <link linkName="Link54">
+                <srcNode>VPN2</srcNode>
+                <destNode>WEBCLIENT1</destNode>
+            </link>
+            <link linkName="Link42">
+                <srcNode>VPN2</srcNode>
+                <destNode>WEBCLIENT2</destNode>
+            </link>
+            <link linkName="Link57">
+                <srcNode>VPN2</srcNode>
+                <destNode>SPAM4</destNode>
+            </link>
+            <link linkName="Link79">
+                <srcNode>VPN2</srcNode>
+                <destNode>MAILSERVER3</destNode>
+            </link>
+            <link linkName="Link41">
+                <srcNode>VPN2</srcNode>
+                <destNode>CACHE5</destNode>
+            </link>
+            <link linkName="Link51">
+                <srcNode>VPN2</srcNode>
+                <destNode>SPAM6</destNode>
+            </link>
+            <link linkName="Link50">
+                <srcNode>VPN2</srcNode>
+                <destNode>FW3</destNode>
+            </link>
+            <link linkName="Link6">
+                <srcNode>WEBCLIENT3</srcNode>
+                <destNode>NAT7</destNode>
+            </link>
+            <link linkName="Link82">
+                <srcNode>WEBCLIENT3</srcNode>
+                <destNode>CACHE5</destNode>
+            </link>
+            <link linkName="Link33">
+                <srcNode>CACHE5</srcNode>
+                <destNode>MAILSERVER1</destNode>
+            </link>
+            <link linkName="Link55">
+                <srcNode>CACHE5</srcNode>
+                <destNode>WEBCLIENT2</destNode>
+            </link>
+            <link linkName="Link19">
+                <srcNode>CACHE5</srcNode>
+                <destNode>VPN10</destNode>
+            </link>
+            <link linkName="Link80">
+                <srcNode>CACHE5</srcNode>
+                <destNode>WEBCLIENT3</destNode>
+            </link>
+            <link linkName="Link63">
+                <srcNode>CACHE5</srcNode>
+                <destNode>SPAM1</destNode>
+            </link>
+            <link linkName="Link74">
+                <srcNode>CACHE5</srcNode>
+                <destNode>SPAM6</destNode>
+            </link>
+            <link linkName="Link62">
+                <srcNode>CACHE5</srcNode>
+                <destNode>SPAM4</destNode>
+            </link>
+            <link linkName="Link61">
+                <srcNode>CACHE5</srcNode>
+                <destNode>WEBSERVER0</destNode>
+            </link>
+            <link linkName="Link83">
+                <srcNode>CACHE5</srcNode>
+                <destNode>FW3</destNode>
+            </link>
+            <link linkName="Link87">
+                <srcNode>SPAM6</srcNode>
+                <destNode>DPI8</destNode>
+            </link>
+            <link linkName="Link25">
+                <srcNode>SPAM6</srcNode>
+                <destNode>WEBCLIENT2</destNode>
+            </link>
+            <link linkName="Link1">
+                <srcNode>SPAM6</srcNode>
+                <destNode>MAILCLIENT0</destNode>
+            </link>
+            <link linkName="Link46">
+                <srcNode>SPAM6</srcNode>
+                <destNode>MAILSERVER1</destNode>
+            </link>
+            <link linkName="Link81">
+                <srcNode>SPAM6</srcNode>
+                <destNode>WEBCLIENT3</destNode>
+            </link>
+            <link linkName="Link69">
+                <srcNode>DPI8</srcNode>
+                <destNode>FW3</destNode>
+            </link>
+            <link linkName="Link68">
+                <srcNode>DPI8</srcNode>
+                <destNode>MAILSERVER1</destNode>
+            </link>
+            <link linkName="Link90">
+                <srcNode>DPI8</srcNode>
+                <destNode>SPAM6</destNode>
+            </link>
+            <link linkName="Link17">
+                <srcNode>DPI8</srcNode>
+                <destNode>MAILCLIENT0</destNode>
+            </link>
+            <link linkName="Link34">
+                <srcNode>WEBSERVER0</srcNode>
+                <destNode>VPN10</destNode>
+            </link>
+            <link linkName="Link26">
+                <srcNode>WEBSERVER0</srcNode>
+                <destNode>SPAM4</destNode>
+            </link>
+            <link linkName="Link85">
+                <srcNode>WEBSERVER0</srcNode>
+                <destNode>DPI8</destNode>
+            </link>
+            <link linkName="Link8">
+                <srcNode>WEBSERVER0</srcNode>
+                <destNode>SPAM1</destNode>
+            </link>
+            <link linkName="Link86">
+                <srcNode>SPAM4</srcNode>
+                <destNode>CACHE5</destNode>
+            </link>
+            <link linkName="Link38">
+                <srcNode>SPAM4</srcNode>
+                <destNode>WEBCLIENT1</destNode>
+            </link>
+            <link linkName="Link49">
+                <srcNode>SPAM4</srcNode>
+                <destNode>FW9</destNode>
+            </link>
+            <link linkName="Link59">
+                <srcNode>SPAM4</srcNode>
+                <destNode>WEBSERVER2</destNode>
+            </link>
+            <link linkName="Link92">
+                <srcNode>SPAM4</srcNode>
+                <destNode>MAILSERVER1</destNode>
+            </link>
+            <link linkName="Link5">
+                <srcNode>SPAM4</srcNode>
+                <destNode>WEBCLIENT2</destNode>
+            </link>
+            <link linkName="Link30">
+                <srcNode>SPAM4</srcNode>
+                <destNode>SPAM1</destNode>
+            </link>
+            <link linkName="Link2">
+                <srcNode>WEBCLIENT1</srcNode>
+                <destNode>NAT7</destNode>
+            </link>
+            <link linkName="Link91">
+                <srcNode>WEBCLIENT1</srcNode>
+                <destNode>FW9</destNode>
+            </link>
+            <link linkName="Link11">
+                <srcNode>SPAM1</srcNode>
+                <destNode>MAILSERVER1</destNode>
+            </link>
+            <link linkName="Link53">
+                <srcNode>SPAM1</srcNode>
+                <destNode>DPI0</destNode>
+            </link>
+            <link linkName="Link39">
+                <srcNode>SPAM1</srcNode>
+                <destNode>FW3</destNode>
+            </link>
+            <link linkName="Link52">
+                <srcNode>SPAM1</srcNode>
+                <destNode>WEBCLIENT1</destNode>
+            </link>
+            <link linkName="Link95">
+                <srcNode>SPAM1</srcNode>
+                <destNode>WEBCLIENT2</destNode>
+            </link>
+            <link linkName="Link9">
+                <srcNode>SPAM1</srcNode>
+                <destNode>WEBSERVER0</destNode>
+            </link>
+            <link linkName="Link88">
+                <srcNode>WEBCLIENT2</srcNode>
+                <destNode>NAT7</destNode>
+            </link>
+            <link linkName="Link31">
+                <srcNode>WEBCLIENT2</srcNode>
+                <destNode>DPI8</destNode>
+            </link>
+            <link linkName="Link24">
+                <srcNode>WEBCLIENT2</srcNode>
+                <destNode>SPAM6</destNode>
+            </link>
+            <link linkName="Link4">
+                <srcNode>WEBCLIENT2</srcNode>
+                <destNode>SPAM4</destNode>
+            </link>
+            <link linkName="Link12">
+                <srcNode>WEBSERVER2</srcNode>
+                <destNode>FW9</destNode>
+            </link>
+            <link linkName="Link16">
+                <srcNode>WEBSERVER2</srcNode>
+                <destNode>DPI8</destNode>
+            </link>
+            <link linkName="Link18">
+                <srcNode>WEBSERVER2</srcNode>
+                <destNode>VPN10</destNode>
+            </link>
+            <link linkName="Link28">
+                <srcNode>WEBSERVER2</srcNode>
+                <destNode>CACHE5</destNode>
+            </link>
+        </links>
+        <policies>
+            <reachabilityPolicy policyName="Policy13">
+                <srcNode>WEBSERVER0</srcNode>
+                <destNode>WEBCLIENT2</destNode>
+                <isPositive>false</isPositive>
+            </reachabilityPolicy>
+            <reachabilityPolicy policyName="Policy9">
+                <srcNode>WEBCLIENT2</srcNode>
+                <destNode>WEBSERVER0</destNode>
+                <isPositive>true</isPositive>
+                <verificationResult>
+                    <verificationTime>2016-09-27T05:28:20.000+02:00</verificationTime>
+                    <verificationMessage>Policy verification result not true</verificationMessage>
+                    <verificationResult>false</verificationResult>
+                </verificationResult>
+            </reachabilityPolicy>
+            <reachabilityPolicy policyName="Policy8">
+                <srcNode>WEBCLIENT1</srcNode>
+                <destNode>MAILSERVER1</destNode>
+                <isPositive>true</isPositive>
+            </reachabilityPolicy>
+            <traversalPolicy policyName="Policy12">
+                <srcNode>MAILSERVER1</srcNode>
+                <destNode>WEBCLIENT2</destNode>
+                <isPositive>false</isPositive>
+                <verificationResult>
+                    <verificationTime>2016-09-26T11:47:20.000+02:00</verificationTime>
+                    <verificationMessage>Policy verification result not true</verificationMessage>
+                    <verificationResult>false</verificationResult>
+                </verificationResult>
+                <traversComponent>MAIL_SERVER</traversComponent>
+                <traversComponent>MAIL_CLIENT</traversComponent>
+            </traversalPolicy>
+            <traversalPolicy policyName="Policy11">
+                <srcNode>WEBCLIENT2</srcNode>
+                <destNode>MAILSERVER1</destNode>
+                <isPositive>true</isPositive>
+                <verificationResult>
+                    <verificationTime>2016-09-26T16:26:20.000+02:00</verificationTime>
+                    <verificationMessage>Policy verification result not true</verificationMessage>
+                    <verificationResult>false</verificationResult>
+                </verificationResult>
+                <traversComponent>CACHE</traversComponent>
+                <traversComponent>DPI</traversComponent>
+                <traversComponent>MAIL_CLIENT</traversComponent>
+            </traversalPolicy>
+            <traversalPolicy policyName="Policy10">
+                <srcNode>WEBCLIENT2</srcNode>
+                <destNode>MAILSERVER1</destNode>
+                <isPositive>true</isPositive>
+                <verificationResult>
+                    <verificationTime>2016-09-26T11:07:20.000+02:00</verificationTime>
+                    <verificationMessage>Policy verificarion result true</verificationMessage>
+                    <verificationResult>true</verificationResult>
+                </verificationResult>
+                <traversComponent>MAIL_SERVER</traversComponent>
+                <traversComponent>MAIL_CLIENT</traversComponent>
+            </traversalPolicy>
+            <traversalPolicy policyName="Policy7">
+                <srcNode>MAILCLIENT0</srcNode>
+                <destNode>MAILSERVER3</destNode>
+                <isPositive>true</isPositive>
+                <traversComponent>FW</traversComponent>
+            </traversalPolicy>
+        </policies>
+    </nffg>
+    <nffg nffgName="Nffg5" upTime="2016-09-26T15:32:20.000+02:00">
+        <nodes>
+            <node nodeName="MAILSERVER5">
+                <providerCat>
+                    <funcType>MAIL_SERVER</funcType>
+                </providerCat>
+            </node>
+            <node nodeName="MAILSERVER4">
+                <providerCat>
+                    <funcType>MAIL_SERVER</funcType>
+                </providerCat>
+            </node>
+            <node nodeName="MAILSERVER3">
+                <providerCat>
+                    <funcType>MAIL_SERVER</funcType>
+                </providerCat>
+            </node>
+            <node nodeName="MAILSERVER2">
+                <providerCat>
+                    <funcType>MAIL_SERVER</funcType>
+                </providerCat>
+            </node>
+            <node nodeName="FW3">
+                <providerCat>
+                    <funcType>FW</funcType>
+                </providerCat>
+            </node>
+            <node nodeName="CACHE1">
+                <providerCat>
+                    <funcType>CACHE</funcType>
+                </providerCat>
+            </node>
+            <node nodeName="NAT0">
+                <providerCat>
+                    <funcType>NAT</funcType>
+                </providerCat>
+            </node>
+            <node nodeName="VPN2">
+                <providerCat>
+                    <funcType>VPN</funcType>
+                </providerCat>
+            </node>
+            <node nodeName="WEBCLIENT0">
+                <providerCat>
+                    <funcType>WEB_CLIENT</funcType>
+                </providerCat>
+            </node>
+            <node nodeName="WEBSERVER0">
+                <providerCat>
+                    <funcType>WEB_SERVER</funcType>
+                </providerCat>
+            </node>
+            <node nodeName="WEBCLIENT1">
+                <providerCat>
+                    <funcType>WEB_CLIENT</funcType>
+                </providerCat>
+            </node>
+            <node nodeName="WEBSERVER1">
+                <providerCat>
+                    <funcType>WEB_SERVER</funcType>
+                </providerCat>
+            </node>
+            <node nodeName="WEBCLIENT2">
+                <providerCat>
+                    <funcType>WEB_CLIENT</funcType>
+                </providerCat>
+            </node>
+        </nodes>
+        <links>
+            <link linkName="Link23">
+                <srcNode>MAILSERVER5</srcNode>
+                <destNode>NAT0</destNode>
+            </link>
+            <link linkName="Link16">
+                <srcNode>MAILSERVER5</srcNode>
+                <destNode>VPN2</destNode>
+            </link>
+            <link linkName="Link19">
+                <srcNode>MAILSERVER5</srcNode>
+                <destNode>FW3</destNode>
+            </link>
+            <link linkName="Link31">
+                <srcNode>MAILSERVER4</srcNode>
+                <destNode>CACHE1</destNode>
+            </link>
+            <link linkName="Link14">
+                <srcNode>MAILSERVER4</srcNode>
+                <destNode>FW3</destNode>
+            </link>
+            <link linkName="Link47">
+                <srcNode>MAILSERVER4</srcNode>
+                <destNode>NAT0</destNode>
+            </link>
+            <link linkName="Link40">
+                <srcNode>MAILSERVER4</srcNode>
+                <destNode>VPN2</destNode>
+            </link>
+            <link linkName="Link12">
+                <srcNode>MAILSERVER3</srcNode>
+                <destNode>CACHE1</destNode>
+            </link>
+            <link linkName="Link34">
+                <srcNode>MAILSERVER3</srcNode>
+                <destNode>VPN2</destNode>
+            </link>
+            <link linkName="Link28">
+                <srcNode>MAILSERVER3</srcNode>
+                <destNode>FW3</destNode>
+            </link>
+            <link linkName="Link10">
+                <srcNode>MAILSERVER2</srcNode>
+                <destNode>VPN2</destNode>
+            </link>
+            <link linkName="Link46">
+                <srcNode>MAILSERVER2</srcNode>
+                <destNode>CACHE1</destNode>
+            </link>
+            <link linkName="Link27">
+                <srcNode>FW3</srcNode>
+                <destNode>CACHE1</destNode>
+            </link>
+            <link linkName="Link38">
+                <srcNode>FW3</srcNode>
+                <destNode>MAILSERVER2</destNode>
+            </link>
+            <link linkName="Link15">
+                <srcNode>FW3</srcNode>
+                <destNode>MAILSERVER4</destNode>
+            </link>
+            <link linkName="Link37">
+                <srcNode>FW3</srcNode>
+                <destNode>WEBCLIENT0</destNode>
+            </link>
+            <link linkName="Link48">
+                <srcNode>FW3</srcNode>
+                <destNode>WEBSERVER0</destNode>
+            </link>
+            <link linkName="Link36">
+                <srcNode>FW3</srcNode>
+                <destNode>NAT0</destNode>
+            </link>
+            <link linkName="Link5">
+                <srcNode>FW3</srcNode>
+                <destNode>WEBCLIENT2</destNode>
+            </link>
+            <link linkName="Link30">
+                <srcNode>FW3</srcNode>
+                <destNode>MAILSERVER5</destNode>
+            </link>
+            <link linkName="Link22">
+                <srcNode>CACHE1</srcNode>
+                <destNode>WEBSERVER0</destNode>
+            </link>
+            <link linkName="Link21">
+                <srcNode>CACHE1</srcNode>
+                <destNode>WEBSERVER1</destNode>
+            </link>
+            <link linkName="Link25">
+                <srcNode>CACHE1</srcNode>
+                <destNode>MAILSERVER2</destNode>
+            </link>
+            <link linkName="Link13">
+                <srcNode>CACHE1</srcNode>
+                <destNode>MAILSERVER3</destNode>
+            </link>
+            <link linkName="Link43">
+                <srcNode>NAT0</srcNode>
+                <destNode>WEBCLIENT0</destNode>
+            </link>
+            <link linkName="Link42">
+                <srcNode>NAT0</srcNode>
+                <destNode>FW3</destNode>
+            </link>
+            <link linkName="Link29">
+                <srcNode>NAT0</srcNode>
+                <destNode>MAILSERVER2</destNode>
+            </link>
+            <link linkName="Link39">
+                <srcNode>NAT0</srcNode>
+                <destNode>VPN2</destNode>
+            </link>
+            <link linkName="Link41">
+                <srcNode>NAT0</srcNode>
+                <destNode>WEBCLIENT1</destNode>
+            </link>
+            <link linkName="Link9">
+                <srcNode>NAT0</srcNode>
+                <destNode>WEBSERVER1</destNode>
+            </link>
+            <link linkName="Link11">
+                <srcNode>VPN2</srcNode>
+                <destNode>MAILSERVER2</destNode>
+            </link>
+            <link linkName="Link33">
+                <srcNode>VPN2</srcNode>
+                <destNode>MAILSERVER3</destNode>
+            </link>
+            <link linkName="Link1">
+                <srcNode>VPN2</srcNode>
+                <destNode>WEBCLIENT0</destNode>
+            </link>
+            <link linkName="Link24">
+                <srcNode>VPN2</srcNode>
+                <destNode>WEBCLIENT2</destNode>
+            </link>
+            <link linkName="Link3">
+                <srcNode>VPN2</srcNode>
+                <destNode>WEBCLIENT1</destNode>
+            </link>
+            <link linkName="Link18">
+                <srcNode>VPN2</srcNode>
+                <destNode>NAT0</destNode>
+            </link>
+            <link linkName="Link17">
+                <srcNode>VPN2</srcNode>
+                <destNode>MAILSERVER5</destNode>
+            </link>
+            <link linkName="Link7">
+                <srcNode>VPN2</srcNode>
+                <destNode>WEBSERVER0</destNode>
+            </link>
+            <link linkName="Link26">
+                <srcNode>WEBCLIENT0</srcNode>
+                <destNode>FW3</destNode>
+            </link>
+            <link linkName="Link0">
+                <srcNode>WEBCLIENT0</srcNode>
+                <destNode>VPN2</destNode>
+            </link>
+            <link linkName="Link20">
+                <srcNode>WEBSERVER0</srcNode>
+                <destNode>FW3</destNode>
+            </link>
+            <link linkName="Link6">
+                <srcNode>WEBSERVER0</srcNode>
+                <destNode>VPN2</destNode>
+            </link>
+            <link linkName="Link32">
+                <srcNode>WEBCLIENT1</srcNode>
+                <destNode>CACHE1</destNode>
+            </link>
+            <link linkName="Link2">
+                <srcNode>WEBCLIENT1</srcNode>
+                <destNode>VPN2</destNode>
+            </link>
+            <link linkName="Link45">
+                <srcNode>WEBSERVER1</srcNode>
+                <destNode>VPN2</destNode>
+            </link>
+            <link linkName="Link8">
+                <srcNode>WEBSERVER1</srcNode>
+                <destNode>NAT0</destNode>
+            </link>
+            <link linkName="Link44">
+                <srcNode>WEBCLIENT2</srcNode>
+                <destNode>NAT0</destNode>
+            </link>
+            <link linkName="Link35">
+                <srcNode>WEBCLIENT2</srcNode>
+                <destNode>VPN2</destNode>
+            </link>
+            <link linkName="Link4">
+                <srcNode>WEBCLIENT2</srcNode>
+                <destNode>FW3</destNode>
+            </link>
+        </links>
+        <policies>
+            <reachabilityPolicy policyName="Policy34">
+                <srcNode>WEBCLIENT2</srcNode>
+                <destNode>WEBSERVER1</destNode>
+                <isPositive>false</isPositive>
+            </reachabilityPolicy>
+            <reachabilityPolicy policyName="Policy32">
+                <srcNode>WEBCLIENT1</srcNode>
+                <destNode>WEBSERVER1</destNode>
+                <isPositive>true</isPositive>
+                <verificationResult>
+                    <verificationTime>2016-09-26T15:04:20.000+02:00</verificationTime>
+                    <verificationMessage>Policy verification result not true</verificationMessage>
+                    <verificationResult>false</verificationResult>
+                </verificationResult>
+            </reachabilityPolicy>
+            <reachabilityPolicy policyName="Policy38">
+                <srcNode>WEBSERVER1</srcNode>
+                <destNode>WEBCLIENT1</destNode>
+                <isPositive>true</isPositive>
+            </reachabilityPolicy>
+            <reachabilityPolicy policyName="Policy37">
+                <srcNode>WEBSERVER1</srcNode>
+                <destNode>WEBCLIENT2</destNode>
+                <isPositive>false</isPositive>
+                <verificationResult>
+                    <verificationTime>2016-09-26T04:53:20.000+02:00</verificationTime>
+                    <verificationMessage>Policy verification result not true</verificationMessage>
+                    <verificationResult>false</verificationResult>
+                </verificationResult>
+            </reachabilityPolicy>
+            <reachabilityPolicy policyName="Policy29">
+                <srcNode>WEBCLIENT1</srcNode>
+                <destNode>MAILSERVER4</destNode>
+                <isPositive>true</isPositive>
+                <verificationResult>
+                    <verificationTime>2016-09-25T20:14:20.000+02:00</verificationTime>
+                    <verificationMessage>Policy verification result not true</verificationMessage>
+                    <verificationResult>false</verificationResult>
+                </verificationResult>
+            </reachabilityPolicy>
+            <reachabilityPolicy policyName="Policy41">
+                <srcNode>MAILSERVER4</srcNode>
+                <destNode>WEBCLIENT1</destNode>
+                <isPositive>true</isPositive>
+                <verificationResult>
+                    <verificationTime>2016-09-26T04:04:20.000+02:00</verificationTime>
+                    <verificationMessage>Policy verificarion result true</verificationMessage>
+                    <verificationResult>true</verificationResult>
+                </verificationResult>
+            </reachabilityPolicy>
+            <traversalPolicy policyName="Policy33">
+                <srcNode>WEBCLIENT1</srcNode>
+                <destNode>WEBSERVER0</destNode>
+                <isPositive>false</isPositive>
+                <verificationResult>
+                    <verificationTime>2016-09-26T05:35:20.000+02:00</verificationTime>
+                    <verificationMessage>Policy verificarion result true</verificationMessage>
+                    <verificationResult>true</verificationResult>
+                </verificationResult>
+                <traversComponent>WEB_SERVER</traversComponent>
+                <traversComponent>NAT</traversComponent>
+                <traversComponent>WEB_CLIENT</traversComponent>
+            </traversalPolicy>
+            <traversalPolicy policyName="Policy31">
+                <srcNode>WEBCLIENT1</srcNode>
+                <destNode>WEBSERVER1</destNode>
+                <isPositive>false</isPositive>
+                <verificationResult>
+                    <verificationTime>2016-09-26T14:39:20.000+02:00</verificationTime>
+                    <verificationMessage>Policy verification result not true</verificationMessage>
+                    <verificationResult>false</verificationResult>
+                </verificationResult>
+                <traversComponent>WEB_SERVER</traversComponent>
+            </traversalPolicy>
+            <traversalPolicy policyName="Policy42">
+                <srcNode>WEBSERVER1</srcNode>
+                <destNode>WEBCLIENT1</destNode>
+                <isPositive>false</isPositive>
+                <traversComponent>MAIL_SERVER</traversComponent>
+                <traversComponent>WEB_SERVER</traversComponent>
+                <traversComponent>WEB_CLIENT</traversComponent>
+            </traversalPolicy>
+            <traversalPolicy policyName="Policy36">
+                <srcNode>WEBCLIENT2</srcNode>
+                <destNode>MAILSERVER2</destNode>
+                <isPositive>true</isPositive>
+                <traversComponent>WEB_SERVER</traversComponent>
+                <traversComponent>MAIL_CLIENT</traversComponent>
+                <traversComponent>DPI</traversComponent>
+            </traversalPolicy>
+            <traversalPolicy policyName="Policy35">
+                <srcNode>WEBCLIENT2</srcNode>
+                <destNode>MAILSERVER4</destNode>
+                <isPositive>true</isPositive>
+                <verificationResult>
+                    <verificationTime>2016-09-26T03:19:20.000+02:00</verificationTime>
+                    <verificationMessage>Policy verification result not true</verificationMessage>
+                    <verificationResult>false</verificationResult>
+                </verificationResult>
+                <traversComponent>FW</traversComponent>
+            </traversalPolicy>
+            <traversalPolicy policyName="Policy39">
+                <srcNode>WEBSERVER1</srcNode>
+                <destNode>WEBCLIENT1</destNode>
+                <isPositive>true</isPositive>
+                <traversComponent>WEB_SERVER</traversComponent>
+            </traversalPolicy>
+            <traversalPolicy policyName="Policy30">
+                <srcNode>WEBCLIENT1</srcNode>
+                <destNode>WEBSERVER1</destNode>
+                <isPositive>false</isPositive>
+                <traversComponent>MAIL_SERVER</traversComponent>
+                <traversComponent>WEB_SERVER</traversComponent>
+                <traversComponent>WEB_CLIENT</traversComponent>
+            </traversalPolicy>
+            <traversalPolicy policyName="Policy40">
+                <srcNode>MAILSERVER2</srcNode>
+                <destNode>WEBCLIENT2</destNode>
+                <isPositive>true</isPositive>
+                <verificationResult>
+                    <verificationTime>2016-09-26T02:09:20.000+02:00</verificationTime>
+                    <verificationMessage>Policy verificarion result true</verificationMessage>
+                    <verificationResult>true</verificationResult>
+                </verificationResult>
+                <traversComponent>WEB_SERVER</traversComponent>
+                <traversComponent>MAIL_CLIENT</traversComponent>
+                <traversComponent>DPI</traversComponent>
+            </traversalPolicy>
+        </policies>
+    </nffg>
+    <nffg nffgName="Nffg0" upTime="2016-09-28T12:26:20.000+02:00">
+        <nodes>
+            <node nodeName="FW4">
+                <providerCat>
+                    <funcType>FW</funcType>
+                </providerCat>
+            </node>
+            <node nodeName="FW3">
+                <providerCat>
+                    <funcType>FW</funcType>
+                </providerCat>
+            </node>
+            <node nodeName="CACHE0">
+                <providerCat>
+                    <funcType>CACHE</funcType>
+                </providerCat>
+            </node>
+            <node nodeName="CACHE1">
+                <providerCat>
+                    <funcType>CACHE</funcType>
+                </providerCat>
+            </node>
+            <node nodeName="FW7">
+                <providerCat>
+                    <funcType>FW</funcType>
+                </providerCat>
+            </node>
+            <node nodeName="NAT11">
+                <providerCat>
+                    <funcType>NAT</funcType>
+                </providerCat>
+            </node>
+            <node nodeName="VPN6">
+                <providerCat>
+                    <funcType>VPN</funcType>
+                </providerCat>
+            </node>
+            <node nodeName="MAILCLIENT1">
+                <providerCat>
+                    <funcType>MAIL_CLIENT</funcType>
+                </providerCat>
+            </node>
+            <node nodeName="VPN8">
+                <providerCat>
+                    <funcType>VPN</funcType>
+                </providerCat>
+            </node>
+            <node nodeName="MAILCLIENT0">
+                <providerCat>
+                    <funcType>MAIL_CLIENT</funcType>
+                </providerCat>
+            </node>
+            <node nodeName="MAILCLIENT4">
+                <providerCat>
+                    <funcType>MAIL_CLIENT</funcType>
+                </providerCat>
+            </node>
+            <node nodeName="MAILCLIENT3">
+                <providerCat>
+                    <funcType>MAIL_CLIENT</funcType>
+                </providerCat>
+            </node>
+            <node nodeName="VPN10">
+                <providerCat>
+                    <funcType>VPN</funcType>
+                </providerCat>
+            </node>
+            <node nodeName="MAILCLIENT2">
+                <providerCat>
+                    <funcType>MAIL_CLIENT</funcType>
+                </providerCat>
+            </node>
+            <node nodeName="FW12">
+                <providerCat>
+                    <funcType>FW</funcType>
+                </providerCat>
+            </node>
+            <node nodeName="WEBCLIENT7">
+                <providerCat>
+                    <funcType>WEB_CLIENT</funcType>
+                </providerCat>
+            </node>
+            <node nodeName="MAILCLIENT8">
+                <providerCat>
+                    <funcType>MAIL_CLIENT</funcType>
+                </providerCat>
+            </node>
+            <node nodeName="WEBSERVER3">
+                <providerCat>
+                    <funcType>WEB_SERVER</funcType>
+                </providerCat>
+            </node>
+            <node nodeName="WEBCLIENT5">
+                <providerCat>
+                    <funcType>WEB_CLIENT</funcType>
+                </providerCat>
+            </node>
+            <node nodeName="WEBCLIENT6">
+                <providerCat>
+                    <funcType>WEB_CLIENT</funcType>
+                </providerCat>
+            </node>
+            <node nodeName="WEBSERVER0">
+                <providerCat>
+                    <funcType>WEB_SERVER</funcType>
+                </providerCat>
+            </node>
+            <node nodeName="WEBSERVER2">
+                <providerCat>
+                    <funcType>WEB_SERVER</funcType>
+                </providerCat>
+            </node>
+            <node nodeName="SPAM9">
+                <providerCat>
+                    <funcType>SPAM</funcType>
+                </providerCat>
+            </node>
+            <node nodeName="MAILSERVER1">
+                <providerCat>
+                    <funcType>MAIL_SERVER</funcType>
+                </providerCat>
+            </node>
+            <node nodeName="VPN2">
+                <providerCat>
+                    <funcType>VPN</funcType>
+                </providerCat>
+            </node>
+            <node nodeName="SPAM5">
+                <providerCat>
+                    <funcType>SPAM</funcType>
+                </providerCat>
+            </node>
+        </nodes>
+        <links>
+            <link linkName="Link25">
+                <srcNode>FW4</srcNode>
+                <destNode>WEBSERVER3</destNode>
+            </link>
+            <link linkName="Link5">
+                <srcNode>FW3</srcNode>
+                <destNode>MAILCLIENT2</destNode>
+            </link>
+            <link linkName="Link17">
+                <srcNode>FW3</srcNode>
+                <destNode>MAILCLIENT8</destNode>
+            </link>
+            <link linkName="Link35">
+                <srcNode>CACHE0</srcNode>
+                <destNode>WEBCLIENT7</destNode>
+            </link>
+            <link linkName="Link31">
+                <srcNode>CACHE1</srcNode>
+                <destNode>VPN2</destNode>
+            </link>
+            <link linkName="Link26">
+                <srcNode>CACHE1</srcNode>
+                <destNode>VPN10</destNode>
+            </link>
+            <link linkName="Link27">
+                <srcNode>FW7</srcNode>
+                <destNode>MAILCLIENT1</destNode>
+            </link>
+            <link linkName="Link38">
+                <srcNode>NAT11</srcNode>
+                <destNode>MAILCLIENT8</destNode>
+            </link>
+            <link linkName="Link37">
+                <srcNode>NAT11</srcNode>
+                <destNode>CACHE1</destNode>
+            </link>
+            <link linkName="Link19">
+                <srcNode>NAT11</srcNode>
+                <destNode>WEBSERVER0</destNode>
+            </link>
+            <link linkName="Link15">
+                <srcNode>VPN6</srcNode>
+                <destNode>WEBCLIENT7</destNode>
+            </link>
+            <link linkName="Link13">
+                <srcNode>VPN6</srcNode>
+                <destNode>WEBCLIENT6</destNode>
+            </link>
+            <link linkName="Link40">
+                <srcNode>VPN6</srcNode>
+                <destNode>VPN8</destNode>
+            </link>
+            <link linkName="Link2">
+                <srcNode>MAILCLIENT1</srcNode>
+                <destNode>FW12</destNode>
+            </link>
+            <link linkName="Link34">
+                <srcNode>MAILCLIENT0</srcNode>
+                <destNode>SPAM9</destNode>
+            </link>
+            <link linkName="Link0">
+                <srcNode>MAILCLIENT0</srcNode>
+                <destNode>VPN2</destNode>
+            </link>
+            <link linkName="Link8">
+                <srcNode>MAILCLIENT4</srcNode>
+                <destNode>VPN10</destNode>
+            </link>
+            <link linkName="Link6">
+                <srcNode>MAILCLIENT3</srcNode>
+                <destNode>VPN2</destNode>
+            </link>
+            <link linkName="Link23">
+                <srcNode>VPN10</srcNode>
+                <destNode>WEBSERVER2</destNode>
+            </link>
+            <link linkName="Link21">
+                <srcNode>VPN10</srcNode>
+                <destNode>MAILSERVER1</destNode>
+            </link>
+            <link linkName="Link29">
+                <srcNode>VPN10</srcNode>
+                <destNode>WEBCLIENT5</destNode>
+            </link>
+            <link linkName="Link9">
+                <srcNode>VPN10</srcNode>
+                <destNode>MAILCLIENT4</destNode>
+            </link>
+            <link linkName="Link4">
+                <srcNode>MAILCLIENT2</srcNode>
+                <destNode>FW3</destNode>
+            </link>
+            <link linkName="Link3">
+                <srcNode>FW12</srcNode>
+                <destNode>MAILCLIENT1</destNode>
+            </link>
+            <link linkName="Link14">
+                <srcNode>WEBCLIENT7</srcNode>
+                <destNode>VPN6</destNode>
+            </link>
+            <link linkName="Link33">
+                <srcNode>MAILCLIENT8</srcNode>
+                <destNode>SPAM5</destNode>
+            </link>
+            <link linkName="Link16">
+                <srcNode>MAILCLIENT8</srcNode>
+                <destNode>FW3</destNode>
+            </link>
+            <link linkName="Link32">
+                <srcNode>WEBSERVER3</srcNode>
+                <destNode>NAT11</destNode>
+            </link>
+            <link linkName="Link24">
+                <srcNode>WEBSERVER3</srcNode>
+                <destNode>FW4</destNode>
+            </link>
+            <link linkName="Link10">
+                <srcNode>WEBCLIENT5</srcNode>
+                <destNode>SPAM9</destNode>
+            </link>
+            <link linkName="Link12">
+                <srcNode>WEBCLIENT6</srcNode>
+                <destNode>VPN6</destNode>
+            </link>
+            <link linkName="Link36">
+                <srcNode>WEBCLIENT6</srcNode>
+                <destNode>VPN2</destNode>
+            </link>
+            <link linkName="Link18">
+                <srcNode>WEBSERVER0</srcNode>
+                <destNode>NAT11</destNode>
+            </link>
+            <link linkName="Link22">
+                <srcNode>WEBSERVER2</srcNode>
+                <destNode>VPN10</destNode>
+            </link>
+            <link linkName="Link11">
+                <srcNode>SPAM9</srcNode>
+                <destNode>WEBCLIENT5</destNode>
+            </link>
+            <link linkName="Link20">
+                <srcNode>MAILSERVER1</srcNode>
+                <destNode>VPN10</destNode>
+            </link>
+            <link linkName="Link1">
+                <srcNode>VPN2</srcNode>
+                <destNode>MAILCLIENT0</destNode>
+            </link>
+            <link linkName="Link30">
+                <srcNode>VPN2</srcNode>
+                <destNode>MAILCLIENT2</destNode>
+            </link>
+            <link linkName="Link7">
+                <srcNode>VPN2</srcNode>
+                <destNode>MAILCLIENT3</destNode>
+            </link>
+            <link linkName="Link28">
+                <srcNode>SPAM5</srcNode>
+                <destNode>WEBSERVER2</destNode>
+            </link>
+            <link linkName="Link39">
+                <srcNode>SPAM5</srcNode>
+                <destNode>MAILCLIENT1</destNode>
+            </link>
+        </links>
+        <policies>
+            <reachabilityPolicy policyName="Policy1">
+                <srcNode>MAILCLIENT4</srcNode>
+                <destNode>MAILSERVER1</destNode>
+                <isPositive>true</isPositive>
+            </reachabilityPolicy>
+            <reachabilityPolicy policyName="Policy0">
+                <srcNode>MAILCLIENT4</srcNode>
+                <destNode>WEBSERVER0</destNode>
+                <isPositive>false</isPositive>
+            </reachabilityPolicy>
+            <reachabilityPolicy policyName="Policy6">
+                <srcNode>MAILSERVER1</srcNode>
+                <destNode>MAILCLIENT8</destNode>
+                <isPositive>false</isPositive>
+            </reachabilityPolicy>
+            <reachabilityPolicy policyName="Policy4">
+                <srcNode>MAILCLIENT8</srcNode>
+                <destNode>MAILSERVER1</destNode>
+                <isPositive>true</isPositive>
+            </reachabilityPolicy>
+            <reachabilityPolicy policyName="Policy2">
+                <srcNode>WEBCLIENT7</srcNode>
+                <destNode>WEBSERVER3</destNode>
+                <isPositive>false</isPositive>
+            </reachabilityPolicy>
+            <traversalPolicy policyName="Policy5">
+                <srcNode>MAILCLIENT8</srcNode>
+                <destNode>WEBSERVER0</destNode>
+                <isPositive>false</isPositive>
+                <traversComponent>VPN</traversComponent>
+                <traversComponent>MAIL_SERVER</traversComponent>
+                <traversComponent>MAIL_CLIENT</traversComponent>
+            </traversalPolicy>
+            <traversalPolicy policyName="Policy3">
+                <srcNode>MAILCLIENT8</srcNode>
+                <destNode>WEBSERVER0</destNode>
+                <isPositive>false</isPositive>
+                <traversComponent>MAIL_CLIENT</traversComponent>
+            </traversalPolicy>
+        </policies>
+    </nffg>
+</nffgVerifier>

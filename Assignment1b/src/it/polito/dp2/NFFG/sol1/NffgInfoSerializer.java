@@ -12,11 +12,10 @@ import it.polito.dp2.NFFG.sol1.jaxb.ObjectFactory;
 import it.polito.dp2.NFFG.sol1.jaxb.PoliciesType;
 import it.polito.dp2.NFFG.sol1.jaxb.ProviderCatType;
 import it.polito.dp2.NFFG.sol1.jaxb.ReachabilityPolicyType;
+import it.polito.dp2.NFFG.sol1.jaxb.ResultType;
 import it.polito.dp2.NFFG.sol1.jaxb.TraversalPolicyType;
 
 import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.PrintStream;
 import java.util.*;
 
 import javax.xml.bind.JAXBContext;
@@ -61,7 +60,7 @@ public class NffgInfoSerializer {
 
 	// ---------------------------------------------------------//
 
-	public void marshaller(PrintStream filename) {
+	public void marshaller(File output_file) {
 		try {
 			JAXBContext jct = JAXBContext.newInstance("it.polito.dp2.NFFG.sol1.jaxb");
 
@@ -72,10 +71,9 @@ public class NffgInfoSerializer {
 			m.setProperty(Marshaller.JAXB_SCHEMA_LOCATION, SCHEMA_LOCATION);
 			m.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
 
-			System.out.println("filename = " + filename.toString());
+			System.out.println("filename = " + output_file.toString());
 
-			m.marshal(root, filename);
-			m.marshal(root, new PrintStream(System.out));
+			m.marshal(root, output_file);
 
 		} catch (JAXBException e) {
 			System.out.println("JAXBException: " + e.getMessage());
@@ -97,16 +95,13 @@ public class NffgInfoSerializer {
 			NffgInfoSerializer NffgInfoSerializerObj = new NffgInfoSerializer();
 			NffgInfoSerializerObj.createNffg();
 
-			PrintStream output_file = new PrintStream(new File(arg[0]));
+			File output_file = new File(arg[0]);
 			NffgInfoSerializerObj.marshaller(output_file);
 
 		} catch (NffgVerifierException e) {
 			System.out.println("NffgVerifierException: " + e.getMessage());
 			e.printStackTrace();
 			System.exit(1);
-		} catch (FileNotFoundException e) {
-			System.out.println("FileNotFoundException: " + e.getMessage());
-			e.printStackTrace();
 		}
 
 	}
@@ -114,9 +109,9 @@ public class NffgInfoSerializer {
 	// -------------------------NFFG Element--------------------------------//
 	private void createNffg() {
 
-		Set<NffgReader> read_nffg_List = monitor.getNffgs();
+		Set<NffgReader> read_nffg_list = monitor.getNffgs();
 
-		for (NffgReader nffg_r : read_nffg_List) {
+		for (NffgReader nffg_r : read_nffg_list) {
 			NffgType nffgItem = objFact.createNffgType();
 			nffgItem.setNffgName(nffg_r.getName());
 			nffgItem.setUpTime(convertDate(nffg_r.getUpdateTime()));
@@ -247,12 +242,11 @@ public class NffgInfoSerializer {
 			Set<FunctionalType> read_travers_list = ((TraversalPolicyReader) policy_r).getTraversedFuctionalTypes();
 			for (FunctionalType travers_r : read_travers_list) {
 				((TraversalPolicyType) policyTmp).getTraversComponent().add(FuncType.fromValue(travers_r.name()));
-				// ((TraversalPolicyType) policyTmp).se.add(traversalTmp);
 			}
 
 		}
 
-		it.polito.dp2.NFFG.sol1.jaxb.ResultType result_r = new it.polito.dp2.NFFG.sol1.jaxb.ResultType();
+		ResultType result_r = objFact.createResultType();
 		if (policy_r.getResult() != null) {
 			result_r.setVerificationMessage(policy_r.getResult().getVerificationResultMsg());
 			result_r.setVerificationTime(convertDate(policy_r.getResult().getVerificationTime()));
@@ -273,7 +267,7 @@ public class NffgInfoSerializer {
 			System.err.println("convertDate - DatatypeConfigurationException");
 			e.printStackTrace();
 			System.exit(1);
-			return null; // compiler warning
+			return null;
 		}
 	}
 }// end of Serializer

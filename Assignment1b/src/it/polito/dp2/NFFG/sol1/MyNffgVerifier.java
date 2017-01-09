@@ -44,8 +44,8 @@ public class MyNffgVerifier implements NffgVerifier {
 	public MyNffgVerifier() throws NffgVerifierException {
 
 		String xmlFileName = System.getProperty("it.polito.dp2.NFFG.sol1.NffgInfo.file");
-
 		Object rootObj;
+
 		try {
 			rootObj = unmarshal(xmlFileName, SCHEMA_FILE, "it.polito.dp2.NFFG.sol1.jaxb");
 		} catch (Exception e) {
@@ -56,7 +56,6 @@ public class MyNffgVerifier implements NffgVerifier {
 			throw new NffgVerifierException("The root element is not of type JAXBElement<>");
 
 		Object rootObjValue = ((JAXBElement<?>) rootObj).getValue();
-
 		if (rootObjValue == null)
 			throw new NffgVerifierException("The value of the root element is null");
 
@@ -73,11 +72,13 @@ public class MyNffgVerifier implements NffgVerifier {
 
 			NffgReader nffg_r = new MyNffgReader(nffg_t, node_list);
 			nffg_r_set.add(nffg_r);
+
 			NodesType node_set = nffg_t.getNodes();
 			for (NodeType node_r : node_set.getNode()) {
 				MyNodeReader myNodeReader = new MyNodeReader(node_r, link_list);
 				node_list.put(node_r.getNodeName(), myNodeReader);
 			}
+
 			LinksType link_set = nffg_t.getLinks();
 			for (LinkType link_r : link_set.getLink()) {
 				MyLinkReader myLinkReader = new MyLinkReader(nffg_t, link_r, node_list.get(link_r.getSrcNode()),
@@ -106,6 +107,8 @@ public class MyNffgVerifier implements NffgVerifier {
 
 	}
 
+	// -----------------------------------------------------------------------------------------------------//
+
 	private static Object unmarshal(String xmlFileName, String xsdFileName, String contextPath) throws Exception {
 		Unmarshaller u = null;
 		try {
@@ -118,7 +121,6 @@ public class MyNffgVerifier implements NffgVerifier {
 		}
 
 		SchemaFactory sf = SchemaFactory.newInstance(W3C_XML_SCHEMA_NS_URI);
-
 		Schema schema = null;
 		try {
 			schema = sf.newSchema(new File(xsdFileName));
@@ -129,7 +131,6 @@ public class MyNffgVerifier implements NffgVerifier {
 		}
 
 		u.setSchema(schema);
-
 		Object rootObj = null;
 		try {
 			rootObj = u.unmarshal(new File(xmlFileName));
@@ -172,7 +173,7 @@ public class MyNffgVerifier implements NffgVerifier {
 		if (policy_r_set != null)
 			return policy_r_set;
 		else {
-			System.out.println("Policy reader set object is Null");
+			System.out.println("Policyreader set object is Null");
 			return null;
 		}
 	}

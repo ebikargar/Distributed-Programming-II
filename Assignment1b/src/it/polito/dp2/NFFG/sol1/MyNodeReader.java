@@ -56,7 +56,7 @@ public class MyNodeReader implements NodeReader {
 				functional_r = it.polito.dp2.NFFG.FunctionalType.FW;
 			}
 
-			this.link_list = link_list_parameter; // set an initially empty list
+			this.link_list = link_list_parameter;
 			System.out.println("My NodeReader fulfilled Correctly");
 		}
 

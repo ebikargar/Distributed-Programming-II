@@ -1,0 +1,639 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<nffgVerifier xmlns="http://www.example.org/nffgInfo" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.example.org/nffgInfo nffgInfo.xsd">
+    <nffg nffgName="Nffg0" upTime="2016-09-28T05:29:20.000+02:00">
+        <nodes>
+            <node nodeName="MAILSERVER5">
+                <providerCat>
+                    <funcType>MAIL_SERVER</funcType>
+                </providerCat>
+            </node>
+            <node nodeName="FW1">
+                <providerCat>
+                    <funcType>FW</funcType>
+                </providerCat>
+            </node>
+            <node nodeName="FW3">
+                <providerCat>
+                    <funcType>FW</funcType>
+                </providerCat>
+            </node>
+            <node nodeName="MAILSERVER7">
+                <providerCat>
+                    <funcType>MAIL_SERVER</funcType>
+                </providerCat>
+            </node>
+            <node nodeName="CACHE0">
+                <providerCat>
+                    <funcType>CACHE</funcType>
+                </providerCat>
+            </node>
+            <node nodeName="MAILCLIENT0">
+                <providerCat>
+                    <funcType>MAIL_CLIENT</funcType>
+                </providerCat>
+            </node>
+            <node nodeName="MAILSERVER0">
+                <providerCat>
+                    <funcType>MAIL_SERVER</funcType>
+                </providerCat>
+            </node>
+            <node nodeName="MAILCLIENT5">
+                <providerCat>
+                    <funcType>MAIL_CLIENT</funcType>
+                </providerCat>
+            </node>
+            <node nodeName="MAILCLIENT3">
+                <providerCat>
+                    <funcType>MAIL_CLIENT</funcType>
+                </providerCat>
+            </node>
+            <node nodeName="WEBCLIENT7">
+                <providerCat>
+                    <funcType>WEB_CLIENT</funcType>
+                </providerCat>
+            </node>
+            <node nodeName="MAILCLIENT8">
+                <providerCat>
+                    <funcType>MAIL_CLIENT</funcType>
+                </providerCat>
+            </node>
+            <node nodeName="VPN2">
+                <providerCat>
+                    <funcType>VPN</funcType>
+                </providerCat>
+            </node>
+            <node nodeName="WEBSERVER3">
+                <providerCat>
+                    <funcType>WEB_SERVER</funcType>
+                </providerCat>
+            </node>
+            <node nodeName="WEBCLIENT4">
+                <providerCat>
+                    <funcType>WEB_CLIENT</funcType>
+                </providerCat>
+            </node>
+            <node nodeName="WEBSERVER4">
+                <providerCat>
+                    <funcType>WEB_SERVER</funcType>
+                </providerCat>
+            </node>
+            <node nodeName="WEBCLIENT6">
+                <providerCat>
+                    <funcType>WEB_CLIENT</funcType>
+                </providerCat>
+            </node>
+            <node nodeName="WEBSERVER6">
+                <providerCat>
+                    <funcType>WEB_SERVER</funcType>
+                </providerCat>
+            </node>
+            <node nodeName="WEBCLIENT1">
+                <providerCat>
+                    <funcType>WEB_CLIENT</funcType>
+                </providerCat>
+            </node>
+            <node nodeName="WEBSERVER1">
+                <providerCat>
+                    <funcType>WEB_SERVER</funcType>
+                </providerCat>
+            </node>
+            <node nodeName="WEBCLIENT2">
+                <providerCat>
+                    <funcType>WEB_CLIENT</funcType>
+                </providerCat>
+            </node>
+            <node nodeName="WEBSERVER2">
+                <providerCat>
+                    <funcType>WEB_SERVER</funcType>
+                </providerCat>
+            </node>
+        </nodes>
+        <links>
+            <link linkName="Link28">
+                <srcNode>MAILSERVER5</srcNode>
+                <destNode>FW3</destNode>
+            </link>
+            <link linkName="Link23">
+                <srcNode>FW1</srcNode>
+                <destNode>WEBSERVER2</destNode>
+            </link>
+            <link linkName="Link21">
+                <srcNode>FW1</srcNode>
+                <destNode>WEBSERVER1</destNode>
+            </link>
+            <link linkName="Link36">
+                <srcNode>FW1</srcNode>
+                <destNode>WEBCLIENT7</destNode>
+            </link>
+            <link linkName="Link17">
+                <srcNode>FW1</srcNode>
+                <destNode>MAILCLIENT8</destNode>
+            </link>
+            <link linkName="Link11">
+                <srcNode>FW3</srcNode>
+                <destNode>MAILCLIENT5</destNode>
+            </link>
+            <link linkName="Link31">
+                <srcNode>FW3</srcNode>
+                <destNode>WEBSERVER6</destNode>
+            </link>
+            <link linkName="Link27">
+                <srcNode>FW3</srcNode>
+                <destNode>WEBSERVER4</destNode>
+            </link>
+            <link linkName="Link38">
+                <srcNode>FW3</srcNode>
+                <destNode>WEBCLIENT7</destNode>
+            </link>
+            <link linkName="Link29">
+                <srcNode>FW3</srcNode>
+                <destNode>MAILSERVER5</destNode>
+            </link>
+            <link linkName="Link39">
+                <srcNode>FW3</srcNode>
+                <destNode>MAILCLIENT8</destNode>
+            </link>
+            <link linkName="Link41">
+                <srcNode>FW3</srcNode>
+                <destNode>WEBSERVER2</destNode>
+            </link>
+            <link linkName="Link32">
+                <srcNode>MAILSERVER7</srcNode>
+                <destNode>VPN2</destNode>
+            </link>
+            <link linkName="Link15">
+                <srcNode>CACHE0</srcNode>
+                <destNode>WEBCLIENT7</destNode>
+            </link>
+            <link linkName="Link37">
+                <srcNode>CACHE0</srcNode>
+                <destNode>MAILSERVER5</destNode>
+            </link>
+            <link linkName="Link25">
+                <srcNode>CACHE0</srcNode>
+                <destNode>WEBSERVER3</destNode>
+            </link>
+            <link linkName="Link3">
+                <srcNode>CACHE0</srcNode>
+                <destNode>WEBCLIENT1</destNode>
+            </link>
+            <link linkName="Link5">
+                <srcNode>CACHE0</srcNode>
+                <destNode>WEBCLIENT2</destNode>
+            </link>
+            <link linkName="Link9">
+                <srcNode>CACHE0</srcNode>
+                <destNode>WEBCLIENT4</destNode>
+            </link>
+            <link linkName="Link0">
+                <srcNode>MAILCLIENT0</srcNode>
+                <destNode>VPN2</destNode>
+            </link>
+            <link linkName="Link35">
+                <srcNode>MAILSERVER0</srcNode>
+                <destNode>FW3</destNode>
+            </link>
+            <link linkName="Link18">
+                <srcNode>MAILSERVER0</srcNode>
+                <destNode>VPN2</destNode>
+            </link>
+            <link linkName="Link10">
+                <srcNode>MAILCLIENT5</srcNode>
+                <destNode>FW3</destNode>
+            </link>
+            <link linkName="Link6">
+                <srcNode>MAILCLIENT3</srcNode>
+                <destNode>VPN2</destNode>
+            </link>
+            <link linkName="Link14">
+                <srcNode>WEBCLIENT7</srcNode>
+                <destNode>CACHE0</destNode>
+            </link>
+            <link linkName="Link16">
+                <srcNode>MAILCLIENT8</srcNode>
+                <destNode>FW1</destNode>
+            </link>
+            <link linkName="Link33">
+                <srcNode>VPN2</srcNode>
+                <destNode>MAILSERVER7</destNode>
+            </link>
+            <link linkName="Link1">
+                <srcNode>VPN2</srcNode>
+                <destNode>MAILCLIENT0</destNode>
+            </link>
+            <link linkName="Link13">
+                <srcNode>VPN2</srcNode>
+                <destNode>WEBCLIENT6</destNode>
+            </link>
+            <link linkName="Link19">
+                <srcNode>VPN2</srcNode>
+                <destNode>MAILSERVER0</destNode>
+            </link>
+            <link linkName="Link7">
+                <srcNode>VPN2</srcNode>
+                <destNode>MAILCLIENT3</destNode>
+            </link>
+            <link linkName="Link40">
+                <srcNode>VPN2</srcNode>
+                <destNode>WEBSERVER4</destNode>
+            </link>
+            <link linkName="Link24">
+                <srcNode>WEBSERVER3</srcNode>
+                <destNode>CACHE0</destNode>
+            </link>
+            <link linkName="Link8">
+                <srcNode>WEBCLIENT4</srcNode>
+                <destNode>CACHE0</destNode>
+            </link>
+            <link linkName="Link26">
+                <srcNode>WEBSERVER4</srcNode>
+                <destNode>FW3</destNode>
+            </link>
+            <link linkName="Link12">
+                <srcNode>WEBCLIENT6</srcNode>
+                <destNode>VPN2</destNode>
+            </link>
+            <link linkName="Link30">
+                <srcNode>WEBSERVER6</srcNode>
+                <destNode>FW3</destNode>
+            </link>
+            <link linkName="Link2">
+                <srcNode>WEBCLIENT1</srcNode>
+                <destNode>CACHE0</destNode>
+            </link>
+            <link linkName="Link34">
+                <srcNode>WEBSERVER1</srcNode>
+                <destNode>VPN2</destNode>
+            </link>
+            <link linkName="Link20">
+                <srcNode>WEBSERVER1</srcNode>
+                <destNode>FW1</destNode>
+            </link>
+            <link linkName="Link4">
+                <srcNode>WEBCLIENT2</srcNode>
+                <destNode>CACHE0</destNode>
+            </link>
+            <link linkName="Link22">
+                <srcNode>WEBSERVER2</srcNode>
+                <destNode>FW1</destNode>
+            </link>
+        </links>
+        <policies>
+            <reachabilityPolicy policyName="Policy12">
+                <srcNode>WEBCLIENT4</srcNode>
+                <destNode>MAILSERVER0</destNode>
+                <isPositive>false</isPositive>
+            </reachabilityPolicy>
+            <reachabilityPolicy policyName="Policy34">
+                <srcNode>WEBSERVER4</srcNode>
+                <destNode>MAILCLIENT5</destNode>
+                <isPositive>true</isPositive>
+            </reachabilityPolicy>
+            <reachabilityPolicy policyName="Policy10">
+                <srcNode>WEBCLIENT2</srcNode>
+                <destNode>WEBSERVER1</destNode>
+                <isPositive>true</isPositive>
+            </reachabilityPolicy>
+            <reachabilityPolicy policyName="Policy32">
+                <srcNode>MAILSERVER0</srcNode>
+                <destNode>WEBCLIENT4</destNode>
+                <isPositive>true</isPositive>
+            </reachabilityPolicy>
+            <reachabilityPolicy policyName="Policy31">
+                <srcNode>WEBSERVER1</srcNode>
+                <destNode>WEBCLIENT2</destNode>
+                <isPositive>false</isPositive>
+            </reachabilityPolicy>
+            <reachabilityPolicy policyName="Policy16">
+                <srcNode>WEBCLIENT4</srcNode>
+                <destNode>MAILSERVER0</destNode>
+                <isPositive>false</isPositive>
+                <verificationResult>
+                    <verificationTime>2016-09-27T17:09:20.000+02:00</verificationTime>
+                    <verificationMessage>Policy verification result not true</verificationMessage>
+                    <verificationResult>false</verificationResult>
+                </verificationResult>
+            </reachabilityPolicy>
+            <reachabilityPolicy policyName="Policy15">
+                <srcNode>WEBCLIENT4</srcNode>
+                <destNode>MAILSERVER0</destNode>
+                <isPositive>true</isPositive>
+                <verificationResult>
+                    <verificationTime>2016-09-27T13:55:20.000+02:00</verificationTime>
+                    <verificationMessage>Policy verificarion result true</verificationMessage>
+                    <verificationResult>true</verificationResult>
+                </verificationResult>
+            </reachabilityPolicy>
+            <reachabilityPolicy policyName="Policy14">
+                <srcNode>WEBCLIENT4</srcNode>
+                <destNode>MAILSERVER5</destNode>
+                <isPositive>true</isPositive>
+                <verificationResult>
+                    <verificationTime>2016-09-27T10:52:20.000+02:00</verificationTime>
+                    <verificationMessage>Policy verificarion result true</verificationMessage>
+                    <verificationResult>true</verificationResult>
+                </verificationResult>
+            </reachabilityPolicy>
+            <reachabilityPolicy policyName="Policy13">
+                <srcNode>WEBCLIENT4</srcNode>
+                <destNode>WEBSERVER3</destNode>
+                <isPositive>true</isPositive>
+            </reachabilityPolicy>
+            <reachabilityPolicy policyName="Policy35">
+                <srcNode>MAILSERVER0</srcNode>
+                <destNode>WEBCLIENT4</destNode>
+                <isPositive>true</isPositive>
+            </reachabilityPolicy>
+            <reachabilityPolicy policyName="Policy18">
+                <srcNode>MAILCLIENT5</srcNode>
+                <destNode>WEBSERVER4</destNode>
+                <isPositive>true</isPositive>
+            </reachabilityPolicy>
+            <reachabilityPolicy policyName="Policy17">
+                <srcNode>WEBCLIENT4</srcNode>
+                <destNode>MAILSERVER0</destNode>
+                <isPositive>true</isPositive>
+            </reachabilityPolicy>
+            <reachabilityPolicy policyName="Policy3">
+                <srcNode>MAILCLIENT0</srcNode>
+                <destNode>MAILSERVER0</destNode>
+                <isPositive>true</isPositive>
+                <verificationResult>
+                    <verificationTime>2016-09-27T21:53:20.000+02:00</verificationTime>
+                    <verificationMessage>Policy verificarion result true</verificationMessage>
+                    <verificationResult>true</verificationResult>
+                </verificationResult>
+            </reachabilityPolicy>
+            <reachabilityPolicy policyName="Policy2">
+                <srcNode>MAILCLIENT0</srcNode>
+                <destNode>WEBSERVER4</destNode>
+                <isPositive>false</isPositive>
+                <verificationResult>
+                    <verificationTime>2016-09-27T17:35:20.000+02:00</verificationTime>
+                    <verificationMessage>Policy verification result not true</verificationMessage>
+                    <verificationResult>false</verificationResult>
+                </verificationResult>
+            </reachabilityPolicy>
+            <reachabilityPolicy policyName="Policy1">
+                <srcNode>MAILCLIENT0</srcNode>
+                <destNode>MAILSERVER5</destNode>
+                <isPositive>false</isPositive>
+            </reachabilityPolicy>
+            <reachabilityPolicy policyName="Policy22">
+                <srcNode>MAILCLIENT5</srcNode>
+                <destNode>WEBSERVER1</destNode>
+                <isPositive>false</isPositive>
+                <verificationResult>
+                    <verificationTime>2016-09-27T19:18:20.000+02:00</verificationTime>
+                    <verificationMessage>Policy verificarion result true</verificationMessage>
+                    <verificationResult>true</verificationResult>
+                </verificationResult>
+            </reachabilityPolicy>
+            <reachabilityPolicy policyName="Policy44">
+                <srcNode>WEBSERVER3</srcNode>
+                <destNode>WEBCLIENT6</destNode>
+                <isPositive>false</isPositive>
+                <verificationResult>
+                    <verificationTime>2016-09-27T17:38:20.000+02:00</verificationTime>
+                    <verificationMessage>Policy verificarion result true</verificationMessage>
+                    <verificationResult>true</verificationResult>
+                </verificationResult>
+            </reachabilityPolicy>
+            <reachabilityPolicy policyName="Policy21">
+                <srcNode>MAILCLIENT5</srcNode>
+                <destNode>MAILSERVER0</destNode>
+                <isPositive>true</isPositive>
+            </reachabilityPolicy>
+            <reachabilityPolicy policyName="Policy43">
+                <srcNode>WEBSERVER2</srcNode>
+                <destNode>MAILCLIENT8</destNode>
+                <isPositive>false</isPositive>
+                <verificationResult>
+                    <verificationTime>2016-09-27T13:07:20.000+02:00</verificationTime>
+                    <verificationMessage>Policy verificarion result true</verificationMessage>
+                    <verificationResult>true</verificationResult>
+                </verificationResult>
+            </reachabilityPolicy>
+            <reachabilityPolicy policyName="Policy20">
+                <srcNode>MAILCLIENT5</srcNode>
+                <destNode>WEBSERVER1</destNode>
+                <isPositive>false</isPositive>
+            </reachabilityPolicy>
+            <reachabilityPolicy policyName="Policy25">
+                <srcNode>MAILCLIENT8</srcNode>
+                <destNode>WEBSERVER2</destNode>
+                <isPositive>true</isPositive>
+                <verificationResult>
+                    <verificationTime>2016-09-27T23:20:20.000+02:00</verificationTime>
+                    <verificationMessage>Policy verification result not true</verificationMessage>
+                    <verificationResult>false</verificationResult>
+                </verificationResult>
+            </reachabilityPolicy>
+            <reachabilityPolicy policyName="Policy24">
+                <srcNode>WEBCLIENT6</srcNode>
+                <destNode>WEBSERVER3</destNode>
+                <isPositive>false</isPositive>
+                <verificationResult>
+                    <verificationTime>2016-09-27T11:50:20.000+02:00</verificationTime>
+                    <verificationMessage>Policy verification result not true</verificationMessage>
+                    <verificationResult>false</verificationResult>
+                </verificationResult>
+            </reachabilityPolicy>
+            <reachabilityPolicy policyName="Policy29">
+                <srcNode>MAILSERVER0</srcNode>
+                <destNode>WEBCLIENT4</destNode>
+                <isPositive>true</isPositive>
+                <verificationResult>
+                    <verificationTime>2016-09-27T19:35:20.000+02:00</verificationTime>
+                    <verificationMessage>Policy verificarion result true</verificationMessage>
+                    <verificationResult>true</verificationResult>
+                </verificationResult>
+            </reachabilityPolicy>
+            <reachabilityPolicy policyName="Policy41">
+                <srcNode>WEBSERVER4</srcNode>
+                <destNode>MAILCLIENT0</destNode>
+                <isPositive>false</isPositive>
+            </reachabilityPolicy>
+            <reachabilityPolicy policyName="Policy40">
+                <srcNode>MAILSERVER0</srcNode>
+                <destNode>MAILCLIENT0</destNode>
+                <isPositive>false</isPositive>
+            </reachabilityPolicy>
+            <traversalPolicy policyName="Policy11">
+                <srcNode>WEBCLIENT2</srcNode>
+                <destNode>WEBSERVER1</destNode>
+                <isPositive>false</isPositive>
+                <traversComponent>NAT</traversComponent>
+                <traversComponent>VPN</traversComponent>
+                <traversComponent>WEB_SERVER</traversComponent>
+            </traversalPolicy>
+            <traversalPolicy policyName="Policy33">
+                <srcNode>WEBSERVER3</srcNode>
+                <destNode>MAILCLIENT5</destNode>
+                <isPositive>true</isPositive>
+                <traversComponent>SPAM</traversComponent>
+                <traversComponent>MAIL_SERVER</traversComponent>
+            </traversalPolicy>
+            <traversalPolicy policyName="Policy38">
+                <srcNode>MAILSERVER7</srcNode>
+                <destNode>WEBCLIENT2</destNode>
+                <isPositive>true</isPositive>
+                <traversComponent>WEB_SERVER</traversComponent>
+            </traversalPolicy>
+            <traversalPolicy policyName="Policy37">
+                <srcNode>WEBSERVER6</srcNode>
+                <destNode>WEBCLIENT2</destNode>
+                <isPositive>true</isPositive>
+                <traversComponent>SPAM</traversComponent>
+            </traversalPolicy>
+            <traversalPolicy policyName="Policy36">
+                <srcNode>WEBSERVER4</srcNode>
+                <destNode>WEBCLIENT2</destNode>
+                <isPositive>false</isPositive>
+                <traversComponent>WEB_CLIENT</traversComponent>
+                <traversComponent>FW</traversComponent>
+            </traversalPolicy>
+            <traversalPolicy policyName="Policy19">
+                <srcNode>MAILCLIENT5</srcNode>
+                <destNode>WEBSERVER3</destNode>
+                <isPositive>true</isPositive>
+                <verificationResult>
+                    <verificationTime>2016-09-27T17:02:20.000+02:00</verificationTime>
+                    <verificationMessage>Policy verification result not true</verificationMessage>
+                    <verificationResult>false</verificationResult>
+                </verificationResult>
+                <traversComponent>SPAM</traversComponent>
+                <traversComponent>MAIL_SERVER</traversComponent>
+            </traversalPolicy>
+            <traversalPolicy policyName="Policy39">
+                <srcNode>WEBSERVER1</srcNode>
+                <destNode>WEBCLIENT1</destNode>
+                <isPositive>false</isPositive>
+                <verificationResult>
+                    <verificationTime>2016-09-27T14:11:20.000+02:00</verificationTime>
+                    <verificationMessage>Policy verification result not true</verificationMessage>
+                    <verificationResult>false</verificationResult>
+                </verificationResult>
+                <traversComponent>MAIL_SERVER</traversComponent>
+                <traversComponent>CACHE</traversComponent>
+            </traversalPolicy>
+            <traversalPolicy policyName="Policy9">
+                <srcNode>WEBCLIENT2</srcNode>
+                <destNode>WEBSERVER1</destNode>
+                <isPositive>false</isPositive>
+                <verificationResult>
+                    <verificationTime>2016-09-27T16:55:20.000+02:00</verificationTime>
+                    <verificationMessage>Policy verificarion result true</verificationMessage>
+                    <verificationResult>true</verificationResult>
+                </verificationResult>
+                <traversComponent>FW</traversComponent>
+                <traversComponent>NAT</traversComponent>
+                <traversComponent>WEB_CLIENT</traversComponent>
+            </traversalPolicy>
+            <traversalPolicy policyName="Policy8">
+                <srcNode>WEBCLIENT2</srcNode>
+                <destNode>WEBSERVER4</destNode>
+                <isPositive>false</isPositive>
+                <traversComponent>WEB_CLIENT</traversComponent>
+                <traversComponent>FW</traversComponent>
+            </traversalPolicy>
+            <traversalPolicy policyName="Policy7">
+                <srcNode>WEBCLIENT2</srcNode>
+                <destNode>WEBSERVER6</destNode>
+                <isPositive>true</isPositive>
+                <traversComponent>SPAM</traversComponent>
+            </traversalPolicy>
+            <traversalPolicy policyName="Policy6">
+                <srcNode>WEBCLIENT2</srcNode>
+                <destNode>MAILSERVER7</destNode>
+                <isPositive>false</isPositive>
+                <verificationResult>
+                    <verificationTime>2016-09-27T21:44:20.000+02:00</verificationTime>
+                    <verificationMessage>Policy verification result not true</verificationMessage>
+                    <verificationResult>false</verificationResult>
+                </verificationResult>
+                <traversComponent>WEB_SERVER</traversComponent>
+            </traversalPolicy>
+            <traversalPolicy policyName="Policy5">
+                <srcNode>WEBCLIENT1</srcNode>
+                <destNode>WEBSERVER1</destNode>
+                <isPositive>true</isPositive>
+                <traversComponent>MAIL_SERVER</traversComponent>
+                <traversComponent>CACHE</traversComponent>
+            </traversalPolicy>
+            <traversalPolicy policyName="Policy30">
+                <srcNode>WEBSERVER1</srcNode>
+                <destNode>WEBCLIENT2</destNode>
+                <isPositive>true</isPositive>
+                <traversComponent>NAT</traversComponent>
+                <traversComponent>VPN</traversComponent>
+                <traversComponent>WEB_SERVER</traversComponent>
+            </traversalPolicy>
+            <traversalPolicy policyName="Policy4">
+                <srcNode>MAILCLIENT0</srcNode>
+                <destNode>WEBSERVER3</destNode>
+                <isPositive>false</isPositive>
+                <traversComponent>NAT</traversComponent>
+            </traversalPolicy>
+            <traversalPolicy policyName="Policy23">
+                <srcNode>WEBCLIENT6</srcNode>
+                <destNode>MAILSERVER0</destNode>
+                <isPositive>true</isPositive>
+                <verificationResult>
+                    <verificationTime>2016-09-28T03:19:20.000+02:00</verificationTime>
+                    <verificationMessage>Policy verificarion result true</verificationMessage>
+                    <verificationResult>true</verificationResult>
+                </verificationResult>
+                <traversComponent>CACHE</traversComponent>
+            </traversalPolicy>
+            <traversalPolicy policyName="Policy0">
+                <srcNode>MAILCLIENT0</srcNode>
+                <destNode>MAILSERVER7</destNode>
+                <isPositive>false</isPositive>
+                <verificationResult>
+                    <verificationTime>2016-09-27T23:40:20.000+02:00</verificationTime>
+                    <verificationMessage>Policy verification result not true</verificationMessage>
+                    <verificationResult>false</verificationResult>
+                </verificationResult>
+                <traversComponent>WEB_CLIENT</traversComponent>
+                <traversComponent>CACHE</traversComponent>
+            </traversalPolicy>
+            <traversalPolicy policyName="Policy42">
+                <srcNode>WEBSERVER3</srcNode>
+                <destNode>MAILCLIENT8</destNode>
+                <isPositive>false</isPositive>
+                <traversComponent>SPAM</traversComponent>
+                <traversComponent>CACHE</traversComponent>
+                <traversComponent>DPI</traversComponent>
+            </traversalPolicy>
+            <traversalPolicy policyName="Policy27">
+                <srcNode>MAILCLIENT8</srcNode>
+                <destNode>WEBSERVER3</destNode>
+                <isPositive>false</isPositive>
+                <traversComponent>WEB_CLIENT</traversComponent>
+                <traversComponent>WEB_SERVER</traversComponent>
+            </traversalPolicy>
+            <traversalPolicy policyName="Policy26">
+                <srcNode>MAILCLIENT8</srcNode>
+                <destNode>WEBSERVER3</destNode>
+                <isPositive>false</isPositive>
+                <verificationResult>
+                    <verificationTime>2016-09-28T00:12:20.000+02:00</verificationTime>
+                    <verificationMessage>Policy verification result not true</verificationMessage>
+                    <verificationResult>false</verificationResult>
+                </verificationResult>
+                <traversComponent>SPAM</traversComponent>
+                <traversComponent>CACHE</traversComponent>
+                <traversComponent>DPI</traversComponent>
+            </traversalPolicy>
+            <traversalPolicy policyName="Policy28">
+                <srcNode>MAILCLIENT8</srcNode>
+                <destNode>WEBSERVER1</destNode>
+                <isPositive>false</isPositive>
+                <traversComponent>MAIL_CLIENT</traversComponent>
+                <traversComponent>SPAM</traversComponent>
+                <traversComponent>WEB_SERVER</traversComponent>
+            </traversalPolicy>
+        </policies>
+    </nffg>
+</nffgVerifier>

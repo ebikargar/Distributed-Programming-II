@@ -9,8 +9,7 @@ import it.polito.dp2.NFFG.sol1.jaxb.ResultType;
 
 public class MyReachablilityPolicyReader extends MyPolicyReader implements ReachabilityPolicyReader {
 
-	// ------------ Policy Element-----------------------//
-
+	// ------------ ReachabilityPolicy Element-----------------------//
 	private NodeReader reachability_srcNode;
 	private NodeReader reachability_destNode;
 	// ---------------------------------------------------------//
@@ -35,7 +34,7 @@ public class MyReachablilityPolicyReader extends MyPolicyReader implements Reach
 		if (policy_nffg_r != null)
 			return this.policy_nffg_r;
 		else {
-			System.out.println("nffg Object in reacablility policy is Null");
+			System.out.println("nffg Object in ReachablilityPolicy is Null");
 			return null;
 		}
 
@@ -46,7 +45,7 @@ public class MyReachablilityPolicyReader extends MyPolicyReader implements Reach
 		if (policy_verification_r != null)
 			return this.policy_verification_r;
 		else {
-			System.out.println("VerificationResultReader object in reachablility poilicy is Null");
+			System.out.println("VerificationResultReader object in ReachablilityPolicy is Null");
 			return null;
 		}
 	}
@@ -56,7 +55,7 @@ public class MyReachablilityPolicyReader extends MyPolicyReader implements Reach
 		if (policy_isPositive != null)
 			return this.policy_isPositive;
 		else {
-			System.out.println("isPositive Object in reachability policy is Null");
+			System.out.println("isPositive Object in ReachablilityPolicy is Null");
 			return null;
 		}
 	}
@@ -66,7 +65,7 @@ public class MyReachablilityPolicyReader extends MyPolicyReader implements Reach
 		if (super.getName() != null)
 			return super.getName();
 		else {
-			System.out.println("policyName Object in reachability Policy is Null");
+			System.out.println("policyName Object in ReachablilityPolicy is Null");
 			return null;
 		}
 	}
@@ -76,7 +75,7 @@ public class MyReachablilityPolicyReader extends MyPolicyReader implements Reach
 		if (reachability_destNode != null)
 			return this.reachability_destNode;
 		else {
-			System.out.println("DestinationNode Object in reachability policy is Null");
+			System.out.println("DestinationNode Object in ReachablilityPolicy is Null");
 			return null;
 		}
 
@@ -87,7 +86,7 @@ public class MyReachablilityPolicyReader extends MyPolicyReader implements Reach
 		if (reachability_srcNode != null)
 			return this.reachability_srcNode;
 		else {
-			System.out.println("SourceNode Object in reachability policy is Null");
+			System.out.println("SourceNode Object in ReachablilityPolicy is Null");
 			return null;
 		}
 	}

@@ -59,12 +59,12 @@ public class MyVerificationResultReader implements VerificationResultReader {
 
 	@Override
 	public Calendar getVerificationTime() {
-		if (verification_t != null)
-			//// Calendar verification_time =
-			//// verification_t.toGregorianCalendar();
-			// return verification_time;
-			// else {
+		if (verification_t != null) {
+			Calendar verification_time = verification_t.toGregorianCalendar();
+			return verification_time;
+		} else {
 			System.out.println("VerificationTime Object is Null");
-		return null;
+			return null;
+		}
 	}
 }

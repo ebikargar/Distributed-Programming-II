@@ -4,7 +4,7 @@ import it.polito.dp2.NFFG.NamedEntityReader;
 
 public class MynamedEntityReader implements NamedEntityReader {
 
-	// ------------ Entities Name --------------------------------//
+	// ------------ EntitiesName --------------------------------//
 	private String entityName;
 	// ---------------------------------------------------------//
 

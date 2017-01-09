@@ -25,7 +25,6 @@ public class MyNffgReader implements NffgReader {
 			this.nffgName = nffg.getNffgName();
 			this.upTimeTmp = nffg.getUpTime();
 			this.upTime = upTimeTmp.toGregorianCalendar();
-
 			this.node_r_set = node_r_set;
 
 			link_r_set = new HashSet<LinkReader>();
@@ -53,8 +52,6 @@ public class MyNffgReader implements NffgReader {
 
 	@Override
 	public NodeReader getNode(String arg0) {
-		// to check if the read node is the one on the set of nodes has been
-		// read
 		for (NodeReader node_r : node_r_set.values()) {
 			if (node_r.getName().equals(arg0)) {
 				return node_r;
@@ -66,7 +63,6 @@ public class MyNffgReader implements NffgReader {
 
 	@Override
 	public Set<NodeReader> getNodes() {
-
 		if (node_r_set != null)
 			return new HashSet<NodeReader>(node_r_set.values());
 		else {

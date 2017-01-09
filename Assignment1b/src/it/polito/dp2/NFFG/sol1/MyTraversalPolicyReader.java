@@ -14,17 +14,16 @@ import it.polito.dp2.NFFG.sol1.jaxb.TraversalPolicyType;
 
 public class MyTraversalPolicyReader extends MyReachablilityPolicyReader implements TraversalPolicyReader {
 
-	// ------------ TraversalPolicy-----------------------//
+	// ------------ TraversalPolicy Element-----------------------//
 	private HashSet<FunctionalType> travers_r_set = new HashSet<FunctionalType>();
-	// ---------------------------------------------------------//
+	// ---------------------------------------------------//
 
 	public MyTraversalPolicyReader(NffgType nffg, TraversalPolicyType traversal_policy_r, NodeReader srcNode,
 			NodeReader destNode, ResultType result_r, NffgReader traversal_policy_nffg_r) {
 		super(nffg, traversal_policy_r.getPolicyName(), traversal_policy_r.isIsPositive(), result_r, srcNode, destNode,
 				traversal_policy_nffg_r);
-		
-		for (FuncType travers_r_item : traversal_policy_r.getTraversComponent()) {
 
+		for (FuncType travers_r_item : traversal_policy_r.getTraversComponent()) {
 			switch (travers_r_item) {
 			case FW:
 				travers_r_set.add(it.polito.dp2.NFFG.FunctionalType.FW);
