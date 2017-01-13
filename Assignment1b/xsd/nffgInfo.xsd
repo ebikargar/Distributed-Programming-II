@@ -3,6 +3,7 @@
 	xmlns:tns="http://www.example.org/nffgInfo" elementFormDefault="qualified">
 
 	<element name="nffgVerifier" type="tns:nffgVerifierType">
+
 		<key name="nffgNameKey">
 			<selector xpath="tns:nffg" />
 			<field xpath="@nffgName" />
@@ -12,11 +13,11 @@
 			<field xpath="@nffgName"></field>
 		</keyref>
 		<key name="policyNameKey">
-			<selector xpath="tns:nffg/policies/policy" />
+			<selector xpath="tns:nffg/tns:policies/*" />
 			<field xpath="@policyName" />
 		</key>
 		<keyref name="policyNameRef" refer="tns:policyNameKey">
-			<selector xpath="tns:nffg/policies/policy"></selector>
+			<selector xpath="tns:nffg/tns:policies/*"></selector>
 			<field xpath="@policyName"></field>
 		</keyref>
 	</element>
@@ -26,20 +27,20 @@
 			<element name="nffg" type="tns:nffgType" minOccurs="0"
 				maxOccurs="unbounded">
 				<key name="nodeNameKey">
-					<selector xpath="tns:nodes/node" />
+					<selector xpath="tns:nodes/tns:node" />
 					<field xpath="@nodeName" />
 				</key>
 				<keyref name="nodeNameRef" refer="tns:nodeNameKey">
-					<selector xpath="tns:nodes/node"></selector>
+					<selector xpath="tns:nodes/tns:node"></selector>
 					<field xpath="@nodeName"></field>
 				</keyref>
 
 				<key name="linkNameKey">
-					<selector xpath="tns:links/link" />
+					<selector xpath="tns:links/tns:link" />
 					<field xpath="@linkName" />
 				</key>
 				<keyref name="linksNameRef" refer="tns:linkNameKey">
-					<selector xpath="tns:links/link"></selector>
+					<selector xpath="tns:links/tns:link"></selector>
 					<field xpath="@linkName"></field>
 				</keyref>
 			</element>
@@ -70,7 +71,8 @@
 		</sequence>
 		<attribute name="nodeName" type="tns:myStringType" use="required"></attribute>
 	</complexType>
-
+	<!-- if source and destination node need to be unique inside each link or reachability & traversal,
+		we can add the limitation as Key inside NFFG ! -->
 	<complexType name="linksType">
 		<sequence>
 			<element name="link" type="tns:linkType" minOccurs="1"
@@ -111,7 +113,8 @@
 		<complexContent>
 			<extension base="tns:reachabilityPolicyType">
 				<sequence>
-					<element name="traversComponent" type="tns:funcType" maxOccurs="unbounded"></element>
+					<element name="traversComponent" type="tns:funcType"
+						maxOccurs="unbounded"></element>
 				</sequence>
 			</extension>
 		</complexContent>

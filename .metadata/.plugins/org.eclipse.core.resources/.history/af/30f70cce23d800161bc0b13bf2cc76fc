@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project basedir="." default="generate-classe-of" name="Assigment3_Ant">
+	<description>
+		Ant script for assignment3
+		for the property we can have it or Not,since it's located in build that's first run and call 
+	</description>
+
+	<!-- define wjc task (WADL to JAVA) -->
+	<taskdef name="wjc" classname="org.jvnet.ws.wadl2java.WJCTask">
+		<classpath>
+			<fileset dir="${lib.dir}" includes="*.jar" />
+		</classpath>
+	</taskdef>
+
+	<!-- define client artifact generation path -->
+	<target name="generate-artifacts">
+		<mkdir dir="${gen.dir}" />
+		<echo message="Compiling the descritption..." />
+		<wjc target="${gen.dir}" autoSchemaPackage="false" package="it.polito.dp2.NFFG.sol2" description="${WADL}" />
+	</target>
+</project>
+

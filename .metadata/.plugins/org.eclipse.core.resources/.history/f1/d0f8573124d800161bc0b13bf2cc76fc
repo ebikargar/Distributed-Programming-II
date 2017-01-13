@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project basedir="." default="generate-classe-of" name="Assigment3_Ant">
+	<description>
+		Ant script for assignment3
+		for the property we can have it or Not,since it's located in build that's first run and call 
+	</description>
+
+
+	<target name="build-service" depends="generate-wadl,generated-schema,build-of-provided-class">
+		<echo>Building NFFGInfo (if needed)...</echo>
+		<javac 
+			destdir="${build.dir}"
+			debug="${debug}"
+			debuglevel="${debuglevel}"
+			source="${source}"
+			target="${target}"
+			includeantruntime="false">
+				<src path="${service.src.dir}" />
+				<classpath>
+					<path refid="sol.classpath" />
+				</classpath>
+		</javac>
+		<echo>Done.</echo>
+	</target>
+		<target name="build-client" depends="generate-wadl,generated-schema,build-of-provided-class">
+		<echo>Building NFFGInfo (if needed)...</echo>
+		<javac 
+			destdir="${build.dir}"
+			debug="${debug}"
+			debuglevel="${debuglevel}"
+			source="${source}"
+			target="${target}"
+			includeantruntime="false">
+				<src path="${client1.src.dir}" />
+				<src path="${client2.src.dir}" />
+				<classpath>
+					<path refid="sol.classpath" />
+				</classpath>
+		</javac>
+		<echo>Done.</echo>
+	</target>
+	
+
+
+	<!-- define wjc task (WADL to JAVA) -->
+	<taskdef name="wjc" classname="org.jvnet.ws.wadl2java.WJCTask">
+		<classpath>
+			<fileset dir="${lib.dir}" includes="*.jar" />
+		</classpath>
+	</taskdef>
+
+	<!-- define client artifact generation path -->
+	<target name="generate-artifacts">
+		<mkdir dir="${gen.dir}" />
+		<echo message="Compiling the descritption..." />
+		<wjc target="${gen.dir}" autoSchemaPackage="false" package="it.polito.dp2.NFFG.sol2" description="${WADL}" />
+	</target>
+</project>
+

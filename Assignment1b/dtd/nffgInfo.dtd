@@ -1,4 +1,4 @@
-<!ELEMENT nffgVerifier (nffg)*>
+<!ELEMENT nffgVerifier (nffg+)>
 <!ELEMENT nffg (nodes,links,policies)>
 	<!ATTLIST nffg  
 				nffgName 			ID 		#REQUIRED
@@ -17,7 +17,7 @@
 					srcNode 	IDREF	 #REQUIRED
 					destNode	IDREF	 #REQUIRED>
 <!ELEMENT policies (policy+) >		
-<!ELEMENT policy ( reachability | traversal)>
+<!ELEMENT policy ( reachability | traversal )>
 	<!ATTLIST Policy
 			policyName	   			ID							#REQUIRED>
 <!ELEMENT reachability EMPTY>
@@ -26,15 +26,15 @@
 			isPositive				(TRUE|FALSE)				#REQUIRED
 			srcNode					IDREF						#REQUIRED
 			destNode				IDREF						#REQUIRED
-			verificationResult		(TRUE|FALSE)				#REQUIRED
-			verificationTime		CDATA						#REQUIRED
-			verficationMsg			CDATA						#REQUIRED>
+			verificationResult		(TRUE|FALSE)				#IMPLIED
+			verificationTime		CDATA						#IMPLIED
+			verficationMsg			CDATA						#IMPLIED>
 <!ELEMENT traversal (providerCat+)>
 <!ATTLIST traversal
 			nffgName				IDREF						#REQUIRED
 			isPositive				(TRUE|FALSE)				#REQUIRED
 			srcNode					IDREF						#REQUIRED
 			destNode				IDREF						#REQUIRED
-			verificationResult		(TRUE|FALSE)				#REQUIRED
-			verificationTime		CDATA						#REQUIRED
-			verficationMsg			CDATA						#REQUIRED>
+			verificationResult		(TRUE|FALSE)				#IMPLIED
+			verificationTime		CDATA						#IMPLIED
+			verficationMsg			CDATA						#IMPLIED>

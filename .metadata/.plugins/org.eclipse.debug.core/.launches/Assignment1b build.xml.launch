@@ -16,8 +16,8 @@
 <mapEntry key="eclipse.pdebuild.home" value="/C:/Users/EBI/eclipse/jee-neon2/eclipse/../../../.p2/pool/plugins/org.eclipse.pde.build_3.9.200.v20160204-0642/./"/>
 <mapEntry key="eclipse.pdebuild.scripts" value="/C:/Users/EBI/eclipse/jee-neon2/eclipse/../../../.p2/pool/plugins/org.eclipse.pde.build_3.9.200.v20160204-0642/scripts/"/>
 <mapEntry key="eclipse.pdebuild.templates" value="/C:/Users/EBI/eclipse/jee-neon2/eclipse/../../../.p2/pool/plugins/org.eclipse.pde.build_3.9.200.v20160204-0642/templates/"/>
-<mapEntry key="seed" value="2"/>
-<mapEntry key="testcase" value="2"/>
+<mapEntry key="seed" value="1"/>
+<mapEntry key="testcase" value="1"/>
 </mapAttribute>
 <stringAttribute key="org.eclipse.ui.externaltools.ATTR_ANT_TARGETS" value="make-final-zip,"/>
 <stringAttribute key="org.eclipse.ui.externaltools.ATTR_LOCATION" value="${workspace_loc:/Assignment1b/build.xml}"/>

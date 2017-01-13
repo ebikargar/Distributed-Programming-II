@@ -1,22 +1,66 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://pad.polito.it/accountRESTSchema"
-	xmlns:tns="http://pad.polito.it/accountRESTSchema">
+<schema targetNamespace="http://www.example.org/nffgInfo" xmlns="http://www.w3.org/2001/XMLSchema"
+	xmlns:tns="http://www.example.org/nffgInfo" elementFormDefault="qualified">
 
-	<element name="Nffgs" type="tns:NffgsType" /> <!--these global element refer to the name we put in table -->
-	<element name="Policies" type="tns:PoliciesType" />
+	<element name="nffg">
+		<complexType>
+			<sequence>
+				<element name="nodes" type="tns:nodesType" maxOccurs="1"></element>
+				<element name="links" type="tns:linksType" maxOccurs="1"></element>
+				<element ref="tns:policy" minOccurs="0" maxOccurs="1"></element>
+			</sequence>
+			<attribute name="nffgName" type="tns:myStringType" use="required" />
+			<attribute name="upTime" type="dateTime" use="required" />
+		</complexType>
+	</element>
 
-	<complexType name="NffgsType">
+	<!-- do we need to mention keys here or NO <key name="nodeNameKey"> <selector 
+		xpath="tns:nodes/tns:node" /> <field xpath="@nodeName" /> </key> <keyref 
+		name="nodeNameRef" refer="tns:nodeNameKey"> <selector xpath="tns:nodes/tns:node"></selector> 
+		<field xpath="@nodeName"></field> </keyref> <key name="linkNameKey"> <selector 
+		xpath="tns:links/tns:link" /> <field xpath="@linkName" /> </key> <keyref 
+		name="linksNameRef" refer="tns:linkNameKey"> <selector xpath="tns:links/tns:link"></selector> 
+		<field xpath="@linkName"></field> </keyref> -->
+
+	<element name="policy">
+		<complexType>
+			<sequence>
+				<element name="reachabilityPolicy" type="tns:reachabilityPolicyType"
+					minOccurs="0" maxOccurs="unbounded"></element>
+				<element name="traversalPolicy" type="tns:traversalPolicyType"
+					minOccurs="0" maxOccurs="unbounded"></element>
+			</sequence>
+		</complexType>
+	</element>
+
+	<complexType name="nodesType">
 		<sequence>
-			<element name="Nffg" type="decimal" />
+			<element name="node" type="tns:nodeType" minOccurs="1"
+				maxOccurs="unbounded" />
 		</sequence>
-		<attribute name="upTime" type="tns:myStringType" />
+	</complexType>
+	<complexType name="nodeType">
+		<sequence>
+			<element name="providerCat" type="tns:providerCatType"
+				minOccurs="1" maxOccurs="1"></element>
+		</sequence>
+		<attribute name="nodeName" type="tns:myStringType" use="required"></attribute>
 	</complexType>
 
-	<complexType name="PoliciesType">
+	<complexType name="linksType">
 		<sequence>
-			<element name="reachabilityPolicy" type="tns:reachabilityPolicyType" />
+			<element name="link" type="tns:linkType" minOccurs="1"
+				maxOccurs="unbounded">
+			</element>
 		</sequence>
-		<attribute name="upTime" type="tns:myStringType" />
+	</complexType>
+
+	<complexType name="linkType">
+		<sequence>
+			<element name="srcNode" type="tns:myStringType"></element>
+			<element name="destNode" type="tns:myStringType"></element>
+		</sequence>
+		<attribute name="linkName" type="tns:myStringType" use="required" />
 	</complexType>
 
 	<complexType name="reachabilityPolicyType">
@@ -29,6 +73,46 @@
 		</sequence>
 		<attribute name="policyName" type="tns:myStringType" use="required"></attribute>
 	</complexType>
+
+	<complexType name="traversalPolicyType">
+		<complexContent>
+			<extension base="tns:reachabilityPolicyType">
+				<sequence>
+					<element name="traversComponent" type="tns:funcType"
+						maxOccurs="unbounded"></element>
+				</sequence>
+			</extension>
+		</complexContent>
+	</complexType>
+
+	<simpleType name="myStringType">
+		<restriction base="string">
+			<pattern value="([a-zA-Z][a-zA-Z0-9]*)"></pattern>
+		</restriction>
+	</simpleType>
+
+	<complexType name="providerCatType">
+		<sequence>
+			<element name="funcType" type="tns:funcType" minOccurs="1"
+				maxOccurs="1" />
+		</sequence>
+	</complexType>
+
+	<simpleType name="funcType">
+		<restriction base="string">
+			<enumeration value="FW"></enumeration>
+			<enumeration value="DPI"></enumeration>
+			<enumeration value="NAT"></enumeration>
+			<enumeration value="SPAM"></enumeration>
+			<enumeration value="CACHE"></enumeration>
+			<enumeration value="VPN"></enumeration>
+			<enumeration value="WEB_SERVER"></enumeration>
+			<enumeration value="WEB_CLIENT"></enumeration>
+			<enumeration value="MAIL_SERVER"></enumeration>
+			<enumeration value="MAIL_CLIENT"></enumeration>
+		</restriction>
+	</simpleType>
+
 	<complexType name="resultType">
 		<sequence>
 			<element name="verificationTime" type="dateTime" minOccurs="0" />
@@ -36,17 +120,4 @@
 			<element name="verificationResult" type="boolean" minOccurs="0" />
 		</sequence>
 	</complexType>
-
-	<simpleType name="verfificationResultType">
-		<restriction base="string">
-			<enumeration value="Replicated Transaction Id" />
-			<enumeration value="Requested Amount Unavailable" />
-		</restriction>
-	</simpleType>
-
-	<simpleType name="myStringType">
-		<restriction base="string">
-			<pattern value="([a-zA-Z][a-zA-Z0-9]*)"></pattern>
-		</restriction>
-	</simpleType>
 </schema>

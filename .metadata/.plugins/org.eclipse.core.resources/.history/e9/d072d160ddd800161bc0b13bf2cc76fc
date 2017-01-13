@@ -1,0 +1,25 @@
+---------------------------------------------------------------------------
+Polytechnic of Turin --> Distributed Programming 2 --> Prof.Riccardo Sisto
+---------------------------------------------------------------------------
+
+In this document I declared details of my designed pattern for DTD part of assignment1a.
+
+I considered nffgVerifier as the root element.
+-Inside each root element we can have one or more nffg elements.
+--Each nffg element is the sequence of 3 elements: nodes-links-policies.nffg has it's name as a unique ID and update time as it's attributes.
+---Each nodes element composed of one or more node element.
+---Each links element composed of one or more link element.
+---Each policies element composed of one or more policy element.
+
+----Each node element contains provider catalogue .Node has it's name (unique ID) as it's attribute.  
+-----providerCat is an empty element with enumeration of function type as it's attribute.
+
+----Each link element has it's name(unique ID) plus source and destination node as it's attributes.
+-----srcNode & destNode are reference to one of the node in node element.(they can also be consider as element inside the link but for having a better design I considered them as attributes here).
+
+----Each policy element is either reachability or traversal element.
+
+
+
+
+

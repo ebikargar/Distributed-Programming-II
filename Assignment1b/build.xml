@@ -9,7 +9,7 @@
 	<property name="NFFGInfo.NffgVerifierFactory" value="it.polito.dp2.NFFG.Random.NffgVerifierFactoryImpl" />
 
 	<!-- The default output file for NffgInfoSerializer -->
-	<property name="output" location="${java.io.tmpdir}/out1.xml"/>
+	<property name="output" location="${java.io.tmpdir}/out1.xml" />
 
 	<!-- The default test case -->
 	<property name="testcase" value="0" />
@@ -32,14 +32,14 @@
 	<path id="NFFG.classpath">
 		<pathelement location="${lib.dir}/NFFG.jar" />
 	</path>
-	
+
 	<!-- Target setseed: sets seed to time stamp if not yet set -->
 	<target name="setseed" unless="seed">
 		<tstamp>
 			<format property="seed" pattern="HHmmss" />
 		</tstamp>
 	</target>
-	
+
 	<!-- Target init -->
 	<target name="init">
 		<mkdir dir="${build.dir}" />
@@ -55,7 +55,7 @@
 
 	<!-- Target generate-bindings -->
 	<target name="generate-bindings" unless="generate-bindings.notRequired" depends="init,-chk-bindings" description="Generate bindings from schema">
-		<exec executable="xjc" failonerror="true" >
+		<exec executable="xjc" failonerror="true">
 			<arg value="-d" />
 			<arg value="${gen.dir}" />
 			<arg value="-p" />
@@ -70,29 +70,23 @@
 		<delete dir="${build.dir}" />
 		<delete dir="${gen.dir}" />
 		<delete includeemptydirs="true">
-		    <fileset dir="${lab1.location}" defaultexcludes="false">
-		       <include name="temp*/**" />
-		    </fileset>
+			<fileset dir="${lab1.location}" defaultexcludes="false">
+				<include name="temp*/**" />
+			</fileset>
 		</delete>
-		<delete file="${lab1.location}/lab1.zip"/>
+		<delete file="${lab1.location}/lab1.zip" />
 	</target>
 
 	<!-- Target build -->
 	<target name="build" depends="init, generate-bindings" description="Build the solution of Assignment 1">
 		<echo>Building the submitted solution (if needed)...</echo>
-		<javac 
-			destdir="${build.dir}"
-			debug="${debug}"
-			debuglevel="${debuglevel}"
-			source="${source}"
-			target="${target}"
-			includeantruntime="false">
-				<src path="${src.dir}"/>
-				<src path="${gen.dir}"/>
-				<include name="it/polito/dp2/NFFG/sol1/**" />
-				<classpath>
-					<path refid="NFFG.classpath" />
-				</classpath>
+		<javac destdir="${build.dir}" debug="${debug}" debuglevel="${debuglevel}" source="${source}" target="${target}" includeantruntime="false">
+			<src path="${src.dir}" />
+			<src path="${gen.dir}" />
+			<include name="it/polito/dp2/NFFG/sol1/**" />
+			<classpath>
+				<path refid="NFFG.classpath" />
+			</classpath>
 		</javac>
 		<echo>Done.</echo>
 	</target>
@@ -100,31 +94,25 @@
 	<target name="buildNFFGInfo" description="Build the sample application">
 		<echo>Building NFFGInfo (if needed)...</echo>
 		<mkdir dir="${build.dir}" />
-		<javac 
-			destdir="${build.dir}"
-			debug="${debug}"
-			debuglevel="${debuglevel}"
-			source="${source}"
-			target="${target}"
-			includeantruntime="false">
-				<src path="${src.dir}" />
-				<include name="it/polito/dp2/NFFG/lab1/NFFGInfo.java" />
-				<classpath>
-					<path refid="NFFG.classpath" />
-				</classpath>
+		<javac destdir="${build.dir}" debug="${debug}" debuglevel="${debuglevel}" source="${source}" target="${target}" includeantruntime="false">
+			<src path="${src.dir}" />
+			<include name="it/polito/dp2/NFFG/lab1/NFFGInfo.java" />
+			<classpath>
+				<path refid="NFFG.classpath" />
+			</classpath>
 		</javac>
 		<echo>Done.</echo>
 	</target>
 
 	<target name="NFFGInfo" depends="buildNFFGInfo, setseed" description="Run the sample application">
 		<java classname="it.polito.dp2.NFFG.lab1.NFFGInfo" failonerror="true" fork="yes">
-			<sysproperty key="it.polito.dp2.NFFG.Random.seed" value="${seed}"/>
-			<sysproperty key="it.polito.dp2.NFFG.Random.testcase" value="${testcase}"/>
-			<sysproperty key="it.polito.dp2.NFFG.NffgVerifierFactory" value="${NFFGInfo.NffgVerifierFactory}"/>
+			<sysproperty key="it.polito.dp2.NFFG.Random.seed" value="${seed}" />
+			<sysproperty key="it.polito.dp2.NFFG.Random.testcase" value="${testcase}" />
+			<sysproperty key="it.polito.dp2.NFFG.NffgVerifierFactory" value="${NFFGInfo.NffgVerifierFactory}" />
 			<classpath>
 				<path refid="NFFG.classpath" />
-				<pathelement location="${lib.dir}/NFFGRandom.jar"/>
-				<pathelement path="${build.dir}"/>
+				<pathelement location="${lib.dir}/NFFGRandom.jar" />
+				<pathelement path="${build.dir}" />
 			</classpath>
 		</java>
 	</target>
@@ -136,11 +124,11 @@
 		<echo>Seed: ${seed}</echo>
 		<echo />
 		<antcall target="NffgInfoSerializer.test">
-			<param name="outfile" value="${output}"/>
+			<param name="outfile" value="${output}" />
 		</antcall>
 		<echo>Done.</echo>
 	</target>
-	
+
 	<!-- Target runFuncTest -->
 	<target name="runFuncTest" depends="setseed">
 		<antcall target="runFuncTest.real">
@@ -153,76 +141,73 @@
 	<target name="NffgInfoSerializer.test" depends="build">
 		<java classname="it.polito.dp2.NFFG.sol1.NffgInfoSerializer" failonerror="true" fork="yes">
 			<sysproperty key="it.polito.dp2.NFFG.NffgVerifierFactory" value="${NFFGInfo.NffgVerifierFactory}" />
-			<sysproperty key="it.polito.dp2.NFFG.Random.seed" value="${seed}"/>
-			<sysproperty key="it.polito.dp2.NFFG.Random.testcase" value="${testcase}"/>
+			<sysproperty key="it.polito.dp2.NFFG.Random.seed" value="${seed}" />
+			<sysproperty key="it.polito.dp2.NFFG.Random.testcase" value="${testcase}" />
 			<arg value="${outfile}" />
 			<classpath>
 				<path refid="NFFG.classpath" />
-				<pathelement location="${lib.dir}/NFFGRandom.jar"/>
+				<pathelement location="${lib.dir}/NFFGRandom.jar" />
 				<pathelement path="${build.dir}" />
 			</classpath>
 		</java>
 		<echo>Done.</echo>
 	</target>
-	
+
 	<target name="runFuncTest.real" depends="build">
-		<tempfile property="temp.dir" destdir="${lab1.location}" prefix="temp"/>
-		<tempfile property="temp.xmlfile" destdir="${temp.dir}" prefix="out" suffix=".xml"/>
+		<tempfile property="temp.dir" destdir="${lab1.location}" prefix="temp" />
+		<tempfile property="temp.xmlfile" destdir="${temp.dir}" prefix="out" suffix=".xml" />
 
 		<echo>The tests will run using '${temp.dir}' as working directory.</echo>
 		<echo>Testcase: ${testcase}</echo>
 		<echo>Seed: ${seed}</echo>
 		<echo />
 		<echo>Copying the xsd/nffgInfo.xsd file to the working directory...</echo>
-		<copy file="${schema.dir}/nffgInfo.xsd" todir="${temp.dir}/xsd"/>
+		<copy file="${schema.dir}/nffgInfo.xsd" todir="${temp.dir}/xsd" />
 		<echo>File copied.</echo>
 
 		<antcall target="NffgInfoSerializer.test">
-			<param name="outfile" value="${temp.xmlfile}"/>
+			<param name="outfile" value="${temp.xmlfile}" />
 		</antcall>
-		
+
 		<echo>Validating the generated XML file: ${temp.xmlfile}</echo>
 		<java fork="yes" classname="it.polito.dp2.xml.XMLSchemaValidator" failonerror="false" dir="${temp.dir}" resultproperty="validation_result">
-			<arg path="${temp.dir}/xsd/nffgInfo.xsd"/>
-			<arg path="${temp.xmlfile}"/>
+			<arg path="${temp.dir}/xsd/nffgInfo.xsd" />
+			<arg path="${temp.xmlfile}" />
 			<classpath>
-				<pathelement location="${lib.dir}/lab1.jar"/>
+				<pathelement location="${lib.dir}/lab1.jar" />
 			</classpath>
 		</java>
 		<fail status="125" message="*** XML validation FAILED ***">
 			<condition>
 				<not>
-					<equals arg1="0" arg2="${validation_result}"/>
+					<equals arg1="0" arg2="${validation_result}" />
 				</not>
 			</condition>
 		</fail>
 		<echo>*** XML file validated ***</echo>
 
 		<junit printsummary="yes" dir="${temp.dir}" fork="yes" haltonfailure="no" showoutput="no" filtertrace="true">
-			<sysproperty key="it.polito.dp2.NFFG.Random.testcase" value="${testcase}"/>
-			<sysproperty key="it.polito.dp2.NFFG.Random.seed" value="${seed}"/>
-			<sysproperty key="it.polito.dp2.NFFG.sol1.NffgInfo.file " value="${temp.xmlfile}"/>
-			<formatter type="brief" usefile="false"/>
-			<test haltonfailure="no" failureproperty="test_failed" name="${test.class}"/>
+			<sysproperty key="it.polito.dp2.NFFG.Random.testcase" value="${testcase}" />
+			<sysproperty key="it.polito.dp2.NFFG.Random.seed" value="${seed}" />
+			<sysproperty key="it.polito.dp2.NFFG.sol1.NffgInfo.file " value="${temp.xmlfile}" />
+			<formatter type="brief" usefile="false" />
+			<test haltonfailure="no" failureproperty="test_failed" name="${test.class}" />
 			<classpath>
 				<path refid="NFFG.classpath" />
-				<pathelement location="${lib.dir}/NFFGRandom.jar"/>
+				<pathelement location="${lib.dir}/NFFGRandom.jar" />
 				<pathelement path="${build.dir}" />
-				<pathelement location="${lib.dir}/lab1.jar"/>
-				<pathelement location="${lib.dir}/junit-4.5.jar"/>
+				<pathelement location="${lib.dir}/lab1.jar" />
+				<pathelement location="${lib.dir}/junit-4.5.jar" />
 			</classpath>
 		</junit>
-		<fail if="test_failed" status="${exit.code}" message="*** Some Tests FAILED ***"/>
+		<fail if="test_failed" status="${exit.code}" message="*** Some Tests FAILED ***" />
 		<echo>*** All Tests PASSED  ***</echo>
-		<delete dir="${temp.dir}"/>
+		<delete dir="${temp.dir}" />
 	</target>
-	
+
 	<!-- Target make-final-zip for building the final zip containing the solution -->
 	<target name="make-final-zip">
-		<zip destfile="lab1.zip"
-			basedir="${lab1.location}"
-		    includes="src/it/polito/dp2/NFFG/sol1/**/*.java xsd/* dtd/*"
-		/>
+		<zip destfile="lab1.zip" basedir="${lab1.location}" includes="src/it/polito/dp2/NFFG/sol1/**/*.java xsd/* dtd/*" />
 	</target>
 
 </project>

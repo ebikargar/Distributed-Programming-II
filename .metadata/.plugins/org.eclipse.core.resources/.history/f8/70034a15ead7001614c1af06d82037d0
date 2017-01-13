@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema targetNamespace="http://www.example.org/nffgInfo" xmlns="http://www.w3.org/2001/XMLSchema"
+	xmlns:tns="http://www.example.org/nffgInfo" elementFormDefault="qualified">
+
+	<element name="nffgVerifier" type="tns:nffgVerifierType">
+
+		<!-- Each Policies has a unique name ! -->
+		<unique name="policyName">
+			<selector xpath="tns:nffg/tns:Policies/*" />
+			<field xpath="policyName" />
+		</unique>
+
+		<key name="nffgNameKey">
+			<selector xpath="tns:nffg" />
+			<field xpath="@nffgName" />
+		</key>
+		<keyref name="nffgNameRef" refer="tns:nffgNameKey">
+			<selector xpath="tns:nffg"></selector>
+			<field xpath="@nffgName"></field>
+		</keyref>
+		<key name="policyNameKey">
+			<selector xpath="tns:nffg/tns:policies" />
+			<field xpath="@policyName" />
+		</key>
+	  	<keyref name="policyNameRef" refer="tns:policyNameKey">
+			<selector xpath="tns:nffg/tns:policies"></selector>
+			<field xpath="@policyName"></field>
+		</keyref>
+	</element>
+
+	<complexType name="nffgVerifierType">
+		<sequence>
+			<element name="nffg" type="tns:nffgType" minOccurs="0"
+				maxOccurs="unbounded">
+				<key name="nodeNameKey">
+					<selector xpath="tns:nodes/tns:node" />
+					<field xpath="@nodeName" />
+				</key>
+				<keyref name="nodeNameRef" refer="tns:nodeNameKey">
+					<selector xpath="tns:nodes/tns:node"></selector>
+					<field xpath="@nodeName"></field>
+				</keyref>
+
+				<key name="linkNameKey">
+					<selector xpath="tns:links/tns:link" />
+					<field xpath="@linkName" />
+				</key>
+				<keyref name="linksNameRef" refer="tns:linkNameKey">
+					<selector xpath="tns:links/tns:link"></selector>
+					<field xpath="@linkName"></field>
+				</keyref>
+			</element>
+		</sequence>
+	</complexType>
+
+	<complexType name="nffgType">
+		<sequence>
+			<element name="nodes" type="tns:nodesType" maxOccurs="1"></element>
+			<element name="links" type="tns:linksType" maxOccurs="1"></element>
+			<element name="policies" type="tns:policiesType" minOccurs="0"
+				maxOccurs="1"></element>
+		</sequence>
+		<attribute name="nffgName" type="tns:myStringType" use="required" />
+		<attribute name="upTime" type="dateTime" use="required" />
+	</complexType>
+
+	<complexType name="nodesType">
+		<sequence>
+			<element name="node" type="tns:nodeType" minOccurs="1"
+				maxOccurs="unbounded" />
+		</sequence>
+	</complexType>
+	<complexType name="nodeType">
+		<sequence>
+			<element name="providerCat" type="tns:providerCatType"
+				minOccurs="1" maxOccurs="1"></element>
+		</sequence>
+		<attribute name="nodeName" type="tns:myStringType" use="required"></attribute>
+	</complexType>
+
+	<complexType name="linksType">
+		<sequence>
+			<element name="link" type="tns:linkType" minOccurs="1"
+				maxOccurs="unbounded">
+			</element>
+		</sequence>
+	</complexType>
+
+	<complexType name="linkType">
+		<sequence>
+			<element name="srcNode" type="tns:myStringType"></element>
+			<element name="destNode" type="tns:myStringType"></element>
+		</sequence>
+		<attribute name="linkName" type="tns:myStringType" use="required" />
+	</complexType>
+
+	<complexType name="policiesType">
+		<sequence>
+			<element name="reachabilityPolicy" type="tns:reachabilityPolicyType"
+				minOccurs="0" maxOccurs="unbounded"></element>
+			<element name="traversalPolicy" type="tns:traversalPolicyType"
+				minOccurs="0" maxOccurs="unbounded"></element>
+		</sequence>
+	</complexType>
+
+	<complexType name="reachabilityPolicyType">
+		<sequence>
+			<element name="srcNode" type="tns:myStringType" />
+			<element name="destNode" type="tns:myStringType" />
+			<element name="isPositive" type="boolean" />
+			<element name="verificationResult" type="tns:resultType"
+				minOccurs="0" />
+		</sequence>
+		<attribute name="policyName" type="tns:myStringType" use="required"></attribute>
+	</complexType>
+
+	<complexType name="traversalPolicyType">
+		<complexContent>
+			<extension base="tns:reachabilityPolicyType">
+				<sequence>
+					<element name="traversComponent" type="tns:funcType"
+						maxOccurs="unbounded"></element>
+				</sequence>
+			</extension>
+		</complexContent>
+	</complexType>
+
+	<simpleType name="myStringType">
+		<restriction base="string">
+			<pattern value="([a-zA-Z][a-zA-Z0-9]*)"></pattern>
+		</restriction>
+	</simpleType>
+
+	<complexType name="providerCatType">
+		<sequence>
+			<element name="funcType" type="tns:funcType" minOccurs="1"
+				maxOccurs="1" />
+		</sequence>
+	</complexType>
+
+	<simpleType name="funcType">
+		<restriction base="string">
+			<enumeration value="FW"></enumeration>
+			<enumeration value="DPI"></enumeration>
+			<enumeration value="NAT"></enumeration>
+			<enumeration value="SPAM"></enumeration>
+			<enumeration value="CACHE"></enumeration>
+			<enumeration value="VPN"></enumeration>
+			<enumeration value="WEB_SERVER"></enumeration>
+			<enumeration value="WEB_CLIENT"></enumeration>
+			<enumeration value="MAIL_SERVER"></enumeration>
+			<enumeration value="MAIL_CLIENT"></enumeration>
+		</restriction>
+	</simpleType>
+
+	<complexType name="resultType">
+		<sequence>
+			<element name="verificationTime" type="dateTime" minOccurs="0" />
+			<element name="verificationMessage" type="string" minOccurs="0" />
+			<element name="verificationResult" type="boolean" minOccurs="0" />
+		</sequence>
+	</complexType>
+</schema>

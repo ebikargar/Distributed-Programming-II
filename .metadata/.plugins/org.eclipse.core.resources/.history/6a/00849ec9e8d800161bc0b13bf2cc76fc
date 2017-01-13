@@ -1,0 +1,16 @@
+---------------------------------------------------------------------------
+Polytechnic of Turin --> Distributed Programming 2 --> Prof.Riccardo Sisto
+---------------------------------------------------------------------------
+
+In this document I declared details of my designed pattern for DTD part of assignment1a.
+
+some consideration inside my design:
+- Each NF-FG is characterized by a name, which uniquely identifies it in the the root element.
+-A generic policy ( reachability | traversal )  is characterized by a name, which uniquely identifies it inside the root element.
+-Each node has a name, which is unique within the NF-FG.
+-Each link has a name, which is unique within the NF-FG.
+---------------------------------------------------------------------------------
+
+
+
+

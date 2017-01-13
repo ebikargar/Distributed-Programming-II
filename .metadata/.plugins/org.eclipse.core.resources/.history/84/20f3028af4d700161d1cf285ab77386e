@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://pad.polito.it/accountRESTSchema"
+	xmlns:tns="http://pad.polito.it/accountRESTSchema">
+
+	<element name="Nffgs" type="tns:NffgsType" /> <!--these global element refer to the name we put in table -->
+	<element name="Policies" type="tns:PoliciesType" />
+
+	<complexType name="NffgsType">
+		<sequence>
+			<element name="Nffg" type="decimal" />
+		</sequence>
+		<attribute name="upTime" type="tns:myStringType" />
+	</complexType>
+
+	<complexType name="PoliciesType">
+		<sequence>
+			<element name="reachabilityPolicy" type="tns:reachabilityPolicyType" />
+		</sequence>
+		<attribute name="upTime" type="tns:myStringType" />
+	</complexType>
+
+	<complexType name="reachabilityPolicyType">
+		<sequence>
+			<element name="srcNode" type="tns:myStringType" />
+			<element name="destNode" type="tns:myStringType" />
+			<element name="isPositive" type="boolean" />
+			<element name="verificationResult" type="tns:resultType"
+				minOccurs="0" />
+		</sequence>
+		<attribute name="policyName" type="tns:myStringType" use="required"></attribute>
+	</complexType>
+	<complexType name="resultType">
+		<sequence>
+			<element name="verificationTime" type="dateTime" minOccurs="0" />
+			<element name="verificationMessage" type="string" minOccurs="0" />
+			<element name="verificationResult" type="boolean" minOccurs="0" />
+		</sequence>
+	</complexType>
+
+	<simpleType name="verfificationResultType">
+		<restriction base="string">
+			<enumeration value="Replicated Transaction Id" />
+			<enumeration value="Requested Amount Unavailable" />
+		</restriction>
+	</simpleType>
+
+	<simpleType name="myStringType">
+		<restriction base="string">
+			<pattern value="([a-zA-Z][a-zA-Z0-9]*)"></pattern>
+		</restriction>
+	</simpleType>
+</schema>
