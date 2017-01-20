@@ -14,7 +14,7 @@
 		</complexType>
 	</element>
 
-	<!-- do we need to mention keys here or NO <key name="nodeNameKey"> <selector 
+	<!-- do we need to mention keys here :its better to have them <key name="nodeNameKey"> <selector 
 		xpath="tns:nodes/tns:node" /> <field xpath="@nodeName" /> </key> <keyref 
 		name="nodeNameRef" refer="tns:nodeNameKey"> <selector xpath="tns:nodes/tns:node"></selector> 
 		<field xpath="@nodeName"></field> </keyref> <key name="linkNameKey"> <selector 
