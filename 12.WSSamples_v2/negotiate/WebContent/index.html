@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Negotiate web service</title>
+</head>
+<body>
+<h2>Negotiate RESTful Web Service</h2>
+<p>
+The negotiate web service is a simple web service showing all the different HTTP
+methods in action. The aim of the service is to allow clients to load, read,
+unload and modify negotiated objects. A negotiated object is a resource that
+includes a range of real numbers (delimited by a minimum and a maximum).
+On load or modify, the service negotiates the actual range of the object and
+may refuse to complete the operation.
+</p>
+<p>
+The main resource of the service is the collection resource 
+named <a href="webapi/negotiateService">negotiateService</a>
+which represents the (initially empty) collection of negotiated
+objects. By POST-ing to this resource it is possible to create
+new negotiated objects as sub-resources. The ids of these resources
+are decided by the service.
+Resources representing single negotiated objects can be read,
+updated and deleted by means of get, put and delete methods.
+</p>
+</body>
+</html>

@@ -1,0 +1,142 @@
+package it.polito.dp2.NFFG.sol3.service;
+
+import java.net.URI;
+import java.util.List;
+
+import it.polito.dp2.NFFG.sol3.service.jaxb.Nffg;
+import it.polito.dp2.NFFG.sol3.service.jaxb.Policy;
+import it.polito.dp2.rest.negotiate.model.Negotiate;
+import it.polito.dp2.rest.negotiate.service.NegotiateService;
+
+import javax.ws.rs.Consumes;
+import javax.ws.rs.DELETE;
+import javax.ws.rs.ForbiddenException;
+import javax.ws.rs.GET;
+import javax.ws.rs.InternalServerErrorException;
+import javax.ws.rs.NotFoundException;
+import javax.ws.rs.POST;
+import javax.ws.rs.PUT;
+import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
+import javax.ws.rs.Produces;
+import javax.ws.rs.core.Context;
+import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
+import javax.ws.rs.core.UriBuilder;
+import javax.ws.rs.core.UriInfo;
+
+import com.wordnik.swagger.annotations.Api;
+import com.wordnik.swagger.annotations.ApiOperation;
+import com.wordnik.swagger.annotations.ApiResponse;
+import com.wordnik.swagger.annotations.ApiResponses;
+
+@Path("/policiesService")
+@Api(value = "/policiesService", description = "a collection of Policy objects")
+public class PoliciesResource {
+	// create an instance of the object that can execute operations
+	NffgServiceImp nffgService = new NffgServiceImp();
+    
+	@GET
+	@ApiOperation(value = "get list of Policy objects ", notes = "text plain format")
+	@ApiResponses(value = { @ApiResponse(code = 200, message = "OK"),
+			@ApiResponse(code = 500, message = "Internal Server Error") })
+	@Produces({ MediaType.APPLICATION_XML })
+	public List<Policy> getPolicy() {
+		try {
+			List<Policy> policy_list = nffgService.getListOfPolicies();
+			return policy_list;
+		} catch (Exception e) {
+			throw new InternalServerErrorException();
+		}
+	}
+
+	@GET
+	@Path("{PolicyId}")
+	@ApiOperation(value = "get a single Policy object", notes = "text plain format")
+	@ApiResponses(value = { @ApiResponse(code = 200, message = "OK"), @ApiResponse(code = 404, message = "Not Found"),
+			@ApiResponse(code = 500, message = "Internal Server Error") })
+	@Produces({ MediaType.APPLICATION_XML })
+	public Policy getSinglePolicyXml(@PathParam("PolicyId") String PolicyId) {
+
+		try {
+			if (PolicyId != null) { // success
+				nffgService.getSinglePolicy(PolicyId);
+			}
+		} catch (Exception e) {
+			throw new NotFoundException();
+		}
+		return nffgService.getSinglePolicy(PolicyId);
+	}
+      
+    @POST
+    @ApiOperation(	value = "create a new negotiate object", notes = "json and xml formats"
+	)
+    @ApiResponses(value = {
+    		@ApiResponse(code = 201, message = "Created"),
+    		@ApiResponse(code = 403, message = "Forbidden because negotiation failed"),
+    		@ApiResponse(code = 500, message = "Internal Server Error")})
+    @Produces({MediaType.APPLICATION_XML,MediaType.APPLICATION_JSON})
+    @Consumes({MediaType.APPLICATION_XML,MediaType.APPLICATION_JSON})
+    public Response postNegotiateJson(Negotiate neg, @Context UriInfo uriInfo) {
+
+    	Negotiate created = service.createNegotiate(neg);
+    	if (created != null) { // success
+        	UriBuilder builder = uriInfo.getAbsolutePathBuilder();
+        	URI u = builder.path(Long.toString(created.getId())).build();
+        	return Response.created(u).entity(created).build();
+    	} else
+    		throw new ForbiddenException("Forbidden because negotiation failed");	
+       
+    }
+
+    @DELETE
+    @Path("{id}")
+    @ApiOperation(	value = "remove a negotiate object", notes = "json and xml formats"
+	)
+    @ApiResponses(value = {
+    		@ApiResponse(code = 200, message = "OK"),
+    		@ApiResponse(code = 404, message = "Not Found"),
+    		@ApiResponse(code = 500, message = "Internal Server Error")})
+    @Produces({MediaType.APPLICATION_XML,MediaType.APPLICATION_JSON})
+    public Negotiate deleteNegotiateJson(@PathParam("id") long id){
+    	
+    	Negotiate deleted;
+    	synchronized (service.getSynchObject()) {
+    		deleted = service.remove(id);
+    	}
+    	if (deleted != null) { // success
+        	return deleted;
+    	} else
+    		throw new NotFoundException();	
+
+    }
+    
+    @PUT
+    @Path("{id}")
+    @ApiOperation(	value = "update a negotiate object", notes = "json and xml formats"
+	)
+    @ApiResponses(value = {
+    		@ApiResponse(code = 200, message = "OK"),
+			@ApiResponse(code = 403, message = "Forbidden because negotiation failed"),
+			@ApiResponse(code = 404, message = "Not found"),
+    		@ApiResponse(code = 500, message = "Internal Server Error")})
+    @Produces({MediaType.APPLICATION_XML,MediaType.APPLICATION_JSON})
+    @Consumes({MediaType.APPLICATION_XML,MediaType.APPLICATION_JSON})
+    public Response  putNegotiateJson(@PathParam("id") long id, Negotiate neg, @Context UriInfo uriInfo) {
+
+    	neg.setId(id);
+    	Negotiate newNeg;
+    	synchronized (service.getSynchObject()) {
+	    	Negotiate oldNeg = service.getSingleNegotiate(id);
+	    	if (oldNeg == null)
+	    		throw new NotFoundException();
+	    	newNeg = service.modifyNegotiate(neg);
+    	}
+    	if (newNeg == null)
+    		throw new ForbiddenException("Forbidden because negotiation failed");	
+    	else
+    		return Response.ok(newNeg).build();
+    		
+    }
+    
+}

@@ -1,0 +1,157 @@
+package it.polito.dp2.NFFG.sol3.service;
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+
+import javax.ws.rs.ForbiddenException;
+import javax.ws.rs.client.Client;
+import javax.ws.rs.client.ClientBuilder;
+import javax.ws.rs.client.Entity;
+import javax.ws.rs.client.WebTarget;
+
+import it.polito.dp2.NFFG.sol3.service.jaxb.Nffg;
+import it.polito.dp2.NFFG.sol3.service.neo4j.Node;
+import it.polito.dp2.NFFG.sol3.service.neo4j.ObjectFactory;
+import it.polito.dp2.NFFG.NodeReader;
+import it.polito.dp2.NFFG.sol3.service.jaxb.LinkType;
+
+import it.polito.dp2.NFFG.sol3.service.jaxb.NodeType;
+import it.polito.dp2.NFFG.sol3.service.jaxb.Policy;
+import it.polito.dp2.NFFG.sol3.service.jaxb.ReachabilityPolicyType;
+import it.polito.dp2.NFFG.sol3.service.jaxb.TraversalPolicyType;
+
+import it.polito.dp2.NFFG.sol3.service.neo4j.Labels;
+import it.polito.dp2.NFFG.sol3.service.neo4j.Node;
+import it.polito.dp2.NFFG.sol3.service.neo4j.ObjectFactory;
+import it.polito.dp2.NFFG.sol3.service.neo4j.Path;
+import it.polito.dp2.NFFG.sol3.service.neo4j.Paths;
+import it.polito.dp2.NFFG.sol3.service.neo4j.Property;
+import it.polito.dp2.NFFG.sol3.service.neo4j.Relationship;
+
+import javax.ws.rs.core.GenericType;
+import javax.ws.rs.core.Link;
+import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
+import javax.ws.rs.core.UriBuilder;
+
+public class NffgServiceImp {
+
+	Map<String, Nffg> nffgMap = NffgDB.getMap();
+
+	public void postSingleNffg(Nffg nffg) {
+
+		HashMap<String, String> nodeMap = new HashMap<String, String>();
+		HashMap<String, String> linkMap = new HashMap<String, String>();
+
+		// check if Nffg already existed or No
+		if (NffgDB.getMap().containsKey(nffg.getNffgName())) {
+			System.out.println("This Nffg Already Existed");
+			throw new ForbiddenException("Nffg already Existed");
+		}
+
+		try {
+			WebTarget target = createTarget();
+			ObjectFactory objFact = new ObjectFactory();
+
+			Node nffgNode = new ObjectFactory().createNode();
+			Property nffgNodeProperty = new ObjectFactory().createProperty();
+
+			nffgNodeProperty.setName("name");
+			nffgNodeProperty.setValue(nffg.getNffgName());
+			nffgNode.getProperty().add(nffgNodeProperty);
+
+			Node request = target.path("resource/node/").request(MediaType.APPLICATION_XML)
+					.post(Entity.entity(nffgNode, MediaType.APPLICATION_XML), Node.class);
+
+			nodeMap.put(nffg.getNffgName(), request.getId());
+			
+			Labels nffgLabel = new ObjectFactory().createLabels();
+			nffgLabel.getValue().add("NFFG");
+			
+			Response labelRequest = target.path("resource/nodes/" + request.getId() + "/label").request(MediaType.APPLICATION_XML)
+					.post(Entity.entity(nffgLabel, MediaType.APPLICATION_XML));
+			
+			List<NodeType> node_set = nffg.getNodes().getNode();
+			for (NodeType node_r : node_set) {
+				Node node = objFact.createNode();
+				Property nodeProperty = objFact.createProperty();
+				nodeProperty.setName("name");
+				nodeProperty.setValue(node_r.getNodeName());
+				node.getProperty().add(nodeProperty);
+				
+				Node nodeRequest = target.path("resource/node/").request(MediaType.APPLICATION_XML)
+						.post(Entity.entity(node, MediaType.APPLICATION_XML), Node.class);
+				nodeMap.put(key, value)
+			
+			
+
+		} catch (Exception e) {
+			throw e;
+		}
+	}
+
+	
+	
+	
+	public Nffg createNffg(Nffg neg) {
+		nffgMap.put(neg.getNffgName(), neg);
+
+		return neg;
+	}
+
+	public void addPolicy(Policy policy_to_add) {
+
+	}
+
+	public void updatePolicy(Policy policy_to_update) {
+
+	}
+
+	public void deletePolicy(String policyName) {
+
+	}
+
+	private WebTarget createTarget() {
+		WebTarget target;
+		String property_value = System.getProperty("it.polito.dp2.NFFG.lab3.NEO4JURL");
+
+		Client c = ClientBuilder.newClient();
+		if (property_value == null)
+			property_value = "http://localhost:8080/Neo4JXML/rest";
+		target = c.target(property_value);
+		return target;
+	}
+
+	public List<Nffg> getListOfNffgs() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public Nffg getSingleNffg(String nffgId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public List<Policy> getListOfPolicies() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public Policy getSinglePolicy(String policyId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public void postSinglePolicy(Policy policy) {
+		// TODO Auto-generated method stub
+
+	}
+
+	public void deleteSinglePolicy(String policyId) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

@@ -1,0 +1,50 @@
+package it.polito.dp2.NFFG.sol3.service;
+
+import javax.ws.rs.Consumes;
+import javax.ws.rs.ForbiddenException;
+import javax.ws.rs.NotFoundException;
+import javax.ws.rs.PUT;
+import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
+import javax.ws.rs.Produces;
+import javax.ws.rs.core.Context;
+import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
+import javax.ws.rs.core.UriInfo;
+
+import com.wordnik.swagger.annotations.ApiOperation;
+import com.wordnik.swagger.annotations.ApiResponse;
+import com.wordnik.swagger.annotations.ApiResponses;
+
+import it.polito.dp2.NFFG.lab2.NoGraphException;
+import it.polito.dp2.NFFG.lab2.UnknownNameException;
+
+public class VerificationOfPolicyResource {
+
+	// create an instance of the object that can execute operations
+		NffgServiceImp nffgService = new NffgServiceImp();
+	@PUT
+	@Path("{VerificationOfPolicy}")
+	@ApiOperation(value = "verification of one or more reachability policies", notes = "xml formats")
+	@ApiResponses(value = { @ApiResponse(code = 200, message = "OK"),
+			@ApiResponse(code = 403, message = "Forbidden because verification failed"),
+			@ApiResponse(code = 404, message = "Not found"),
+			@ApiResponse(code = 500, message = "Internal Server Error") })
+	@Produces({ MediaType.APPLICATION_XML })
+	@Consumes({ MediaType.APPLICATION_XML })
+	public Response putVerificationOfPolicyXml(@PathParam("PolicyId") String policyId, Negotiate neg, @Context UriInfo uriInfo) {
+		
+		PolicyDB policySaved = new PolicyDB();
+		
+		policySaved.getMap(policyId).		
+		String srcId = nffgSaved.getMap(nffgSer)
+		String destId = hm.get(destName);
+		if (srcId == null || destId == null) {
+			System.out.println("Source || Destination Node can't be retrieve from HashMap correctly");
+			throw new UnknownNameException();
+		}
+			return Response.ok(newNeg).build();
+
+	}
+
+}

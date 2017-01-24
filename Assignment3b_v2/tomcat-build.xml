@@ -7,7 +7,7 @@
 	
 	<property name="tomcatUsername" value="root" />
 	<property name="tomcatPassword" value="root" />
-	<property name="server.location" location="E:/apache-tomcat-8.0.39" />
+	<property name="server.location" location="C:\apache-tomcat-8.5.8-windows-x64" />
 	<property name="tomcatPort" value="8080" />
 	<property name="tomcatUrl" value="http://localhost:${tomcatPort}/manager/text" />
 	
@@ -31,7 +31,7 @@
 	</path>
 	
 	<!-- Configure the custom Ant tasks for the Manager application -->
-	<import file="${server.location}/bin/catalina-tasks.xml" />
+	<import file="C:\apache-tomcat-8.5.8-windows-x64\bin\catalina-tasks.xml" />
 	
 	<!-- TOMCAT LIFECICLE MANAGEMENT-->
 	<target name="start-tomcat" depends="check-tomcat-status" unless="tomcat.started">

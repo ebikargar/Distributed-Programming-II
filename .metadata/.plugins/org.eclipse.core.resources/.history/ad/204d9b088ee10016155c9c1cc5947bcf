@@ -1,0 +1,76 @@
+package it.polito.dp2.NFFG.sol3.service;
+
+import java.net.URI;
+import java.util.List;
+
+import it.polito.dp2.NFFG.sol3.service.jaxb.Nffg;
+
+import javax.ws.rs.Consumes;
+import javax.ws.rs.DELETE;
+import javax.ws.rs.ForbiddenException;
+import javax.ws.rs.GET;
+import javax.ws.rs.NotFoundException;
+import javax.ws.rs.POST;
+import javax.ws.rs.PUT;
+import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
+import javax.ws.rs.Produces;
+import javax.ws.rs.core.Context;
+import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
+import javax.ws.rs.core.UriBuilder;
+import javax.ws.rs.core.UriInfo;
+
+import com.wordnik.swagger.annotations.Api;
+import com.wordnik.swagger.annotations.ApiOperation;
+import com.wordnik.swagger.annotations.ApiResponse;
+import com.wordnik.swagger.annotations.ApiResponses;
+
+/**
+ * Resource class hosted at the URI relative path "/negotiateService"
+ */
+@Path("/NffgService")
+@Api(value = "/NffgService", description = "a collection of Nffg objects")
+public class NffgResource {
+	// create an instance of the object that can execute operations
+	NffgServiceImp service = new NffgServiceImp();
+
+	/**
+	 * Method processing HTTP GET requests, producing "text/plain" MIME media
+	 * type.
+	 * 
+	 * @return String that will be send back as a response of type "text/plain".
+	 */
+	@GET
+	@ApiOperation(value = "get the Nffg objects ", notes = "text plain format")
+	@ApiResponses(value = { @ApiResponse(code = 200, message = "OK"),
+			@ApiResponse(code = 500, message = "Internal Server Error") })
+	@Produces({ MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON })
+	public List<Nffg> getNffg() {
+
+		List<Nffg> nffg_list = service.getNffg();
+		StringBuilder sb = new StringBuilder();
+
+		return nffg_list;
+	}
+
+	@POST
+	@ApiOperation(value = "create a new Nffg object", notes = "json and xml formats")
+	@ApiResponses(value = { @ApiResponse(code = 201, message = "Created"),
+			@ApiResponse(code = 403, message = "Forbidden because negotiation failed"),
+			@ApiResponse(code = 500, message = "Internal Server Error") })
+	@Produces({ MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON })
+	@Consumes({ MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON })
+	public Response postNegotiateJson(Nffg neg, @Context UriInfo uriInfo) {
+
+		Nffg created = service.createNffg(neg);
+		if (created != null) { // success
+			UriBuilder builder = uriInfo.getAbsolutePathBuilder();
+			URI u = builder.path(created.getNffgName()).build();
+			return Response.created(u).entity(created).build();
+		} else
+			throw new ForbiddenException("Forbidden because negotiation failed");
+
+	}
+
+}

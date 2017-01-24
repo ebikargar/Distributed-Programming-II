@@ -1,0 +1,88 @@
+package it.polito.dp2.NFFG.sol3.service;
+
+import javax.ws.rs.Consumes;
+import javax.ws.rs.ForbiddenException;
+import javax.ws.rs.NotFoundException;
+import javax.ws.rs.PUT;
+import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
+import javax.ws.rs.ProcessingException;
+import javax.ws.rs.Produces;
+import javax.ws.rs.WebApplicationException;
+import javax.ws.rs.core.Context;
+import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
+import javax.ws.rs.core.UriInfo;
+
+import com.wordnik.swagger.annotations.ApiOperation;
+import com.wordnik.swagger.annotations.ApiResponse;
+import com.wordnik.swagger.annotations.ApiResponses;
+
+import it.polito.dp2.NFFG.lab2.NoGraphException;
+import it.polito.dp2.NFFG.lab2.UnknownNameException;
+import it.polito.dp2.NFFG.sol3.service.jaxb.Policy;
+
+public class VerificationOfPolicyResource {
+
+	// create an instance of the object that can execute operations
+	NffgServiceImp nffgService = new NffgServiceImp();
+
+	@PUT
+	@Path("{VerificationOfPolicy}")
+	@ApiOperation(value = "verification of one or more reachability policies", notes = "xml formats")
+	@ApiResponses(value = { @ApiResponse(code = 200, message = "OK"),
+			@ApiResponse(code = 403, message = "Forbidden because verification failed"),
+			@ApiResponse(code = 404, message = "Not found"),
+			@ApiResponse(code = 500, message = "Internal Server Error") })
+	@Produces({ MediaType.APPLICATION_XML })
+	@Consumes({ MediaType.APPLICATION_XML })
+	public Response putVerificationOfPolicyXml(@PathParam("PolicyId") String policyId, Nffg nffg,
+			@Context UriInfo uriInfo) {
+
+		PolicyDB policySaved = new PolicyDB();
+		NffgDB nffgSaved = new NffgDB();
+
+		Policy policyName = policySaved.getMap().get(policyId);
+		// Nffg nffg = nffgSaved.getMap().get(nffgName);
+		String srcId = nffgSaved.getNodeIDMap().get(policyName.getReachabilityPolicy().getSrcNode());
+		String destId = nffgSaved.getNodeIDMap().get(policyName.getReachabilityPolicy().getDestNode());
+		if (srcId == null || destId == null) {
+			System.out.println("Source || Destination Node can't be retrieve from Map correctly");
+			throw new UnknownNameException();
+		}
+		
+		try {
+			Paths pathResp = target.path("resource/node/" + srcId + "/paths").queryParam("dst", destId).request()
+					.accept(MediaType.APPLICATION_XML).get(Paths.class);
+			if (pathResp.getPath().size() > 0) {
+				System.out.println("Path response Successfully retrieved");
+				return true;
+			} else {
+				System.out.println("Path response can't be retrieve correctly");
+				return false;
+			}
+		} catch (ProcessingException pe) {
+			System.out.println("Error during JAX-RS request processing");
+			pe.printStackTrace();
+		} catch (WebApplicationException wae) {
+			System.out.println("Server returned error");
+			wae.printStackTrace();
+		} catch (Exception e) {
+			System.out.println("Unexpected exception");
+			e.printStackTrace();
+		}
+		return false;
+	}
+		
+		
+		
+		
+		
+		
+		
+		
+		return Response.ok(newNeg).build();
+
+	}
+
+}

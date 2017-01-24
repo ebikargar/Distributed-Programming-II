@@ -1,0 +1,92 @@
+package it.polito.dp2.NFFG.sol3.service;
+
+import java.net.URI;
+import java.util.List;
+
+import it.polito.dp2.NFFG.sol3.service.jaxb.Nffg;
+import it.polito.dp2.rest.negotiate.model.Negotiate;
+
+import javax.ws.rs.Consumes;
+import javax.ws.rs.DELETE;
+import javax.ws.rs.ForbiddenException;
+import javax.ws.rs.GET;
+import javax.ws.rs.InternalServerErrorException;
+import javax.ws.rs.NotFoundException;
+import javax.ws.rs.POST;
+import javax.ws.rs.PUT;
+import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
+import javax.ws.rs.Produces;
+import javax.ws.rs.core.Context;
+import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
+import javax.ws.rs.core.UriBuilder;
+import javax.ws.rs.core.UriInfo;
+
+import com.wordnik.swagger.annotations.Api;
+import com.wordnik.swagger.annotations.ApiOperation;
+import com.wordnik.swagger.annotations.ApiResponse;
+import com.wordnik.swagger.annotations.ApiResponses;
+
+/**
+ * Resource class hosted at the URI relative path "/negotiateService"
+ */
+@Path("/nffgsService")
+@Api(value = "/Nffgs", description = "a collection of Nffg objects")
+public class NffgsResource {
+	// create an instance of the object that can execute operations
+	NffgServiceImp nffgService = new NffgServiceImp();
+
+	@GET
+	@ApiOperation(value = "get list of Nffg objects ", notes = "XML format")
+	@ApiResponses(value = { @ApiResponse(code = 200, message = "OK"),
+			@ApiResponse(code = 500, message = "Internal Server Error") })
+	@Produces({ MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON })
+	public List<Nffg> getNffg() {
+		try {
+			List<Nffg> nffg_list = nffgService.getListOfNffgs();
+			return nffg_list;
+		} catch (Exception e) {
+			throw new InternalServerErrorException();
+		}
+	}
+
+	@GET
+	@Path("{NffgId}")
+	@ApiOperation(value = "get a single Nffg object", notes = "json and xml formats")
+	@ApiResponses(value = { @ApiResponse(code = 200, message = "OK"), @ApiResponse(code = 404, message = "Not Found"),
+			@ApiResponse(code = 500, message = "Internal Server Error") })
+	@Produces({ MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON })
+	public Nffg getSingleNffgXml(@PathParam("NffgId") String NffgId) {
+
+		try {
+			if (NffgId != null) { // success
+				nffgService.getSingleNffg(NffgId);
+				
+			}
+		} catch (Exception e) {
+			throw new NotFoundException();
+		}
+		return nffgService.getSingleNffg(NffgId);
+	}
+
+	@POST
+	@ApiOperation(value = "create a new Nffg object", notes = "xml format")
+	@ApiResponses(value = { @ApiResponse(code = 201, message = "Nffg Created"),
+			@ApiResponse(code = 403, message = "Forbidden because Nffg failed"),
+			@ApiResponse(code = 500, message = "Internal Server Error") })
+	@Consumes({ MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON })
+	public Response postNffgXml(Nffg nffg, @Context UriInfo uriInfo) {
+
+		try {
+			System.out.println("POST Nffg REQUEST...");
+			if (nffg != null) // success
+				nffgService.LoadNffg(nffg);
+		} catch (Exception e) {
+			throw new NotFoundException(); // NotFoundException or
+											// InternalServerErrorException()
+		}
+		return Response.ok().build();
+	}
+
+}

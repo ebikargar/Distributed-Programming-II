@@ -1,0 +1,54 @@
+package it.polito.dp2.NFFG.sol3.service;
+
+import java.util.HashMap;
+
+import javax.ws.rs.client.Client;
+import javax.ws.rs.client.ClientBuilder;
+import javax.ws.rs.client.WebTarget;
+
+import it.polito.dp2.NFFG.sol3.service.jaxb.Nffg;
+
+public class NffgServiceImp { // from negotiation class
+
+	public void LoadNffg(Nffg nffg) throws Exception{
+		
+		HashMap<String, String> nodesMap = new HashMap<String, String>(); 
+		HashMap<String, String> linksMap = new HashMap<String, String>();
+				
+		
+		try{			
+			WebTarget target = createTarget();
+
+			/** Send the Nffg node to Neo4J **/
+			Node nffg_node = new ObjectFactory().createNode();
+			Property nffg_property = new ObjectFactory().createProperty();
+
+			nffg_property.setName("name");
+			nffg_property.setValue(nffg.getName());
+			nffg_node.getProperty().add(nffg_property);
+
+			System.out.println("Adding the nffg node...");
+
+			System.out.println("NffgNode POST...");
+			Node response1 = target.path("resource")
+					.path("node")
+					.request(MediaType.APPLICATION_XML)
+					.post(Entity.entity(nffg_node, MediaType.APPLICATION_XML),Node.class);
+		
+		
+		
+		
+		
+	}
+
+	private WebTarget createTarget() {
+		WebTarget target;
+		String property_value = System.getProperty("it.polito.dp2.NFFG.lab3.NEO4JURL");
+
+		Client c = ClientBuilder.newClient();
+		if (property_value == null)
+			property_value = "http://localhost:8080/Neo4JXML/rest";
+		target = c.target(property_value);
+		return target;
+	}
+}

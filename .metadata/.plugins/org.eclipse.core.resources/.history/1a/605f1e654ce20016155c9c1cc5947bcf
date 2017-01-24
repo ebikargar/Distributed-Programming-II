@@ -1,0 +1,72 @@
+package it.polito.dp2.NFFG.sol3.client1;
+
+import javax.ws.rs.client.ClientBuilder;
+import javax.ws.rs.client.Entity;
+import javax.ws.rs.client.WebTarget;
+import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
+
+import it.polito.dp2.NFFG.NffgReader;
+import it.polito.dp2.NFFG.NffgVerifier;
+import it.polito.dp2.NFFG.lab3.AlreadyLoadedException;
+import it.polito.dp2.NFFG.lab3.NFFGClient;
+import it.polito.dp2.NFFG.lab3.ServiceException;
+import it.polito.dp2.NFFG.lab3.UnknownNameException;
+
+public class MyNFFGClient implements NFFGClient {
+
+	private NffgVerifier nffgVerifier;
+	private WebTarget target;
+
+	public MyNFFGClient(String url_address, NffgVerifier monitor) {
+		this.nffgVerifier = monitor;
+		this.target = ClientBuilder.newClient().target(url_address);
+	}
+
+	@Override
+	public void loadNFFG(String name) throws UnknownNameException, AlreadyLoadedException, ServiceException {
+		
+		NffgReader nffg_r= nffgVerifier.getNffg(name);
+		if(nffg_r==null)
+			throw new UnknownNameException();
+		loadnffgread(nffg_r);
+		
+	}
+
+	private void loadnffgread(NffgReader nffg_r) {
+		// Delete response each time
+				Response delRes = target.path("nffgService").request(MediaType.APPLICATION_XML).post(Entity.entity(nffg_r, MediaType.APPLICATION_XML));
+				if (delRes.getStatus() != 200) {
+					System.out.println("Error in deleting response...");
+					throw new ServiceException();
+				}
+		
+		
+	}
+
+	@Override
+	public void loadAll() throws AlreadyLoadedException, ServiceException {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void loadReachabilityPolicy(String name, String nffgName, boolean isPositive, String srcNodeName,
+			String dstNodeName) throws UnknownNameException, ServiceException {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void unloadReachabilityPolicy(String name) throws UnknownNameException, ServiceException {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public boolean testReachabilityPolicy(String name) throws UnknownNameException, ServiceException {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+}

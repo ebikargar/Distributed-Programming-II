@@ -1,0 +1,21 @@
+package it.polito.dp2.NFFG.sol3.service;
+
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
+
+import it.polito.dp2.NFFG.sol3.service.jaxb.Nffg;
+
+public class NffgDB {
+
+	// this is a database class containing a static Map of negotiate objects
+	private static Map<String, Nffg> map = new ConcurrentHashMap<String, Nffg>();
+
+	public static Map<String, Nffg> getMap() {
+		return map;
+	}
+
+	public static void setMap(Map<String, Nffg> map) {
+		NffgDB.map = map;
+	}
+
+}

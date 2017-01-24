@@ -1,0 +1,37 @@
+package it.polito.dp2.NFFG.sol3.service;
+
+import java.util.HashMap;
+
+import it.polito.dp2.NFFG.sol3.service.jaxb.Nffg;
+
+public class NffgServiceImp { //from negotiation class
+
+	
+	
+	
+	public void LoadNffg(Nffg nffg) throws Exception{
+		
+		HashMap<String, String> nodesMap = new HashMap<String, String>(); 
+		HashMap<String, String> linksMap = new HashMap<String, String>();
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	}
+
+	
+
+
+
+
+
+
+
+
+
+}
