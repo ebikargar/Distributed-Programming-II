@@ -1,6 +1,0 @@
-parsing a schema...
-compiling a schema...
-primer\po\Items.java
-primer\po\ObjectFactory.java
-primer\po\PurchaseOrderType.java
-primer\po\USAddress.java
