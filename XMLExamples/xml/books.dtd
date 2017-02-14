@@ -1,6 +1,0 @@
-<!ELEMENT books (book*)>
-<!ELEMENT book (author+,title)>
-<!ATTLIST book
-	  ISBN NMTOKEN #REQUIRED>
-<!ELEMENT author (#PCDATA)>
-<!ELEMENT title (#PCDATA)>
