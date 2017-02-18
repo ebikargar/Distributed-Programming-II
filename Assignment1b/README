@@ -2,6 +2,11 @@ Distributed Programming II (A.Y. 2016/17)
 ======================================================
 
 Assignment n. 1 - Part b
+-Implementing DTD and XML Schema
+-Wrtiting Valid XML files
+-Marshaller / Unmarshaller with validation
+-Reading data from / to generated classes
+
 ------------------------
 
 This archive contains:
