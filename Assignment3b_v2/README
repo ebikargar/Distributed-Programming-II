@@ -1,7 +1,19 @@
 Distributed Programming II A.Y. 2016-17
 =======================================
 
-Assignment n. 3 - Part b
+Assignment n. 3 
+
+REST service & clients:
+-Design of Resources
+-implementation of XML Schema & sol-build file
+-implementation of Service
+-interaction with neo4j
+-client 1 will upload some data or he/she will send some requests that modify the data on service
+-client 2 just download the data from the service
+-concurrency management
+-Documentations
+
+
 ------------------------
 
 This archive includes:
