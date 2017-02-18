@@ -1,8 +1,0 @@
-<!ELEMENT NffgVerifier (NF-FG|NodeReaders)*>
-
-
-
-<!ELEMENT NffgVerifier (Nodes)*>
-
-
-
